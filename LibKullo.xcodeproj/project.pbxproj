@@ -1,0 +1,1183 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		651FAFFE1BC400DB00C8B24E /* KIOperationTaskRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 651FAFFC1BC400DB00C8B24E /* KIOperationTaskRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		651FAFFF1BC400DB00C8B24E /* KIOperationTaskRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 651FAFFD1BC400DB00C8B24E /* KIOperationTaskRunner.m */; };
+		651FB0011BC414C200C8B24E /* KIOperationTaskRunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 651FB0001BC414C200C8B24E /* KIOperationTaskRunnerTests.m */; };
+		65B26D931BC8614600EC09A1 /* DJIWeakPtrWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65B26D911BC8614600EC09A1 /* DJIWeakPtrWrapper.mm */; };
+		65B26D941BC8614600EC09A1 /* DJIWeakPtrWrapper+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B26D921BC8614600EC09A1 /* DJIWeakPtrWrapper+Private.h */; };
+		65B8CE7F1BCFD9FA004446F5 /* KIUrlSessionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B8CE7D1BCFD9FA004446F5 /* KIUrlSessionDelegate.h */; };
+		65B8CE801BCFD9FA004446F5 /* KIUrlSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B8CE7E1BCFD9FA004446F5 /* KIUrlSessionDelegate.m */; };
+		65BCA6141BCE651500C6C059 /* KIRequestBodyInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 65BCA6121BCE651500C6C059 /* KIRequestBodyInputStream.h */; };
+		65BCA6151BCE651500C6C059 /* KIRequestBodyInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 65BCA6131BCE651500C6C059 /* KIRequestBodyInputStream.m */; };
+		65C6ADB91BC5771300433F8C /* KIUrlSessionHttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 65C6ADB71BC5771300433F8C /* KIUrlSessionHttpClient.h */; };
+		65C6ADBA1BC5771300433F8C /* KIUrlSessionHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C6ADB81BC5771300433F8C /* KIUrlSessionHttpClient.m */; };
+		65C951B61BC6C38600323570 /* KIUrlSessionHttpClientFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 65C951B41BC6C38600323570 /* KIUrlSessionHttpClientFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65C951B71BC6C38600323570 /* KIUrlSessionHttpClientFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C951B51BC6C38600323570 /* KIUrlSessionHttpClientFactory.m */; };
+		65C951B91BC6CA3300323570 /* KIUrlSessionHttpClientFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C951B81BC6CA3300323570 /* KIUrlSessionHttpClientFactoryTests.m */; };
+		65C951BB1BC6CB4900323570 /* KIUrlSessionHttpClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C951BA1BC6CB4900323570 /* KIUrlSessionHttpClientTests.m */; };
+		65CF1A471BC2B84100A9855D /* LibKullo.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A461BC2B84100A9855D /* LibKullo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1A4E1BC2B84100A9855D /* LibKullo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CF1A431BC2B84100A9855D /* LibKullo.framework */; };
+		65CF1B201BC2C27E00A9855D /* KAAccountInfo+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A791BC2C27D00A9855D /* KAAccountInfo+Private.h */; };
+		65CF1B211BC2C27E00A9855D /* KAAccountInfo+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A7A1BC2C27D00A9855D /* KAAccountInfo+Private.mm */; };
+		65CF1B221BC2C27E00A9855D /* KAAccountInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A7B1BC2C27D00A9855D /* KAAccountInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B231BC2C27E00A9855D /* KAAccountInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A7C1BC2C27D00A9855D /* KAAccountInfo.mm */; };
+		65CF1B241BC2C27E00A9855D /* KAAddress+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A7D1BC2C27D00A9855D /* KAAddress+Private.h */; };
+		65CF1B251BC2C27E00A9855D /* KAAddress+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A7E1BC2C27D00A9855D /* KAAddress+Private.mm */; };
+		65CF1B261BC2C27E00A9855D /* KAAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A7F1BC2C27D00A9855D /* KAAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B271BC2C27E00A9855D /* KAAsyncTask+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A801BC2C27D00A9855D /* KAAsyncTask+Private.h */; };
+		65CF1B281BC2C27E00A9855D /* KAAsyncTask+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A811BC2C27D00A9855D /* KAAsyncTask+Private.mm */; };
+		65CF1B291BC2C27E00A9855D /* KAAsyncTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A821BC2C27D00A9855D /* KAAsyncTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B2A1BC2C27E00A9855D /* KAChallenge+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A831BC2C27D00A9855D /* KAChallenge+Private.h */; };
+		65CF1B2B1BC2C27E00A9855D /* KAChallenge+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A841BC2C27D00A9855D /* KAChallenge+Private.mm */; };
+		65CF1B2C1BC2C27E00A9855D /* KAChallenge.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A851BC2C27D00A9855D /* KAChallenge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B2D1BC2C27E00A9855D /* KAChallengeType.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A861BC2C27D00A9855D /* KAChallengeType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B2E1BC2C27E00A9855D /* KAClient+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A871BC2C27D00A9855D /* KAClient+Private.h */; };
+		65CF1B2F1BC2C27E00A9855D /* KAClient+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A881BC2C27D00A9855D /* KAClient+Private.mm */; };
+		65CF1B301BC2C27E00A9855D /* KAClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A891BC2C27D00A9855D /* KAClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B311BC2C27E00A9855D /* KAClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A8A1BC2C27D00A9855D /* KAClient.mm */; };
+		65CF1B321BC2C27E00A9855D /* KAClientAddressExistsListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A8B1BC2C27D00A9855D /* KAClientAddressExistsListener+Private.h */; };
+		65CF1B331BC2C27E00A9855D /* KAClientAddressExistsListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A8C1BC2C27D00A9855D /* KAClientAddressExistsListener+Private.mm */; };
+		65CF1B341BC2C27E00A9855D /* KAClientAddressExistsListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A8D1BC2C27D00A9855D /* KAClientAddressExistsListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B351BC2C27E00A9855D /* KAClientCheckLoginListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A8E1BC2C27D00A9855D /* KAClientCheckLoginListener+Private.h */; };
+		65CF1B361BC2C27E00A9855D /* KAClientCheckLoginListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A8F1BC2C27D00A9855D /* KAClientCheckLoginListener+Private.mm */; };
+		65CF1B371BC2C27E00A9855D /* KAClientCheckLoginListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A901BC2C27D00A9855D /* KAClientCheckLoginListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B381BC2C27E00A9855D /* KAClientCreateSessionListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A911BC2C27D00A9855D /* KAClientCreateSessionListener+Private.h */; };
+		65CF1B391BC2C27E00A9855D /* KAClientCreateSessionListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A921BC2C27D00A9855D /* KAClientCreateSessionListener+Private.mm */; };
+		65CF1B3A1BC2C27E00A9855D /* KAClientCreateSessionListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A931BC2C27D00A9855D /* KAClientCreateSessionListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B3B1BC2C27E00A9855D /* KAClientGenerateKeysListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A941BC2C27D00A9855D /* KAClientGenerateKeysListener+Private.h */; };
+		65CF1B3C1BC2C27E00A9855D /* KAClientGenerateKeysListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A951BC2C27D00A9855D /* KAClientGenerateKeysListener+Private.mm */; };
+		65CF1B3D1BC2C27E00A9855D /* KAClientGenerateKeysListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A961BC2C27D00A9855D /* KAClientGenerateKeysListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B3E1BC2C27E00A9855D /* KAConversations+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A971BC2C27D00A9855D /* KAConversations+Private.h */; };
+		65CF1B3F1BC2C27E00A9855D /* KAConversations+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A981BC2C27D00A9855D /* KAConversations+Private.mm */; };
+		65CF1B401BC2C27E00A9855D /* KAConversations.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A991BC2C27D00A9855D /* KAConversations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B411BC2C27E00A9855D /* KADateTimeBase+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A9A1BC2C27D00A9855D /* KADateTimeBase+Private.h */; };
+		65CF1B421BC2C27E00A9855D /* KADateTimeBase+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A9B1BC2C27D00A9855D /* KADateTimeBase+Private.mm */; };
+		65CF1B431BC2C27E00A9855D /* KADateTimeBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A9C1BC2C27D00A9855D /* KADateTimeBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B441BC2C27E00A9855D /* KADateTimeBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A9D1BC2C27D00A9855D /* KADateTimeBase.mm */; };
+		65CF1B451BC2C27E00A9855D /* KADelivery+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1A9E1BC2C27D00A9855D /* KADelivery+Private.h */; };
+		65CF1B461BC2C27E00A9855D /* KADelivery+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1A9F1BC2C27D00A9855D /* KADelivery+Private.mm */; };
+		65CF1B471BC2C27E00A9855D /* KADelivery.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AA01BC2C27D00A9855D /* KADelivery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B481BC2C27E00A9855D /* KADeliveryReason.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AA11BC2C27D00A9855D /* KADeliveryReason.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B491BC2C27E00A9855D /* KADeliveryState.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AA21BC2C27D00A9855D /* KADeliveryState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B4A1BC2C27E00A9855D /* KADraftAttachments+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AA31BC2C27D00A9855D /* KADraftAttachments+Private.h */; };
+		65CF1B4B1BC2C27E00A9855D /* KADraftAttachments+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AA41BC2C27D00A9855D /* KADraftAttachments+Private.mm */; };
+		65CF1B4C1BC2C27E00A9855D /* KADraftAttachments.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AA51BC2C27D00A9855D /* KADraftAttachments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B4D1BC2C27E00A9855D /* KADraftAttachmentsAddListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AA61BC2C27D00A9855D /* KADraftAttachmentsAddListener+Private.h */; };
+		65CF1B4E1BC2C27E00A9855D /* KADraftAttachmentsAddListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AA71BC2C27D00A9855D /* KADraftAttachmentsAddListener+Private.mm */; };
+		65CF1B4F1BC2C27E00A9855D /* KADraftAttachmentsAddListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AA81BC2C27D00A9855D /* KADraftAttachmentsAddListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B501BC2C27E00A9855D /* KADraftAttachmentsContentListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AA91BC2C27D00A9855D /* KADraftAttachmentsContentListener+Private.h */; };
+		65CF1B511BC2C27E00A9855D /* KADraftAttachmentsContentListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AAA1BC2C27D00A9855D /* KADraftAttachmentsContentListener+Private.mm */; };
+		65CF1B521BC2C27E00A9855D /* KADraftAttachmentsContentListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AAB1BC2C27D00A9855D /* KADraftAttachmentsContentListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B531BC2C27E00A9855D /* KADraftAttachmentsSaveToListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AAC1BC2C27D00A9855D /* KADraftAttachmentsSaveToListener+Private.h */; };
+		65CF1B541BC2C27E00A9855D /* KADraftAttachmentsSaveToListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AAD1BC2C27D00A9855D /* KADraftAttachmentsSaveToListener+Private.mm */; };
+		65CF1B551BC2C27E00A9855D /* KADraftAttachmentsSaveToListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AAE1BC2C27D00A9855D /* KADraftAttachmentsSaveToListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B561BC2C27E00A9855D /* KADrafts+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AAF1BC2C27D00A9855D /* KADrafts+Private.h */; };
+		65CF1B571BC2C27E00A9855D /* KADrafts+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AB01BC2C27D00A9855D /* KADrafts+Private.mm */; };
+		65CF1B581BC2C27E00A9855D /* KADrafts.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AB11BC2C27D00A9855D /* KADrafts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B591BC2C27E00A9855D /* KAEvent+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AB21BC2C27D00A9855D /* KAEvent+Private.h */; };
+		65CF1B5A1BC2C27E00A9855D /* KAEvent+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AB31BC2C27D00A9855D /* KAEvent+Private.mm */; };
+		65CF1B5B1BC2C27E00A9855D /* KAEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AB41BC2C27D00A9855D /* KAEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B5C1BC2C27F00A9855D /* KAEvent.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AB51BC2C27D00A9855D /* KAEvent.mm */; };
+		65CF1B5D1BC2C27F00A9855D /* KAEventType.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AB61BC2C27D00A9855D /* KAEventType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B5E1BC2C27F00A9855D /* KAInternalDateTimeUtils+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AB71BC2C27D00A9855D /* KAInternalDateTimeUtils+Private.h */; };
+		65CF1B5F1BC2C27F00A9855D /* KAInternalDateTimeUtils+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AB81BC2C27D00A9855D /* KAInternalDateTimeUtils+Private.mm */; };
+		65CF1B601BC2C27F00A9855D /* KAInternalDateTimeUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AB91BC2C27D00A9855D /* KAInternalDateTimeUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B611BC2C27F00A9855D /* KAInternalEvent+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1ABA1BC2C27D00A9855D /* KAInternalEvent+Private.h */; };
+		65CF1B621BC2C27F00A9855D /* KAInternalEvent+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1ABB1BC2C27D00A9855D /* KAInternalEvent+Private.mm */; };
+		65CF1B631BC2C27F00A9855D /* KAInternalEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1ABC1BC2C27D00A9855D /* KAInternalEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B641BC2C27F00A9855D /* KALocalError.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1ABD1BC2C27D00A9855D /* KALocalError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B651BC2C27F00A9855D /* KALogListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1ABE1BC2C27D00A9855D /* KALogListener+Private.h */; };
+		65CF1B661BC2C27F00A9855D /* KALogListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1ABF1BC2C27D00A9855D /* KALogListener+Private.mm */; };
+		65CF1B671BC2C27F00A9855D /* KALogListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AC01BC2C27D00A9855D /* KALogListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B681BC2C27F00A9855D /* KALogType.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AC11BC2C27D00A9855D /* KALogType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B691BC2C27F00A9855D /* KAMasterKey+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AC21BC2C27D00A9855D /* KAMasterKey+Private.h */; };
+		65CF1B6A1BC2C27F00A9855D /* KAMasterKey+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AC31BC2C27D00A9855D /* KAMasterKey+Private.mm */; };
+		65CF1B6B1BC2C27F00A9855D /* KAMasterKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AC41BC2C27D00A9855D /* KAMasterKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B6C1BC2C27F00A9855D /* KAMessageAttachments+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AC51BC2C27D00A9855D /* KAMessageAttachments+Private.h */; };
+		65CF1B6D1BC2C27F00A9855D /* KAMessageAttachments+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AC61BC2C27D00A9855D /* KAMessageAttachments+Private.mm */; };
+		65CF1B6E1BC2C27F00A9855D /* KAMessageAttachments.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AC71BC2C27D00A9855D /* KAMessageAttachments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B6F1BC2C27F00A9855D /* KAMessageAttachmentsContentListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AC81BC2C27D00A9855D /* KAMessageAttachmentsContentListener+Private.h */; };
+		65CF1B701BC2C27F00A9855D /* KAMessageAttachmentsContentListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AC91BC2C27D00A9855D /* KAMessageAttachmentsContentListener+Private.mm */; };
+		65CF1B711BC2C27F00A9855D /* KAMessageAttachmentsContentListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1ACA1BC2C27D00A9855D /* KAMessageAttachmentsContentListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B721BC2C27F00A9855D /* KAMessageAttachmentsSaveToListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1ACB1BC2C27D00A9855D /* KAMessageAttachmentsSaveToListener+Private.h */; };
+		65CF1B731BC2C28000A9855D /* KAMessageAttachmentsSaveToListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1ACC1BC2C27D00A9855D /* KAMessageAttachmentsSaveToListener+Private.mm */; };
+		65CF1B741BC2C28000A9855D /* KAMessageAttachmentsSaveToListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1ACD1BC2C27D00A9855D /* KAMessageAttachmentsSaveToListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B751BC2C28000A9855D /* KAMessages+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1ACE1BC2C27D00A9855D /* KAMessages+Private.h */; };
+		65CF1B761BC2C28000A9855D /* KAMessages+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1ACF1BC2C27D00A9855D /* KAMessages+Private.mm */; };
+		65CF1B771BC2C28000A9855D /* KAMessages.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AD01BC2C27D00A9855D /* KAMessages.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B781BC2C28000A9855D /* KANetworkError.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AD11BC2C27D00A9855D /* KANetworkError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B791BC2C28000A9855D /* KARegistration+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AD21BC2C27D00A9855D /* KARegistration+Private.h */; };
+		65CF1B7A1BC2C28000A9855D /* KARegistration+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AD31BC2C27D00A9855D /* KARegistration+Private.mm */; };
+		65CF1B7B1BC2C28000A9855D /* KARegistration.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AD41BC2C27D00A9855D /* KARegistration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B7C1BC2C28000A9855D /* KARegistrationRegisterAccountListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AD51BC2C27D00A9855D /* KARegistrationRegisterAccountListener+Private.h */; };
+		65CF1B7D1BC2C28000A9855D /* KARegistrationRegisterAccountListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AD61BC2C27D00A9855D /* KARegistrationRegisterAccountListener+Private.mm */; };
+		65CF1B7E1BC2C28000A9855D /* KARegistrationRegisterAccountListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AD71BC2C27D00A9855D /* KARegistrationRegisterAccountListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B7F1BC2C28000A9855D /* KARegistry+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AD81BC2C27D00A9855D /* KARegistry+Private.h */; };
+		65CF1B801BC2C28000A9855D /* KARegistry+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AD91BC2C27D00A9855D /* KARegistry+Private.mm */; };
+		65CF1B811BC2C28000A9855D /* KARegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1ADA1BC2C27D00A9855D /* KARegistry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B821BC2C28000A9855D /* KASenders+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1ADB1BC2C27D00A9855D /* KASenders+Private.h */; };
+		65CF1B831BC2C28100A9855D /* KASenders+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1ADC1BC2C27D00A9855D /* KASenders+Private.mm */; };
+		65CF1B841BC2C28100A9855D /* KASenders.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1ADD1BC2C27E00A9855D /* KASenders.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B851BC2C28100A9855D /* KASession+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1ADE1BC2C27E00A9855D /* KASession+Private.h */; };
+		65CF1B861BC2C28100A9855D /* KASession+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1ADF1BC2C27E00A9855D /* KASession+Private.mm */; };
+		65CF1B871BC2C28100A9855D /* KASession.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AE01BC2C27E00A9855D /* KASession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B881BC2C28100A9855D /* KASessionAccountInfoListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AE11BC2C27E00A9855D /* KASessionAccountInfoListener+Private.h */; };
+		65CF1B891BC2C28100A9855D /* KASessionAccountInfoListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AE21BC2C27E00A9855D /* KASessionAccountInfoListener+Private.mm */; };
+		65CF1B8A1BC2C28100A9855D /* KASessionAccountInfoListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AE31BC2C27E00A9855D /* KASessionAccountInfoListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B8B1BC2C28100A9855D /* KASessionListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AE41BC2C27E00A9855D /* KASessionListener+Private.h */; };
+		65CF1B8C1BC2C28100A9855D /* KASessionListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AE51BC2C27E00A9855D /* KASessionListener+Private.mm */; };
+		65CF1B8D1BC2C28100A9855D /* KASessionListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AE61BC2C27E00A9855D /* KASessionListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B8E1BC2C28100A9855D /* KASyncer+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AE71BC2C27E00A9855D /* KASyncer+Private.h */; };
+		65CF1B8F1BC2C28200A9855D /* KASyncer+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AE81BC2C27E00A9855D /* KASyncer+Private.mm */; };
+		65CF1B901BC2C28200A9855D /* KASyncer.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AE91BC2C27E00A9855D /* KASyncer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B911BC2C28200A9855D /* KASyncerRunListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AEA1BC2C27E00A9855D /* KASyncerRunListener+Private.h */; };
+		65CF1B921BC2C28200A9855D /* KASyncerRunListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AEB1BC2C27E00A9855D /* KASyncerRunListener+Private.mm */; };
+		65CF1B931BC2C28200A9855D /* KASyncerRunListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AEC1BC2C27E00A9855D /* KASyncerRunListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B941BC2C28200A9855D /* KASyncMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AED1BC2C27E00A9855D /* KASyncMode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B951BC2C28200A9855D /* KATask+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AEE1BC2C27E00A9855D /* KATask+Private.h */; };
+		65CF1B961BC2C28200A9855D /* KATask+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AEF1BC2C27E00A9855D /* KATask+Private.mm */; };
+		65CF1B971BC2C28200A9855D /* KATask.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AF01BC2C27E00A9855D /* KATask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B981BC2C28200A9855D /* KATaskRunner+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AF11BC2C27E00A9855D /* KATaskRunner+Private.h */; };
+		65CF1B991BC2C28300A9855D /* KATaskRunner+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AF21BC2C27E00A9855D /* KATaskRunner+Private.mm */; };
+		65CF1B9A1BC2C28300A9855D /* KATaskRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AF31BC2C27E00A9855D /* KATaskRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B9B1BC2C28300A9855D /* KAUserSettings+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AF41BC2C27E00A9855D /* KAUserSettings+Private.h */; };
+		65CF1B9C1BC2C28300A9855D /* KAUserSettings+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AF51BC2C27E00A9855D /* KAUserSettings+Private.mm */; };
+		65CF1B9D1BC2C28300A9855D /* KAUserSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AF61BC2C27E00A9855D /* KAUserSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1B9F1BC2C28300A9855D /* KHHttpClient+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AF91BC2C27E00A9855D /* KHHttpClient+Private.h */; };
+		65CF1BA01BC2C28300A9855D /* KHHttpClient+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AFA1BC2C27E00A9855D /* KHHttpClient+Private.mm */; };
+		65CF1BA11BC2C28300A9855D /* KHHttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AFB1BC2C27E00A9855D /* KHHttpClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1BA21BC2C28300A9855D /* KHHttpClientFactory+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AFC1BC2C27E00A9855D /* KHHttpClientFactory+Private.h */; };
+		65CF1BA31BC2C28400A9855D /* KHHttpClientFactory+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AFD1BC2C27E00A9855D /* KHHttpClientFactory+Private.mm */; };
+		65CF1BA41BC2C28400A9855D /* KHHttpClientFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AFE1BC2C27E00A9855D /* KHHttpClientFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1BA51BC2C28400A9855D /* KHHttpHeader+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AFF1BC2C27E00A9855D /* KHHttpHeader+Private.h */; };
+		65CF1BA61BC2C28400A9855D /* KHHttpHeader+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1B001BC2C27E00A9855D /* KHHttpHeader+Private.mm */; };
+		65CF1BA71BC2C28400A9855D /* KHHttpHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B011BC2C27E00A9855D /* KHHttpHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1BA81BC2C28400A9855D /* KHHttpHeader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1B021BC2C27E00A9855D /* KHHttpHeader.mm */; };
+		65CF1BA91BC2C28400A9855D /* KHHttpMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B031BC2C27E00A9855D /* KHHttpMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1BAA1BC2C28400A9855D /* KHProgressResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B041BC2C27E00A9855D /* KHProgressResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1BAB1BC2C28500A9855D /* KHRegistry+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B051BC2C27E00A9855D /* KHRegistry+Private.h */; };
+		65CF1BAC1BC2C28500A9855D /* KHRegistry+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1B061BC2C27E00A9855D /* KHRegistry+Private.mm */; };
+		65CF1BAD1BC2C28500A9855D /* KHRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B071BC2C27E00A9855D /* KHRegistry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1BAE1BC2C28500A9855D /* KHRequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B081BC2C27E00A9855D /* KHRequest+Private.h */; };
+		65CF1BAF1BC2C28500A9855D /* KHRequest+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1B091BC2C27E00A9855D /* KHRequest+Private.mm */; };
+		65CF1BB01BC2C28500A9855D /* KHRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B0A1BC2C27E00A9855D /* KHRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1BB11BC2C28500A9855D /* KHRequest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1B0B1BC2C27E00A9855D /* KHRequest.mm */; };
+		65CF1BB21BC2C28500A9855D /* KHRequestListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B0C1BC2C27E00A9855D /* KHRequestListener+Private.h */; };
+		65CF1BB31BC2C28600A9855D /* KHRequestListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1B0D1BC2C27E00A9855D /* KHRequestListener+Private.mm */; };
+		65CF1BB41BC2C28600A9855D /* KHRequestListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B0E1BC2C27E00A9855D /* KHRequestListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1BB51BC2C28600A9855D /* KHResponse+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B0F1BC2C27E00A9855D /* KHResponse+Private.h */; };
+		65CF1BB61BC2C28600A9855D /* KHResponse+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1B101BC2C27E00A9855D /* KHResponse+Private.mm */; };
+		65CF1BB71BC2C28600A9855D /* KHResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B111BC2C27E00A9855D /* KHResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1BB81BC2C28600A9855D /* KHResponse.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1B121BC2C27E00A9855D /* KHResponse.mm */; };
+		65CF1BB91BC2C28600A9855D /* KHResponseError.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B131BC2C27E00A9855D /* KHResponseError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1BBA1BC2C28700A9855D /* KHResponseListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B141BC2C27E00A9855D /* KHResponseListener+Private.h */; };
+		65CF1BBB1BC2C28700A9855D /* KHResponseListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1B151BC2C27E00A9855D /* KHResponseListener+Private.mm */; };
+		65CF1BBC1BC2C28700A9855D /* KHResponseListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1B161BC2C27E00A9855D /* KHResponseListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1BC71BC2C92700A9855D /* KADateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1BC51BC2C92700A9855D /* KADateTime.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1BC81BC2C92700A9855D /* KADateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1BC61BC2C92700A9855D /* KADateTime.m */; };
+		65CF1BD51BC2D82300A9855D /* KISystemLogLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1BD31BC2D82300A9855D /* KISystemLogLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CF1BD61BC2D82300A9855D /* KISystemLogLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1BD41BC2D82300A9855D /* KISystemLogLogger.m */; };
+		65F902E41BEA3E0900FE32EF /* KAAddressNotAvailableReason.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F902E21BEA3E0900FE32EF /* KAAddressNotAvailableReason.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65F902E51BEA3E0900FE32EF /* KADraftState.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F902E31BEA3E0900FE32EF /* KADraftState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65FE05BA1BC7F8CC00A74BF5 /* DJICppWrapperCache+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE05B11BC7F8CC00A74BF5 /* DJICppWrapperCache+Private.h */; };
+		65FE05BB1BC7F8CC00A74BF5 /* DJIError.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE05B21BC7F8CC00A74BF5 /* DJIError.h */; };
+		65FE05BC1BC7F8CC00A74BF5 /* DJIError.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65FE05B31BC7F8CC00A74BF5 /* DJIError.mm */; };
+		65FE05BD1BC7F8CC00A74BF5 /* DJIMarshal+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE05B41BC7F8CC00A74BF5 /* DJIMarshal+Private.h */; };
+		65FE05BE1BC7F8CC00A74BF5 /* DJIObjcWrapperCache+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE05B51BC7F8CC00A74BF5 /* DJIObjcWrapperCache+Private.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65CF1A4F1BC2B84100A9855D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65CF1A3A1BC2B84000A9855D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65CF1A421BC2B84100A9855D;
+			remoteInfo = LibKullo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		651FAFFC1BC400DB00C8B24E /* KIOperationTaskRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIOperationTaskRunner.h; sourceTree = "<group>"; };
+		651FAFFD1BC400DB00C8B24E /* KIOperationTaskRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIOperationTaskRunner.m; sourceTree = "<group>"; };
+		651FB0001BC414C200C8B24E /* KIOperationTaskRunnerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIOperationTaskRunnerTests.m; sourceTree = "<group>"; };
+		65B26D911BC8614600EC09A1 /* DJIWeakPtrWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DJIWeakPtrWrapper.mm; sourceTree = "<group>"; };
+		65B26D921BC8614600EC09A1 /* DJIWeakPtrWrapper+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DJIWeakPtrWrapper+Private.h"; sourceTree = "<group>"; };
+		65B8CE7D1BCFD9FA004446F5 /* KIUrlSessionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIUrlSessionDelegate.h; sourceTree = "<group>"; };
+		65B8CE7E1BCFD9FA004446F5 /* KIUrlSessionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIUrlSessionDelegate.m; sourceTree = "<group>"; };
+		65BCA6121BCE651500C6C059 /* KIRequestBodyInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIRequestBodyInputStream.h; sourceTree = "<group>"; };
+		65BCA6131BCE651500C6C059 /* KIRequestBodyInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIRequestBodyInputStream.m; sourceTree = "<group>"; };
+		65C6ADB71BC5771300433F8C /* KIUrlSessionHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIUrlSessionHttpClient.h; sourceTree = "<group>"; };
+		65C6ADB81BC5771300433F8C /* KIUrlSessionHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIUrlSessionHttpClient.m; sourceTree = "<group>"; };
+		65C951B41BC6C38600323570 /* KIUrlSessionHttpClientFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIUrlSessionHttpClientFactory.h; sourceTree = "<group>"; };
+		65C951B51BC6C38600323570 /* KIUrlSessionHttpClientFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIUrlSessionHttpClientFactory.m; sourceTree = "<group>"; };
+		65C951B81BC6CA3300323570 /* KIUrlSessionHttpClientFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIUrlSessionHttpClientFactoryTests.m; sourceTree = "<group>"; };
+		65C951BA1BC6CB4900323570 /* KIUrlSessionHttpClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIUrlSessionHttpClientTests.m; sourceTree = "<group>"; };
+		65CF1A431BC2B84100A9855D /* LibKullo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LibKullo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65CF1A461BC2B84100A9855D /* LibKullo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibKullo.h; sourceTree = "<group>"; };
+		65CF1A481BC2B84100A9855D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65CF1A4D1BC2B84100A9855D /* LibKullo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibKullo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65CF1A541BC2B84100A9855D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65CF1A791BC2C27D00A9855D /* KAAccountInfo+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAAccountInfo+Private.h"; sourceTree = "<group>"; };
+		65CF1A7A1BC2C27D00A9855D /* KAAccountInfo+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAAccountInfo+Private.mm"; sourceTree = "<group>"; };
+		65CF1A7B1BC2C27D00A9855D /* KAAccountInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAAccountInfo.h; sourceTree = "<group>"; };
+		65CF1A7C1BC2C27D00A9855D /* KAAccountInfo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KAAccountInfo.mm; sourceTree = "<group>"; };
+		65CF1A7D1BC2C27D00A9855D /* KAAddress+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAAddress+Private.h"; sourceTree = "<group>"; };
+		65CF1A7E1BC2C27D00A9855D /* KAAddress+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAAddress+Private.mm"; sourceTree = "<group>"; };
+		65CF1A7F1BC2C27D00A9855D /* KAAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAAddress.h; sourceTree = "<group>"; };
+		65CF1A801BC2C27D00A9855D /* KAAsyncTask+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAAsyncTask+Private.h"; sourceTree = "<group>"; };
+		65CF1A811BC2C27D00A9855D /* KAAsyncTask+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAAsyncTask+Private.mm"; sourceTree = "<group>"; };
+		65CF1A821BC2C27D00A9855D /* KAAsyncTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAAsyncTask.h; sourceTree = "<group>"; };
+		65CF1A831BC2C27D00A9855D /* KAChallenge+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAChallenge+Private.h"; sourceTree = "<group>"; };
+		65CF1A841BC2C27D00A9855D /* KAChallenge+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAChallenge+Private.mm"; sourceTree = "<group>"; };
+		65CF1A851BC2C27D00A9855D /* KAChallenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAChallenge.h; sourceTree = "<group>"; };
+		65CF1A861BC2C27D00A9855D /* KAChallengeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAChallengeType.h; sourceTree = "<group>"; };
+		65CF1A871BC2C27D00A9855D /* KAClient+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAClient+Private.h"; sourceTree = "<group>"; };
+		65CF1A881BC2C27D00A9855D /* KAClient+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAClient+Private.mm"; sourceTree = "<group>"; };
+		65CF1A891BC2C27D00A9855D /* KAClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAClient.h; sourceTree = "<group>"; };
+		65CF1A8A1BC2C27D00A9855D /* KAClient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KAClient.mm; sourceTree = "<group>"; };
+		65CF1A8B1BC2C27D00A9855D /* KAClientAddressExistsListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAClientAddressExistsListener+Private.h"; sourceTree = "<group>"; };
+		65CF1A8C1BC2C27D00A9855D /* KAClientAddressExistsListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAClientAddressExistsListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1A8D1BC2C27D00A9855D /* KAClientAddressExistsListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAClientAddressExistsListener.h; sourceTree = "<group>"; };
+		65CF1A8E1BC2C27D00A9855D /* KAClientCheckLoginListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAClientCheckLoginListener+Private.h"; sourceTree = "<group>"; };
+		65CF1A8F1BC2C27D00A9855D /* KAClientCheckLoginListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAClientCheckLoginListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1A901BC2C27D00A9855D /* KAClientCheckLoginListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAClientCheckLoginListener.h; sourceTree = "<group>"; };
+		65CF1A911BC2C27D00A9855D /* KAClientCreateSessionListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAClientCreateSessionListener+Private.h"; sourceTree = "<group>"; };
+		65CF1A921BC2C27D00A9855D /* KAClientCreateSessionListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAClientCreateSessionListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1A931BC2C27D00A9855D /* KAClientCreateSessionListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAClientCreateSessionListener.h; sourceTree = "<group>"; };
+		65CF1A941BC2C27D00A9855D /* KAClientGenerateKeysListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAClientGenerateKeysListener+Private.h"; sourceTree = "<group>"; };
+		65CF1A951BC2C27D00A9855D /* KAClientGenerateKeysListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAClientGenerateKeysListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1A961BC2C27D00A9855D /* KAClientGenerateKeysListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAClientGenerateKeysListener.h; sourceTree = "<group>"; };
+		65CF1A971BC2C27D00A9855D /* KAConversations+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAConversations+Private.h"; sourceTree = "<group>"; };
+		65CF1A981BC2C27D00A9855D /* KAConversations+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAConversations+Private.mm"; sourceTree = "<group>"; };
+		65CF1A991BC2C27D00A9855D /* KAConversations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAConversations.h; sourceTree = "<group>"; };
+		65CF1A9A1BC2C27D00A9855D /* KADateTimeBase+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KADateTimeBase+Private.h"; sourceTree = "<group>"; };
+		65CF1A9B1BC2C27D00A9855D /* KADateTimeBase+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KADateTimeBase+Private.mm"; sourceTree = "<group>"; };
+		65CF1A9C1BC2C27D00A9855D /* KADateTimeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KADateTimeBase.h; sourceTree = "<group>"; };
+		65CF1A9D1BC2C27D00A9855D /* KADateTimeBase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KADateTimeBase.mm; sourceTree = "<group>"; };
+		65CF1A9E1BC2C27D00A9855D /* KADelivery+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KADelivery+Private.h"; sourceTree = "<group>"; };
+		65CF1A9F1BC2C27D00A9855D /* KADelivery+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KADelivery+Private.mm"; sourceTree = "<group>"; };
+		65CF1AA01BC2C27D00A9855D /* KADelivery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KADelivery.h; sourceTree = "<group>"; };
+		65CF1AA11BC2C27D00A9855D /* KADeliveryReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KADeliveryReason.h; sourceTree = "<group>"; };
+		65CF1AA21BC2C27D00A9855D /* KADeliveryState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KADeliveryState.h; sourceTree = "<group>"; };
+		65CF1AA31BC2C27D00A9855D /* KADraftAttachments+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KADraftAttachments+Private.h"; sourceTree = "<group>"; };
+		65CF1AA41BC2C27D00A9855D /* KADraftAttachments+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KADraftAttachments+Private.mm"; sourceTree = "<group>"; };
+		65CF1AA51BC2C27D00A9855D /* KADraftAttachments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KADraftAttachments.h; sourceTree = "<group>"; };
+		65CF1AA61BC2C27D00A9855D /* KADraftAttachmentsAddListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KADraftAttachmentsAddListener+Private.h"; sourceTree = "<group>"; };
+		65CF1AA71BC2C27D00A9855D /* KADraftAttachmentsAddListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KADraftAttachmentsAddListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1AA81BC2C27D00A9855D /* KADraftAttachmentsAddListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KADraftAttachmentsAddListener.h; sourceTree = "<group>"; };
+		65CF1AA91BC2C27D00A9855D /* KADraftAttachmentsContentListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KADraftAttachmentsContentListener+Private.h"; sourceTree = "<group>"; };
+		65CF1AAA1BC2C27D00A9855D /* KADraftAttachmentsContentListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KADraftAttachmentsContentListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1AAB1BC2C27D00A9855D /* KADraftAttachmentsContentListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KADraftAttachmentsContentListener.h; sourceTree = "<group>"; };
+		65CF1AAC1BC2C27D00A9855D /* KADraftAttachmentsSaveToListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KADraftAttachmentsSaveToListener+Private.h"; sourceTree = "<group>"; };
+		65CF1AAD1BC2C27D00A9855D /* KADraftAttachmentsSaveToListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KADraftAttachmentsSaveToListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1AAE1BC2C27D00A9855D /* KADraftAttachmentsSaveToListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KADraftAttachmentsSaveToListener.h; sourceTree = "<group>"; };
+		65CF1AAF1BC2C27D00A9855D /* KADrafts+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KADrafts+Private.h"; sourceTree = "<group>"; };
+		65CF1AB01BC2C27D00A9855D /* KADrafts+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KADrafts+Private.mm"; sourceTree = "<group>"; };
+		65CF1AB11BC2C27D00A9855D /* KADrafts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KADrafts.h; sourceTree = "<group>"; };
+		65CF1AB21BC2C27D00A9855D /* KAEvent+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAEvent+Private.h"; sourceTree = "<group>"; };
+		65CF1AB31BC2C27D00A9855D /* KAEvent+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAEvent+Private.mm"; sourceTree = "<group>"; };
+		65CF1AB41BC2C27D00A9855D /* KAEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAEvent.h; sourceTree = "<group>"; };
+		65CF1AB51BC2C27D00A9855D /* KAEvent.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KAEvent.mm; sourceTree = "<group>"; };
+		65CF1AB61BC2C27D00A9855D /* KAEventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAEventType.h; sourceTree = "<group>"; };
+		65CF1AB71BC2C27D00A9855D /* KAInternalDateTimeUtils+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAInternalDateTimeUtils+Private.h"; sourceTree = "<group>"; };
+		65CF1AB81BC2C27D00A9855D /* KAInternalDateTimeUtils+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAInternalDateTimeUtils+Private.mm"; sourceTree = "<group>"; };
+		65CF1AB91BC2C27D00A9855D /* KAInternalDateTimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAInternalDateTimeUtils.h; sourceTree = "<group>"; };
+		65CF1ABA1BC2C27D00A9855D /* KAInternalEvent+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAInternalEvent+Private.h"; sourceTree = "<group>"; };
+		65CF1ABB1BC2C27D00A9855D /* KAInternalEvent+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAInternalEvent+Private.mm"; sourceTree = "<group>"; };
+		65CF1ABC1BC2C27D00A9855D /* KAInternalEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAInternalEvent.h; sourceTree = "<group>"; };
+		65CF1ABD1BC2C27D00A9855D /* KALocalError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KALocalError.h; sourceTree = "<group>"; };
+		65CF1ABE1BC2C27D00A9855D /* KALogListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KALogListener+Private.h"; sourceTree = "<group>"; };
+		65CF1ABF1BC2C27D00A9855D /* KALogListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KALogListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1AC01BC2C27D00A9855D /* KALogListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KALogListener.h; sourceTree = "<group>"; };
+		65CF1AC11BC2C27D00A9855D /* KALogType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KALogType.h; sourceTree = "<group>"; };
+		65CF1AC21BC2C27D00A9855D /* KAMasterKey+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAMasterKey+Private.h"; sourceTree = "<group>"; };
+		65CF1AC31BC2C27D00A9855D /* KAMasterKey+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAMasterKey+Private.mm"; sourceTree = "<group>"; };
+		65CF1AC41BC2C27D00A9855D /* KAMasterKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAMasterKey.h; sourceTree = "<group>"; };
+		65CF1AC51BC2C27D00A9855D /* KAMessageAttachments+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAMessageAttachments+Private.h"; sourceTree = "<group>"; };
+		65CF1AC61BC2C27D00A9855D /* KAMessageAttachments+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAMessageAttachments+Private.mm"; sourceTree = "<group>"; };
+		65CF1AC71BC2C27D00A9855D /* KAMessageAttachments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAMessageAttachments.h; sourceTree = "<group>"; };
+		65CF1AC81BC2C27D00A9855D /* KAMessageAttachmentsContentListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAMessageAttachmentsContentListener+Private.h"; sourceTree = "<group>"; };
+		65CF1AC91BC2C27D00A9855D /* KAMessageAttachmentsContentListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAMessageAttachmentsContentListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1ACA1BC2C27D00A9855D /* KAMessageAttachmentsContentListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAMessageAttachmentsContentListener.h; sourceTree = "<group>"; };
+		65CF1ACB1BC2C27D00A9855D /* KAMessageAttachmentsSaveToListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAMessageAttachmentsSaveToListener+Private.h"; sourceTree = "<group>"; };
+		65CF1ACC1BC2C27D00A9855D /* KAMessageAttachmentsSaveToListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAMessageAttachmentsSaveToListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1ACD1BC2C27D00A9855D /* KAMessageAttachmentsSaveToListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAMessageAttachmentsSaveToListener.h; sourceTree = "<group>"; };
+		65CF1ACE1BC2C27D00A9855D /* KAMessages+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAMessages+Private.h"; sourceTree = "<group>"; };
+		65CF1ACF1BC2C27D00A9855D /* KAMessages+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAMessages+Private.mm"; sourceTree = "<group>"; };
+		65CF1AD01BC2C27D00A9855D /* KAMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAMessages.h; sourceTree = "<group>"; };
+		65CF1AD11BC2C27D00A9855D /* KANetworkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KANetworkError.h; sourceTree = "<group>"; };
+		65CF1AD21BC2C27D00A9855D /* KARegistration+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KARegistration+Private.h"; sourceTree = "<group>"; };
+		65CF1AD31BC2C27D00A9855D /* KARegistration+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KARegistration+Private.mm"; sourceTree = "<group>"; };
+		65CF1AD41BC2C27D00A9855D /* KARegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KARegistration.h; sourceTree = "<group>"; };
+		65CF1AD51BC2C27D00A9855D /* KARegistrationRegisterAccountListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KARegistrationRegisterAccountListener+Private.h"; sourceTree = "<group>"; };
+		65CF1AD61BC2C27D00A9855D /* KARegistrationRegisterAccountListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KARegistrationRegisterAccountListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1AD71BC2C27D00A9855D /* KARegistrationRegisterAccountListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KARegistrationRegisterAccountListener.h; sourceTree = "<group>"; };
+		65CF1AD81BC2C27D00A9855D /* KARegistry+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KARegistry+Private.h"; sourceTree = "<group>"; };
+		65CF1AD91BC2C27D00A9855D /* KARegistry+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KARegistry+Private.mm"; sourceTree = "<group>"; };
+		65CF1ADA1BC2C27D00A9855D /* KARegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KARegistry.h; sourceTree = "<group>"; };
+		65CF1ADB1BC2C27D00A9855D /* KASenders+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KASenders+Private.h"; sourceTree = "<group>"; };
+		65CF1ADC1BC2C27D00A9855D /* KASenders+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KASenders+Private.mm"; sourceTree = "<group>"; };
+		65CF1ADD1BC2C27E00A9855D /* KASenders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASenders.h; sourceTree = "<group>"; };
+		65CF1ADE1BC2C27E00A9855D /* KASession+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KASession+Private.h"; sourceTree = "<group>"; };
+		65CF1ADF1BC2C27E00A9855D /* KASession+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KASession+Private.mm"; sourceTree = "<group>"; };
+		65CF1AE01BC2C27E00A9855D /* KASession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASession.h; sourceTree = "<group>"; };
+		65CF1AE11BC2C27E00A9855D /* KASessionAccountInfoListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KASessionAccountInfoListener+Private.h"; sourceTree = "<group>"; };
+		65CF1AE21BC2C27E00A9855D /* KASessionAccountInfoListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KASessionAccountInfoListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1AE31BC2C27E00A9855D /* KASessionAccountInfoListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASessionAccountInfoListener.h; sourceTree = "<group>"; };
+		65CF1AE41BC2C27E00A9855D /* KASessionListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KASessionListener+Private.h"; sourceTree = "<group>"; };
+		65CF1AE51BC2C27E00A9855D /* KASessionListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KASessionListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1AE61BC2C27E00A9855D /* KASessionListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASessionListener.h; sourceTree = "<group>"; };
+		65CF1AE71BC2C27E00A9855D /* KASyncer+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KASyncer+Private.h"; sourceTree = "<group>"; };
+		65CF1AE81BC2C27E00A9855D /* KASyncer+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KASyncer+Private.mm"; sourceTree = "<group>"; };
+		65CF1AE91BC2C27E00A9855D /* KASyncer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASyncer.h; sourceTree = "<group>"; };
+		65CF1AEA1BC2C27E00A9855D /* KASyncerRunListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KASyncerRunListener+Private.h"; sourceTree = "<group>"; };
+		65CF1AEB1BC2C27E00A9855D /* KASyncerRunListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KASyncerRunListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1AEC1BC2C27E00A9855D /* KASyncerRunListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASyncerRunListener.h; sourceTree = "<group>"; };
+		65CF1AED1BC2C27E00A9855D /* KASyncMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASyncMode.h; sourceTree = "<group>"; };
+		65CF1AEE1BC2C27E00A9855D /* KATask+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KATask+Private.h"; sourceTree = "<group>"; };
+		65CF1AEF1BC2C27E00A9855D /* KATask+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KATask+Private.mm"; sourceTree = "<group>"; };
+		65CF1AF01BC2C27E00A9855D /* KATask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KATask.h; sourceTree = "<group>"; };
+		65CF1AF11BC2C27E00A9855D /* KATaskRunner+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KATaskRunner+Private.h"; sourceTree = "<group>"; };
+		65CF1AF21BC2C27E00A9855D /* KATaskRunner+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KATaskRunner+Private.mm"; sourceTree = "<group>"; };
+		65CF1AF31BC2C27E00A9855D /* KATaskRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KATaskRunner.h; sourceTree = "<group>"; };
+		65CF1AF41BC2C27E00A9855D /* KAUserSettings+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KAUserSettings+Private.h"; sourceTree = "<group>"; };
+		65CF1AF51BC2C27E00A9855D /* KAUserSettings+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KAUserSettings+Private.mm"; sourceTree = "<group>"; };
+		65CF1AF61BC2C27E00A9855D /* KAUserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAUserSettings.h; sourceTree = "<group>"; };
+		65CF1AF91BC2C27E00A9855D /* KHHttpClient+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KHHttpClient+Private.h"; sourceTree = "<group>"; };
+		65CF1AFA1BC2C27E00A9855D /* KHHttpClient+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KHHttpClient+Private.mm"; sourceTree = "<group>"; };
+		65CF1AFB1BC2C27E00A9855D /* KHHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHHttpClient.h; sourceTree = "<group>"; };
+		65CF1AFC1BC2C27E00A9855D /* KHHttpClientFactory+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KHHttpClientFactory+Private.h"; sourceTree = "<group>"; };
+		65CF1AFD1BC2C27E00A9855D /* KHHttpClientFactory+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KHHttpClientFactory+Private.mm"; sourceTree = "<group>"; };
+		65CF1AFE1BC2C27E00A9855D /* KHHttpClientFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHHttpClientFactory.h; sourceTree = "<group>"; };
+		65CF1AFF1BC2C27E00A9855D /* KHHttpHeader+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KHHttpHeader+Private.h"; sourceTree = "<group>"; };
+		65CF1B001BC2C27E00A9855D /* KHHttpHeader+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KHHttpHeader+Private.mm"; sourceTree = "<group>"; };
+		65CF1B011BC2C27E00A9855D /* KHHttpHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHHttpHeader.h; sourceTree = "<group>"; };
+		65CF1B021BC2C27E00A9855D /* KHHttpHeader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KHHttpHeader.mm; sourceTree = "<group>"; };
+		65CF1B031BC2C27E00A9855D /* KHHttpMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHHttpMethod.h; sourceTree = "<group>"; };
+		65CF1B041BC2C27E00A9855D /* KHProgressResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHProgressResult.h; sourceTree = "<group>"; };
+		65CF1B051BC2C27E00A9855D /* KHRegistry+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KHRegistry+Private.h"; sourceTree = "<group>"; };
+		65CF1B061BC2C27E00A9855D /* KHRegistry+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KHRegistry+Private.mm"; sourceTree = "<group>"; };
+		65CF1B071BC2C27E00A9855D /* KHRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRegistry.h; sourceTree = "<group>"; };
+		65CF1B081BC2C27E00A9855D /* KHRequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KHRequest+Private.h"; sourceTree = "<group>"; };
+		65CF1B091BC2C27E00A9855D /* KHRequest+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KHRequest+Private.mm"; sourceTree = "<group>"; };
+		65CF1B0A1BC2C27E00A9855D /* KHRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRequest.h; sourceTree = "<group>"; };
+		65CF1B0B1BC2C27E00A9855D /* KHRequest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KHRequest.mm; sourceTree = "<group>"; };
+		65CF1B0C1BC2C27E00A9855D /* KHRequestListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KHRequestListener+Private.h"; sourceTree = "<group>"; };
+		65CF1B0D1BC2C27E00A9855D /* KHRequestListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KHRequestListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1B0E1BC2C27E00A9855D /* KHRequestListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHRequestListener.h; sourceTree = "<group>"; };
+		65CF1B0F1BC2C27E00A9855D /* KHResponse+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KHResponse+Private.h"; sourceTree = "<group>"; };
+		65CF1B101BC2C27E00A9855D /* KHResponse+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KHResponse+Private.mm"; sourceTree = "<group>"; };
+		65CF1B111BC2C27E00A9855D /* KHResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHResponse.h; sourceTree = "<group>"; };
+		65CF1B121BC2C27E00A9855D /* KHResponse.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KHResponse.mm; sourceTree = "<group>"; };
+		65CF1B131BC2C27E00A9855D /* KHResponseError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHResponseError.h; sourceTree = "<group>"; };
+		65CF1B141BC2C27E00A9855D /* KHResponseListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KHResponseListener+Private.h"; sourceTree = "<group>"; };
+		65CF1B151BC2C27E00A9855D /* KHResponseListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KHResponseListener+Private.mm"; sourceTree = "<group>"; };
+		65CF1B161BC2C27E00A9855D /* KHResponseListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHResponseListener.h; sourceTree = "<group>"; };
+		65CF1BC51BC2C92700A9855D /* KADateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KADateTime.h; sourceTree = "<group>"; };
+		65CF1BC61BC2C92700A9855D /* KADateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KADateTime.m; sourceTree = "<group>"; };
+		65CF1BD31BC2D82300A9855D /* KISystemLogLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KISystemLogLogger.h; sourceTree = "<group>"; };
+		65CF1BD41BC2D82300A9855D /* KISystemLogLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KISystemLogLogger.m; sourceTree = "<group>"; };
+		65F902E21BEA3E0900FE32EF /* KAAddressNotAvailableReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAAddressNotAvailableReason.h; sourceTree = "<group>"; };
+		65F902E31BEA3E0900FE32EF /* KADraftState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KADraftState.h; sourceTree = "<group>"; };
+		65FE05B11BC7F8CC00A74BF5 /* DJICppWrapperCache+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DJICppWrapperCache+Private.h"; sourceTree = "<group>"; };
+		65FE05B21BC7F8CC00A74BF5 /* DJIError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJIError.h; sourceTree = "<group>"; };
+		65FE05B31BC7F8CC00A74BF5 /* DJIError.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DJIError.mm; sourceTree = "<group>"; };
+		65FE05B41BC7F8CC00A74BF5 /* DJIMarshal+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DJIMarshal+Private.h"; sourceTree = "<group>"; };
+		65FE05B51BC7F8CC00A74BF5 /* DJIObjcWrapperCache+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DJIObjcWrapperCache+Private.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65CF1A3F1BC2B84100A9855D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65CF1A4A1BC2B84100A9855D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65CF1A4E1BC2B84100A9855D /* LibKullo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65CF1A391BC2B84000A9855D = {
+			isa = PBXGroup;
+			children = (
+				65CF1A771BC2C27D00A9855D /* djinni */,
+				65CF1A451BC2B84100A9855D /* LibKullo */,
+				65CF1A511BC2B84100A9855D /* Tests */,
+				65CF1A441BC2B84100A9855D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65CF1A441BC2B84100A9855D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65CF1A431BC2B84100A9855D /* LibKullo.framework */,
+				65CF1A4D1BC2B84100A9855D /* LibKullo.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65CF1A451BC2B84100A9855D /* LibKullo */ = {
+			isa = PBXGroup;
+			children = (
+				65CF1BD31BC2D82300A9855D /* KISystemLogLogger.h */,
+				65CF1BD41BC2D82300A9855D /* KISystemLogLogger.m */,
+				65CF1A461BC2B84100A9855D /* LibKullo.h */,
+				65CF1A481BC2B84100A9855D /* Info.plist */,
+				651FAFFC1BC400DB00C8B24E /* KIOperationTaskRunner.h */,
+				651FAFFD1BC400DB00C8B24E /* KIOperationTaskRunner.m */,
+				65C6ADB71BC5771300433F8C /* KIUrlSessionHttpClient.h */,
+				65C6ADB81BC5771300433F8C /* KIUrlSessionHttpClient.m */,
+				65C951B41BC6C38600323570 /* KIUrlSessionHttpClientFactory.h */,
+				65C951B51BC6C38600323570 /* KIUrlSessionHttpClientFactory.m */,
+				65BCA6121BCE651500C6C059 /* KIRequestBodyInputStream.h */,
+				65BCA6131BCE651500C6C059 /* KIRequestBodyInputStream.m */,
+				65B8CE7D1BCFD9FA004446F5 /* KIUrlSessionDelegate.h */,
+				65B8CE7E1BCFD9FA004446F5 /* KIUrlSessionDelegate.m */,
+			);
+			path = LibKullo;
+			sourceTree = "<group>";
+		};
+		65CF1A511BC2B84100A9855D /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				65CF1A541BC2B84100A9855D /* Info.plist */,
+				651FB0001BC414C200C8B24E /* KIOperationTaskRunnerTests.m */,
+				65C951B81BC6CA3300323570 /* KIUrlSessionHttpClientFactoryTests.m */,
+				65C951BA1BC6CB4900323570 /* KIUrlSessionHttpClientTests.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		65CF1A771BC2C27D00A9855D /* djinni */ = {
+			isa = PBXGroup;
+			children = (
+				65CF1BC51BC2C92700A9855D /* KADateTime.h */,
+				65CF1BC61BC2C92700A9855D /* KADateTime.m */,
+				65CF1A781BC2C27D00A9855D /* api */,
+				65CF1AF81BC2C27E00A9855D /* http */,
+				65CF1B181BC2C27E00A9855D /* support-lib */,
+			);
+			path = djinni;
+			sourceTree = "<group>";
+		};
+		65CF1A781BC2C27D00A9855D /* api */ = {
+			isa = PBXGroup;
+			children = (
+				65F902E21BEA3E0900FE32EF /* KAAddressNotAvailableReason.h */,
+				65F902E31BEA3E0900FE32EF /* KADraftState.h */,
+				65CF1A791BC2C27D00A9855D /* KAAccountInfo+Private.h */,
+				65CF1A7A1BC2C27D00A9855D /* KAAccountInfo+Private.mm */,
+				65CF1A7B1BC2C27D00A9855D /* KAAccountInfo.h */,
+				65CF1A7C1BC2C27D00A9855D /* KAAccountInfo.mm */,
+				65CF1A7D1BC2C27D00A9855D /* KAAddress+Private.h */,
+				65CF1A7E1BC2C27D00A9855D /* KAAddress+Private.mm */,
+				65CF1A7F1BC2C27D00A9855D /* KAAddress.h */,
+				65CF1A801BC2C27D00A9855D /* KAAsyncTask+Private.h */,
+				65CF1A811BC2C27D00A9855D /* KAAsyncTask+Private.mm */,
+				65CF1A821BC2C27D00A9855D /* KAAsyncTask.h */,
+				65CF1A831BC2C27D00A9855D /* KAChallenge+Private.h */,
+				65CF1A841BC2C27D00A9855D /* KAChallenge+Private.mm */,
+				65CF1A851BC2C27D00A9855D /* KAChallenge.h */,
+				65CF1A861BC2C27D00A9855D /* KAChallengeType.h */,
+				65CF1A871BC2C27D00A9855D /* KAClient+Private.h */,
+				65CF1A881BC2C27D00A9855D /* KAClient+Private.mm */,
+				65CF1A891BC2C27D00A9855D /* KAClient.h */,
+				65CF1A8A1BC2C27D00A9855D /* KAClient.mm */,
+				65CF1A8B1BC2C27D00A9855D /* KAClientAddressExistsListener+Private.h */,
+				65CF1A8C1BC2C27D00A9855D /* KAClientAddressExistsListener+Private.mm */,
+				65CF1A8D1BC2C27D00A9855D /* KAClientAddressExistsListener.h */,
+				65CF1A8E1BC2C27D00A9855D /* KAClientCheckLoginListener+Private.h */,
+				65CF1A8F1BC2C27D00A9855D /* KAClientCheckLoginListener+Private.mm */,
+				65CF1A901BC2C27D00A9855D /* KAClientCheckLoginListener.h */,
+				65CF1A911BC2C27D00A9855D /* KAClientCreateSessionListener+Private.h */,
+				65CF1A921BC2C27D00A9855D /* KAClientCreateSessionListener+Private.mm */,
+				65CF1A931BC2C27D00A9855D /* KAClientCreateSessionListener.h */,
+				65CF1A941BC2C27D00A9855D /* KAClientGenerateKeysListener+Private.h */,
+				65CF1A951BC2C27D00A9855D /* KAClientGenerateKeysListener+Private.mm */,
+				65CF1A961BC2C27D00A9855D /* KAClientGenerateKeysListener.h */,
+				65CF1A971BC2C27D00A9855D /* KAConversations+Private.h */,
+				65CF1A981BC2C27D00A9855D /* KAConversations+Private.mm */,
+				65CF1A991BC2C27D00A9855D /* KAConversations.h */,
+				65CF1A9A1BC2C27D00A9855D /* KADateTimeBase+Private.h */,
+				65CF1A9B1BC2C27D00A9855D /* KADateTimeBase+Private.mm */,
+				65CF1A9C1BC2C27D00A9855D /* KADateTimeBase.h */,
+				65CF1A9D1BC2C27D00A9855D /* KADateTimeBase.mm */,
+				65CF1A9E1BC2C27D00A9855D /* KADelivery+Private.h */,
+				65CF1A9F1BC2C27D00A9855D /* KADelivery+Private.mm */,
+				65CF1AA01BC2C27D00A9855D /* KADelivery.h */,
+				65CF1AA11BC2C27D00A9855D /* KADeliveryReason.h */,
+				65CF1AA21BC2C27D00A9855D /* KADeliveryState.h */,
+				65CF1AA31BC2C27D00A9855D /* KADraftAttachments+Private.h */,
+				65CF1AA41BC2C27D00A9855D /* KADraftAttachments+Private.mm */,
+				65CF1AA51BC2C27D00A9855D /* KADraftAttachments.h */,
+				65CF1AA61BC2C27D00A9855D /* KADraftAttachmentsAddListener+Private.h */,
+				65CF1AA71BC2C27D00A9855D /* KADraftAttachmentsAddListener+Private.mm */,
+				65CF1AA81BC2C27D00A9855D /* KADraftAttachmentsAddListener.h */,
+				65CF1AA91BC2C27D00A9855D /* KADraftAttachmentsContentListener+Private.h */,
+				65CF1AAA1BC2C27D00A9855D /* KADraftAttachmentsContentListener+Private.mm */,
+				65CF1AAB1BC2C27D00A9855D /* KADraftAttachmentsContentListener.h */,
+				65CF1AAC1BC2C27D00A9855D /* KADraftAttachmentsSaveToListener+Private.h */,
+				65CF1AAD1BC2C27D00A9855D /* KADraftAttachmentsSaveToListener+Private.mm */,
+				65CF1AAE1BC2C27D00A9855D /* KADraftAttachmentsSaveToListener.h */,
+				65CF1AAF1BC2C27D00A9855D /* KADrafts+Private.h */,
+				65CF1AB01BC2C27D00A9855D /* KADrafts+Private.mm */,
+				65CF1AB11BC2C27D00A9855D /* KADrafts.h */,
+				65CF1AB21BC2C27D00A9855D /* KAEvent+Private.h */,
+				65CF1AB31BC2C27D00A9855D /* KAEvent+Private.mm */,
+				65CF1AB41BC2C27D00A9855D /* KAEvent.h */,
+				65CF1AB51BC2C27D00A9855D /* KAEvent.mm */,
+				65CF1AB61BC2C27D00A9855D /* KAEventType.h */,
+				65CF1AB71BC2C27D00A9855D /* KAInternalDateTimeUtils+Private.h */,
+				65CF1AB81BC2C27D00A9855D /* KAInternalDateTimeUtils+Private.mm */,
+				65CF1AB91BC2C27D00A9855D /* KAInternalDateTimeUtils.h */,
+				65CF1ABA1BC2C27D00A9855D /* KAInternalEvent+Private.h */,
+				65CF1ABB1BC2C27D00A9855D /* KAInternalEvent+Private.mm */,
+				65CF1ABC1BC2C27D00A9855D /* KAInternalEvent.h */,
+				65CF1ABD1BC2C27D00A9855D /* KALocalError.h */,
+				65CF1ABE1BC2C27D00A9855D /* KALogListener+Private.h */,
+				65CF1ABF1BC2C27D00A9855D /* KALogListener+Private.mm */,
+				65CF1AC01BC2C27D00A9855D /* KALogListener.h */,
+				65CF1AC11BC2C27D00A9855D /* KALogType.h */,
+				65CF1AC21BC2C27D00A9855D /* KAMasterKey+Private.h */,
+				65CF1AC31BC2C27D00A9855D /* KAMasterKey+Private.mm */,
+				65CF1AC41BC2C27D00A9855D /* KAMasterKey.h */,
+				65CF1AC51BC2C27D00A9855D /* KAMessageAttachments+Private.h */,
+				65CF1AC61BC2C27D00A9855D /* KAMessageAttachments+Private.mm */,
+				65CF1AC71BC2C27D00A9855D /* KAMessageAttachments.h */,
+				65CF1AC81BC2C27D00A9855D /* KAMessageAttachmentsContentListener+Private.h */,
+				65CF1AC91BC2C27D00A9855D /* KAMessageAttachmentsContentListener+Private.mm */,
+				65CF1ACA1BC2C27D00A9855D /* KAMessageAttachmentsContentListener.h */,
+				65CF1ACB1BC2C27D00A9855D /* KAMessageAttachmentsSaveToListener+Private.h */,
+				65CF1ACC1BC2C27D00A9855D /* KAMessageAttachmentsSaveToListener+Private.mm */,
+				65CF1ACD1BC2C27D00A9855D /* KAMessageAttachmentsSaveToListener.h */,
+				65CF1ACE1BC2C27D00A9855D /* KAMessages+Private.h */,
+				65CF1ACF1BC2C27D00A9855D /* KAMessages+Private.mm */,
+				65CF1AD01BC2C27D00A9855D /* KAMessages.h */,
+				65CF1AD11BC2C27D00A9855D /* KANetworkError.h */,
+				65CF1AD21BC2C27D00A9855D /* KARegistration+Private.h */,
+				65CF1AD31BC2C27D00A9855D /* KARegistration+Private.mm */,
+				65CF1AD41BC2C27D00A9855D /* KARegistration.h */,
+				65CF1AD51BC2C27D00A9855D /* KARegistrationRegisterAccountListener+Private.h */,
+				65CF1AD61BC2C27D00A9855D /* KARegistrationRegisterAccountListener+Private.mm */,
+				65CF1AD71BC2C27D00A9855D /* KARegistrationRegisterAccountListener.h */,
+				65CF1AD81BC2C27D00A9855D /* KARegistry+Private.h */,
+				65CF1AD91BC2C27D00A9855D /* KARegistry+Private.mm */,
+				65CF1ADA1BC2C27D00A9855D /* KARegistry.h */,
+				65CF1ADB1BC2C27D00A9855D /* KASenders+Private.h */,
+				65CF1ADC1BC2C27D00A9855D /* KASenders+Private.mm */,
+				65CF1ADD1BC2C27E00A9855D /* KASenders.h */,
+				65CF1ADE1BC2C27E00A9855D /* KASession+Private.h */,
+				65CF1ADF1BC2C27E00A9855D /* KASession+Private.mm */,
+				65CF1AE01BC2C27E00A9855D /* KASession.h */,
+				65CF1AE11BC2C27E00A9855D /* KASessionAccountInfoListener+Private.h */,
+				65CF1AE21BC2C27E00A9855D /* KASessionAccountInfoListener+Private.mm */,
+				65CF1AE31BC2C27E00A9855D /* KASessionAccountInfoListener.h */,
+				65CF1AE41BC2C27E00A9855D /* KASessionListener+Private.h */,
+				65CF1AE51BC2C27E00A9855D /* KASessionListener+Private.mm */,
+				65CF1AE61BC2C27E00A9855D /* KASessionListener.h */,
+				65CF1AE71BC2C27E00A9855D /* KASyncer+Private.h */,
+				65CF1AE81BC2C27E00A9855D /* KASyncer+Private.mm */,
+				65CF1AE91BC2C27E00A9855D /* KASyncer.h */,
+				65CF1AEA1BC2C27E00A9855D /* KASyncerRunListener+Private.h */,
+				65CF1AEB1BC2C27E00A9855D /* KASyncerRunListener+Private.mm */,
+				65CF1AEC1BC2C27E00A9855D /* KASyncerRunListener.h */,
+				65CF1AED1BC2C27E00A9855D /* KASyncMode.h */,
+				65CF1AEE1BC2C27E00A9855D /* KATask+Private.h */,
+				65CF1AEF1BC2C27E00A9855D /* KATask+Private.mm */,
+				65CF1AF01BC2C27E00A9855D /* KATask.h */,
+				65CF1AF11BC2C27E00A9855D /* KATaskRunner+Private.h */,
+				65CF1AF21BC2C27E00A9855D /* KATaskRunner+Private.mm */,
+				65CF1AF31BC2C27E00A9855D /* KATaskRunner.h */,
+				65CF1AF41BC2C27E00A9855D /* KAUserSettings+Private.h */,
+				65CF1AF51BC2C27E00A9855D /* KAUserSettings+Private.mm */,
+				65CF1AF61BC2C27E00A9855D /* KAUserSettings.h */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		65CF1AF81BC2C27E00A9855D /* http */ = {
+			isa = PBXGroup;
+			children = (
+				65CF1AF91BC2C27E00A9855D /* KHHttpClient+Private.h */,
+				65CF1AFA1BC2C27E00A9855D /* KHHttpClient+Private.mm */,
+				65CF1AFB1BC2C27E00A9855D /* KHHttpClient.h */,
+				65CF1AFC1BC2C27E00A9855D /* KHHttpClientFactory+Private.h */,
+				65CF1AFD1BC2C27E00A9855D /* KHHttpClientFactory+Private.mm */,
+				65CF1AFE1BC2C27E00A9855D /* KHHttpClientFactory.h */,
+				65CF1AFF1BC2C27E00A9855D /* KHHttpHeader+Private.h */,
+				65CF1B001BC2C27E00A9855D /* KHHttpHeader+Private.mm */,
+				65CF1B011BC2C27E00A9855D /* KHHttpHeader.h */,
+				65CF1B021BC2C27E00A9855D /* KHHttpHeader.mm */,
+				65CF1B031BC2C27E00A9855D /* KHHttpMethod.h */,
+				65CF1B041BC2C27E00A9855D /* KHProgressResult.h */,
+				65CF1B051BC2C27E00A9855D /* KHRegistry+Private.h */,
+				65CF1B061BC2C27E00A9855D /* KHRegistry+Private.mm */,
+				65CF1B071BC2C27E00A9855D /* KHRegistry.h */,
+				65CF1B081BC2C27E00A9855D /* KHRequest+Private.h */,
+				65CF1B091BC2C27E00A9855D /* KHRequest+Private.mm */,
+				65CF1B0A1BC2C27E00A9855D /* KHRequest.h */,
+				65CF1B0B1BC2C27E00A9855D /* KHRequest.mm */,
+				65CF1B0C1BC2C27E00A9855D /* KHRequestListener+Private.h */,
+				65CF1B0D1BC2C27E00A9855D /* KHRequestListener+Private.mm */,
+				65CF1B0E1BC2C27E00A9855D /* KHRequestListener.h */,
+				65CF1B0F1BC2C27E00A9855D /* KHResponse+Private.h */,
+				65CF1B101BC2C27E00A9855D /* KHResponse+Private.mm */,
+				65CF1B111BC2C27E00A9855D /* KHResponse.h */,
+				65CF1B121BC2C27E00A9855D /* KHResponse.mm */,
+				65CF1B131BC2C27E00A9855D /* KHResponseError.h */,
+				65CF1B141BC2C27E00A9855D /* KHResponseListener+Private.h */,
+				65CF1B151BC2C27E00A9855D /* KHResponseListener+Private.mm */,
+				65CF1B161BC2C27E00A9855D /* KHResponseListener.h */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
+		65CF1B181BC2C27E00A9855D /* support-lib */ = {
+			isa = PBXGroup;
+			children = (
+				65FE05B01BC7F8CC00A74BF5 /* objc */,
+			);
+			path = "support-lib";
+			sourceTree = "<group>";
+		};
+		65FE05B01BC7F8CC00A74BF5 /* objc */ = {
+			isa = PBXGroup;
+			children = (
+				65B26D911BC8614600EC09A1 /* DJIWeakPtrWrapper.mm */,
+				65B26D921BC8614600EC09A1 /* DJIWeakPtrWrapper+Private.h */,
+				65FE05B11BC7F8CC00A74BF5 /* DJICppWrapperCache+Private.h */,
+				65FE05B21BC7F8CC00A74BF5 /* DJIError.h */,
+				65FE05B31BC7F8CC00A74BF5 /* DJIError.mm */,
+				65FE05B41BC7F8CC00A74BF5 /* DJIMarshal+Private.h */,
+				65FE05B51BC7F8CC00A74BF5 /* DJIObjcWrapperCache+Private.h */,
+			);
+			path = objc;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		65CF1A401BC2B84100A9855D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65CF1BA91BC2C28400A9855D /* KHHttpMethod.h in Headers */,
+				65FE05BB1BC7F8CC00A74BF5 /* DJIError.h in Headers */,
+				65CF1B791BC2C28000A9855D /* KARegistration+Private.h in Headers */,
+				65CF1B471BC2C27E00A9855D /* KADelivery.h in Headers */,
+				65CF1B781BC2C28000A9855D /* KANetworkError.h in Headers */,
+				65CF1B4C1BC2C27E00A9855D /* KADraftAttachments.h in Headers */,
+				65CF1B871BC2C28100A9855D /* KASession.h in Headers */,
+				65CF1BB41BC2C28600A9855D /* KHRequestListener.h in Headers */,
+				65CF1B711BC2C27F00A9855D /* KAMessageAttachmentsContentListener.h in Headers */,
+				65CF1B641BC2C27F00A9855D /* KALocalError.h in Headers */,
+				65CF1B8D1BC2C28100A9855D /* KASessionListener.h in Headers */,
+				65CF1B401BC2C27E00A9855D /* KAConversations.h in Headers */,
+				65CF1B671BC2C27F00A9855D /* KALogListener.h in Headers */,
+				65CF1B601BC2C27F00A9855D /* KAInternalDateTimeUtils.h in Headers */,
+				65CF1B581BC2C27E00A9855D /* KADrafts.h in Headers */,
+				65CF1B481BC2C27E00A9855D /* KADeliveryReason.h in Headers */,
+				65CF1B631BC2C27F00A9855D /* KAInternalEvent.h in Headers */,
+				65FE05BE1BC7F8CC00A74BF5 /* DJIObjcWrapperCache+Private.h in Headers */,
+				65CF1BBC1BC2C28700A9855D /* KHResponseListener.h in Headers */,
+				65CF1B5D1BC2C27F00A9855D /* KAEventType.h in Headers */,
+				65CF1B841BC2C28100A9855D /* KASenders.h in Headers */,
+				65CF1BA11BC2C28300A9855D /* KHHttpClient.h in Headers */,
+				65CF1B2C1BC2C27E00A9855D /* KAChallenge.h in Headers */,
+				65CF1BAA1BC2C28400A9855D /* KHProgressResult.h in Headers */,
+				65CF1B491BC2C27E00A9855D /* KADeliveryState.h in Headers */,
+				65CF1B7E1BC2C28000A9855D /* KARegistrationRegisterAccountListener.h in Headers */,
+				65CF1B2D1BC2C27E00A9855D /* KAChallengeType.h in Headers */,
+				65CF1BB91BC2C28600A9855D /* KHResponseError.h in Headers */,
+				65CF1B551BC2C27E00A9855D /* KADraftAttachmentsSaveToListener.h in Headers */,
+				65CF1B811BC2C28000A9855D /* KARegistry.h in Headers */,
+				65CF1BAD1BC2C28500A9855D /* KHRegistry.h in Headers */,
+				65CF1B3A1BC2C27E00A9855D /* KAClientCreateSessionListener.h in Headers */,
+				65CF1B341BC2C27E00A9855D /* KAClientAddressExistsListener.h in Headers */,
+				65CF1B9A1BC2C28300A9855D /* KATaskRunner.h in Headers */,
+				65CF1B371BC2C27E00A9855D /* KAClientCheckLoginListener.h in Headers */,
+				65CF1B291BC2C27E00A9855D /* KAAsyncTask.h in Headers */,
+				65CF1B261BC2C27E00A9855D /* KAAddress.h in Headers */,
+				65CF1B771BC2C28000A9855D /* KAMessages.h in Headers */,
+				65CF1B971BC2C28200A9855D /* KATask.h in Headers */,
+				65CF1B5B1BC2C27E00A9855D /* KAEvent.h in Headers */,
+				65CF1B741BC2C28000A9855D /* KAMessageAttachmentsSaveToListener.h in Headers */,
+				65CF1B431BC2C27E00A9855D /* KADateTimeBase.h in Headers */,
+				65B8CE7F1BCFD9FA004446F5 /* KIUrlSessionDelegate.h in Headers */,
+				65FE05BA1BC7F8CC00A74BF5 /* DJICppWrapperCache+Private.h in Headers */,
+				65CF1BB01BC2C28500A9855D /* KHRequest.h in Headers */,
+				65CF1B9D1BC2C28300A9855D /* KAUserSettings.h in Headers */,
+				65CF1B941BC2C28200A9855D /* KASyncMode.h in Headers */,
+				65CF1BA71BC2C28400A9855D /* KHHttpHeader.h in Headers */,
+				65CF1B221BC2C27E00A9855D /* KAAccountInfo.h in Headers */,
+				65CF1B931BC2C28200A9855D /* KASyncerRunListener.h in Headers */,
+				65CF1B3D1BC2C27E00A9855D /* KAClientGenerateKeysListener.h in Headers */,
+				65CF1B901BC2C28200A9855D /* KASyncer.h in Headers */,
+				65B26D941BC8614600EC09A1 /* DJIWeakPtrWrapper+Private.h in Headers */,
+				65CF1B681BC2C27F00A9855D /* KALogType.h in Headers */,
+				65CF1B4F1BC2C27E00A9855D /* KADraftAttachmentsAddListener.h in Headers */,
+				65CF1B521BC2C27E00A9855D /* KADraftAttachmentsContentListener.h in Headers */,
+				65CF1B6B1BC2C27F00A9855D /* KAMasterKey.h in Headers */,
+				65CF1B7B1BC2C28000A9855D /* KARegistration.h in Headers */,
+				65CF1BA41BC2C28400A9855D /* KHHttpClientFactory.h in Headers */,
+				65CF1B8A1BC2C28100A9855D /* KASessionAccountInfoListener.h in Headers */,
+				65CF1B301BC2C27E00A9855D /* KAClient.h in Headers */,
+				65F902E51BEA3E0900FE32EF /* KADraftState.h in Headers */,
+				65F902E41BEA3E0900FE32EF /* KAAddressNotAvailableReason.h in Headers */,
+				65CF1B6E1BC2C27F00A9855D /* KAMessageAttachments.h in Headers */,
+				65FE05BD1BC7F8CC00A74BF5 /* DJIMarshal+Private.h in Headers */,
+				65CF1BC71BC2C92700A9855D /* KADateTime.h in Headers */,
+				65C951B61BC6C38600323570 /* KIUrlSessionHttpClientFactory.h in Headers */,
+				651FAFFE1BC400DB00C8B24E /* KIOperationTaskRunner.h in Headers */,
+				65CF1BD51BC2D82300A9855D /* KISystemLogLogger.h in Headers */,
+				65CF1BB71BC2C28600A9855D /* KHResponse.h in Headers */,
+				65CF1B4D1BC2C27E00A9855D /* KADraftAttachmentsAddListener+Private.h in Headers */,
+				65CF1BA21BC2C28300A9855D /* KHHttpClientFactory+Private.h in Headers */,
+				65CF1B351BC2C27E00A9855D /* KAClientCheckLoginListener+Private.h in Headers */,
+				65CF1B411BC2C27E00A9855D /* KADateTimeBase+Private.h in Headers */,
+				65CF1B611BC2C27F00A9855D /* KAInternalEvent+Private.h in Headers */,
+				65CF1B561BC2C27E00A9855D /* KADrafts+Private.h in Headers */,
+				65CF1B851BC2C28100A9855D /* KASession+Private.h in Headers */,
+				65CF1BA51BC2C28400A9855D /* KHHttpHeader+Private.h in Headers */,
+				65CF1B9F1BC2C28300A9855D /* KHHttpClient+Private.h in Headers */,
+				65CF1B321BC2C27E00A9855D /* KAClientAddressExistsListener+Private.h in Headers */,
+				65CF1B501BC2C27E00A9855D /* KADraftAttachmentsContentListener+Private.h in Headers */,
+				65CF1B2A1BC2C27E00A9855D /* KAChallenge+Private.h in Headers */,
+				65CF1B691BC2C27F00A9855D /* KAMasterKey+Private.h in Headers */,
+				65CF1B201BC2C27E00A9855D /* KAAccountInfo+Private.h in Headers */,
+				65CF1B2E1BC2C27E00A9855D /* KAClient+Private.h in Headers */,
+				65CF1B8B1BC2C28100A9855D /* KASessionListener+Private.h in Headers */,
+				65CF1B241BC2C27E00A9855D /* KAAddress+Private.h in Headers */,
+				65CF1B951BC2C28200A9855D /* KATask+Private.h in Headers */,
+				65CF1B3E1BC2C27E00A9855D /* KAConversations+Private.h in Headers */,
+				65CF1B9B1BC2C28300A9855D /* KAUserSettings+Private.h in Headers */,
+				65CF1B8E1BC2C28100A9855D /* KASyncer+Private.h in Headers */,
+				65CF1B5E1BC2C27F00A9855D /* KAInternalDateTimeUtils+Private.h in Headers */,
+				65CF1B6C1BC2C27F00A9855D /* KAMessageAttachments+Private.h in Headers */,
+				65BCA6141BCE651500C6C059 /* KIRequestBodyInputStream.h in Headers */,
+				65CF1BAB1BC2C28500A9855D /* KHRegistry+Private.h in Headers */,
+				65CF1B981BC2C28200A9855D /* KATaskRunner+Private.h in Headers */,
+				65CF1B451BC2C27E00A9855D /* KADelivery+Private.h in Headers */,
+				65CF1B7C1BC2C28000A9855D /* KARegistrationRegisterAccountListener+Private.h in Headers */,
+				65CF1B271BC2C27E00A9855D /* KAAsyncTask+Private.h in Headers */,
+				65CF1B911BC2C28200A9855D /* KASyncerRunListener+Private.h in Headers */,
+				65CF1BB51BC2C28600A9855D /* KHResponse+Private.h in Headers */,
+				65CF1B4A1BC2C27E00A9855D /* KADraftAttachments+Private.h in Headers */,
+				65CF1B591BC2C27E00A9855D /* KAEvent+Private.h in Headers */,
+				65CF1B751BC2C28000A9855D /* KAMessages+Private.h in Headers */,
+				65CF1B531BC2C27E00A9855D /* KADraftAttachmentsSaveToListener+Private.h in Headers */,
+				65CF1A471BC2B84100A9855D /* LibKullo.h in Headers */,
+				65CF1BB21BC2C28500A9855D /* KHRequestListener+Private.h in Headers */,
+				65CF1B7F1BC2C28000A9855D /* KARegistry+Private.h in Headers */,
+				65CF1BAE1BC2C28500A9855D /* KHRequest+Private.h in Headers */,
+				65CF1B3B1BC2C27E00A9855D /* KAClientGenerateKeysListener+Private.h in Headers */,
+				65CF1B381BC2C27E00A9855D /* KAClientCreateSessionListener+Private.h in Headers */,
+				65CF1B6F1BC2C27F00A9855D /* KAMessageAttachmentsContentListener+Private.h in Headers */,
+				65CF1B651BC2C27F00A9855D /* KALogListener+Private.h in Headers */,
+				65CF1B721BC2C27F00A9855D /* KAMessageAttachmentsSaveToListener+Private.h in Headers */,
+				65CF1BBA1BC2C28700A9855D /* KHResponseListener+Private.h in Headers */,
+				65CF1B821BC2C28000A9855D /* KASenders+Private.h in Headers */,
+				65C6ADB91BC5771300433F8C /* KIUrlSessionHttpClient.h in Headers */,
+				65CF1B881BC2C28100A9855D /* KASessionAccountInfoListener+Private.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		65CF1A421BC2B84100A9855D /* LibKullo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65CF1A571BC2B84100A9855D /* Build configuration list for PBXNativeTarget "LibKullo" */;
+			buildPhases = (
+				65CF1A3E1BC2B84100A9855D /* Sources */,
+				65CF1A3F1BC2B84100A9855D /* Frameworks */,
+				65CF1A401BC2B84100A9855D /* Headers */,
+				65CF1A411BC2B84100A9855D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LibKullo;
+			productName = LibKullo;
+			productReference = 65CF1A431BC2B84100A9855D /* LibKullo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		65CF1A4C1BC2B84100A9855D /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65CF1A5A1BC2B84100A9855D /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				65CF1A491BC2B84100A9855D /* Sources */,
+				65CF1A4A1BC2B84100A9855D /* Frameworks */,
+				65CF1A4B1BC2B84100A9855D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65CF1A501BC2B84100A9855D /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = 65CF1A4D1BC2B84100A9855D /* LibKullo.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65CF1A3A1BC2B84000A9855D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Kullo GmbH";
+				TargetAttributes = {
+					65CF1A421BC2B84100A9855D = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					65CF1A4C1BC2B84100A9855D = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 65CF1A3D1BC2B84000A9855D /* Build configuration list for PBXProject "LibKullo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 65CF1A391BC2B84000A9855D;
+			productRefGroup = 65CF1A441BC2B84100A9855D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65CF1A421BC2B84100A9855D /* LibKullo */,
+				65CF1A4C1BC2B84100A9855D /* Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65CF1A411BC2B84100A9855D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65CF1A4B1BC2B84100A9855D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65CF1A3E1BC2B84100A9855D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65CF1BC81BC2C92700A9855D /* KADateTime.m in Sources */,
+				65CF1B5C1BC2C27F00A9855D /* KAEvent.mm in Sources */,
+				65CF1B761BC2C28000A9855D /* KAMessages+Private.mm in Sources */,
+				65CF1B2B1BC2C27E00A9855D /* KAChallenge+Private.mm in Sources */,
+				65CF1B441BC2C27E00A9855D /* KADateTimeBase.mm in Sources */,
+				65CF1B461BC2C27E00A9855D /* KADelivery+Private.mm in Sources */,
+				65CF1B5A1BC2C27E00A9855D /* KAEvent+Private.mm in Sources */,
+				65CF1B801BC2C28000A9855D /* KARegistry+Private.mm in Sources */,
+				65CF1B211BC2C27E00A9855D /* KAAccountInfo+Private.mm in Sources */,
+				65CF1B891BC2C28100A9855D /* KASessionAccountInfoListener+Private.mm in Sources */,
+				65CF1B4B1BC2C27E00A9855D /* KADraftAttachments+Private.mm in Sources */,
+				65CF1B921BC2C28200A9855D /* KASyncerRunListener+Private.mm in Sources */,
+				65CF1BA81BC2C28400A9855D /* KHHttpHeader.mm in Sources */,
+				65CF1B6A1BC2C27F00A9855D /* KAMasterKey+Private.mm in Sources */,
+				65CF1B7A1BC2C28000A9855D /* KARegistration+Private.mm in Sources */,
+				65CF1BAF1BC2C28500A9855D /* KHRequest+Private.mm in Sources */,
+				651FAFFF1BC400DB00C8B24E /* KIOperationTaskRunner.m in Sources */,
+				65CF1BD61BC2D82300A9855D /* KISystemLogLogger.m in Sources */,
+				65FE05BC1BC7F8CC00A74BF5 /* DJIError.mm in Sources */,
+				65CF1B3F1BC2C27E00A9855D /* KAConversations+Private.mm in Sources */,
+				65CF1B511BC2C27E00A9855D /* KADraftAttachmentsContentListener+Private.mm in Sources */,
+				65CF1B991BC2C28300A9855D /* KATaskRunner+Private.mm in Sources */,
+				65CF1BA01BC2C28300A9855D /* KHHttpClient+Private.mm in Sources */,
+				65CF1B361BC2C27E00A9855D /* KAClientCheckLoginListener+Private.mm in Sources */,
+				65CF1BB31BC2C28600A9855D /* KHRequestListener+Private.mm in Sources */,
+				65CF1BA31BC2C28400A9855D /* KHHttpClientFactory+Private.mm in Sources */,
+				65CF1BA61BC2C28400A9855D /* KHHttpHeader+Private.mm in Sources */,
+				65CF1B2F1BC2C27E00A9855D /* KAClient+Private.mm in Sources */,
+				65CF1BAC1BC2C28500A9855D /* KHRegistry+Private.mm in Sources */,
+				65CF1B8C1BC2C28100A9855D /* KASessionListener+Private.mm in Sources */,
+				65BCA6151BCE651500C6C059 /* KIRequestBodyInputStream.m in Sources */,
+				65CF1B621BC2C27F00A9855D /* KAInternalEvent+Private.mm in Sources */,
+				65CF1B6D1BC2C27F00A9855D /* KAMessageAttachments+Private.mm in Sources */,
+				65CF1B8F1BC2C28200A9855D /* KASyncer+Private.mm in Sources */,
+				65CF1B701BC2C27F00A9855D /* KAMessageAttachmentsContentListener+Private.mm in Sources */,
+				65CF1B961BC2C28200A9855D /* KATask+Private.mm in Sources */,
+				65CF1BB61BC2C28600A9855D /* KHResponse+Private.mm in Sources */,
+				65CF1BBB1BC2C28700A9855D /* KHResponseListener+Private.mm in Sources */,
+				65CF1B5F1BC2C27F00A9855D /* KAInternalDateTimeUtils+Private.mm in Sources */,
+				65CF1B861BC2C28100A9855D /* KASession+Private.mm in Sources */,
+				65CF1BB11BC2C28500A9855D /* KHRequest.mm in Sources */,
+				65CF1BB81BC2C28600A9855D /* KHResponse.mm in Sources */,
+				65CF1B571BC2C27E00A9855D /* KADrafts+Private.mm in Sources */,
+				65C6ADBA1BC5771300433F8C /* KIUrlSessionHttpClient.m in Sources */,
+				65CF1B9C1BC2C28300A9855D /* KAUserSettings+Private.mm in Sources */,
+				65CF1B831BC2C28100A9855D /* KASenders+Private.mm in Sources */,
+				65CF1B731BC2C28000A9855D /* KAMessageAttachmentsSaveToListener+Private.mm in Sources */,
+				65CF1B281BC2C27E00A9855D /* KAAsyncTask+Private.mm in Sources */,
+				65CF1B311BC2C27E00A9855D /* KAClient.mm in Sources */,
+				65CF1B331BC2C27E00A9855D /* KAClientAddressExistsListener+Private.mm in Sources */,
+				65CF1B4E1BC2C27E00A9855D /* KADraftAttachmentsAddListener+Private.mm in Sources */,
+				65B8CE801BCFD9FA004446F5 /* KIUrlSessionDelegate.m in Sources */,
+				65CF1B541BC2C27E00A9855D /* KADraftAttachmentsSaveToListener+Private.mm in Sources */,
+				65C951B71BC6C38600323570 /* KIUrlSessionHttpClientFactory.m in Sources */,
+				65CF1B251BC2C27E00A9855D /* KAAddress+Private.mm in Sources */,
+				65CF1B231BC2C27E00A9855D /* KAAccountInfo.mm in Sources */,
+				65CF1B661BC2C27F00A9855D /* KALogListener+Private.mm in Sources */,
+				65CF1B391BC2C27E00A9855D /* KAClientCreateSessionListener+Private.mm in Sources */,
+				65CF1B7D1BC2C28000A9855D /* KARegistrationRegisterAccountListener+Private.mm in Sources */,
+				65CF1B421BC2C27E00A9855D /* KADateTimeBase+Private.mm in Sources */,
+				65B26D931BC8614600EC09A1 /* DJIWeakPtrWrapper.mm in Sources */,
+				65CF1B3C1BC2C27E00A9855D /* KAClientGenerateKeysListener+Private.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65CF1A491BC2B84100A9855D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65C951BB1BC6CB4900323570 /* KIUrlSessionHttpClientTests.m in Sources */,
+				65C951B91BC6CA3300323570 /* KIUrlSessionHttpClientFactoryTests.m in Sources */,
+				651FB0011BC414C200C8B24E /* KIOperationTaskRunnerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65CF1A501BC2B84100A9855D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65CF1A421BC2B84100A9855D /* LibKullo */;
+			targetProxy = 65CF1A4F1BC2B84100A9855D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		65CF1A551BC2B84100A9855D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-L$(SRCROOT)/../build-ios-libkullo/lib",
+					"-lboost_filesystem",
+					"-lboost_program_options",
+					"-lboost_regex",
+					"-lboost_system",
+					"-lbotan",
+					"-ljsoncpp",
+					"-lkulloclient",
+					"-lnowide",
+					"-lsmartsqlite",
+					"-lz",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../boost/boost $(SRCROOT)/../libkullo";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		65CF1A561BC2B84100A9855D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-L$(SRCROOT)/../build-ios-libkullo/lib",
+					"-lboost_filesystem",
+					"-lboost_program_options",
+					"-lboost_regex",
+					"-lboost_system",
+					"-lbotan",
+					"-ljsoncpp",
+					"-lkulloclient",
+					"-lnowide",
+					"-lsmartsqlite",
+					"-lz",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../boost/boost $(SRCROOT)/../libkullo";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		65CF1A581BC2B84100A9855D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = LibKullo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.kullo.LibKullo;
+				PRODUCT_NAME = LibKullo;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		65CF1A591BC2B84100A9855D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = LibKullo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.kullo.LibKullo;
+				PRODUCT_NAME = LibKullo;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		65CF1A5B1BC2B84100A9855D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.kullo.LibKulloTests;
+				PRODUCT_NAME = LibKullo;
+			};
+			name = Debug;
+		};
+		65CF1A5C1BC2B84100A9855D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.kullo.LibKulloTests;
+				PRODUCT_NAME = LibKullo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65CF1A3D1BC2B84000A9855D /* Build configuration list for PBXProject "LibKullo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65CF1A551BC2B84100A9855D /* Debug */,
+				65CF1A561BC2B84100A9855D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65CF1A571BC2B84100A9855D /* Build configuration list for PBXNativeTarget "LibKullo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65CF1A581BC2B84100A9855D /* Debug */,
+				65CF1A591BC2B84100A9855D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65CF1A5A1BC2B84100A9855D /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65CF1A5B1BC2B84100A9855D /* Debug */,
+				65CF1A5C1BC2B84100A9855D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65CF1A3A1BC2B84000A9855D /* Project object */;
+}
