@@ -14,21 +14,21 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class ClientCreateSessionListener::ObjcProxy final
 : public ::Kullo::Api::ClientCreateSessionListener
-, public ::djinni::DbxObjcWrapperCache<ObjcProxy>::Handle
+, public ::djinni::ObjcProxyCache::Handle<ObjcType>
 {
 public:
     using Handle::Handle;
     void finished(const std::shared_ptr<::Kullo::Api::Session> & c_session) override
     {
         @autoreleasepool {
-            [(ObjcType)Handle::get() finished:(::ObjCpp::Kullo::Api::Session::fromCpp(c_session))];
+            [Handle::get() finished:(::ObjCpp::Kullo::Api::Session::fromCpp(c_session))];
         }
     }
     void error(const std::shared_ptr<::Kullo::Api::Address> & c_address, ::Kullo::Api::LocalError c_error) override
     {
         @autoreleasepool {
-            [(ObjcType)Handle::get() error:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
-                                     error:(::djinni::Enum<::Kullo::Api::LocalError, KALocalError>::fromCpp(c_error))];
+            [Handle::get() error:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
+                           error:(::djinni::Enum<::Kullo::Api::LocalError, KALocalError>::fromCpp(c_error))];
         }
     }
 };
@@ -42,10 +42,10 @@ auto ClientCreateSessionListener::toCpp(ObjcType objc) -> CppType
     if (!objc) {
         return nullptr;
     }
-    return ::djinni::DbxObjcWrapperCache<ObjcProxy>::getInstance()->get(objc);
+    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
 }
 
-auto ClientCreateSessionListener::fromCpp(const CppType& cpp) -> ObjcType
+auto ClientCreateSessionListener::fromCppOpt(const CppOptType& cpp) -> ObjcType
 {
     if (!cpp) {
         return nil;

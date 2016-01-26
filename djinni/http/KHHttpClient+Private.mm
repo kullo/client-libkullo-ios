@@ -16,17 +16,17 @@ namespace ObjCpp { namespace Kullo { namespace Http {
 
 class HttpClient::ObjcProxy final
 : public ::Kullo::Http::HttpClient
-, public ::djinni::DbxObjcWrapperCache<ObjcProxy>::Handle
+, public ::djinni::ObjcProxyCache::Handle<ObjcType>
 {
 public:
     using Handle::Handle;
     ::Kullo::Http::Response sendRequest(const ::Kullo::Http::Request & c_request, int64_t c_timeout, const std::shared_ptr<::Kullo::Http::RequestListener> & c_requestListener, const std::shared_ptr<::Kullo::Http::ResponseListener> & c_responseListener) override
     {
         @autoreleasepool {
-            auto r = [(ObjcType)Handle::get() sendRequest:(::ObjCpp::Kullo::Http::Request::fromCpp(c_request))
-                                                  timeout:(::djinni::I64::fromCpp(c_timeout))
-                                          requestListener:(::ObjCpp::Kullo::Http::RequestListener::fromCpp(c_requestListener))
-                                         responseListener:(::ObjCpp::Kullo::Http::ResponseListener::fromCpp(c_responseListener))];
+            auto r = [Handle::get() sendRequest:(::ObjCpp::Kullo::Http::Request::fromCpp(c_request))
+                                        timeout:(::djinni::I64::fromCpp(c_timeout))
+                                requestListener:(::ObjCpp::Kullo::Http::RequestListener::fromCpp(c_requestListener))
+                               responseListener:(::ObjCpp::Kullo::Http::ResponseListener::fromCpp(c_responseListener))];
             return ::ObjCpp::Kullo::Http::Response::toCpp(r);
         }
     }
@@ -41,10 +41,10 @@ auto HttpClient::toCpp(ObjcType objc) -> CppType
     if (!objc) {
         return nullptr;
     }
-    return ::djinni::DbxObjcWrapperCache<ObjcProxy>::getInstance()->get(objc);
+    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
 }
 
-auto HttpClient::fromCpp(const CppType& cpp) -> ObjcType
+auto HttpClient::fromCppOpt(const CppOptType& cpp) -> ObjcType
 {
     if (!cpp) {
         return nil;

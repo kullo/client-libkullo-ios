@@ -28,7 +28,7 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 @end
 
 @implementation KAClient {
-    ::djinni::DbxCppWrapperCache<::Kullo::Api::Client>::Handle _cppRefHandle;
+    ::djinni::CppProxyCache::Handle<std::shared_ptr<::Kullo::Api::Client>> _cppRefHandle;
 }
 
 - (id)initWithCpp:(const std::shared_ptr<::Kullo::Api::Client>&)cppRef
@@ -86,7 +86,7 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nonnull NSDictionary *)versions {
+- (nonnull NSDictionary<NSString *, NSString *> *)versions {
     try {
         auto r = _cppRefHandle.get()->versions();
         return ::djinni::Map<::djinni::String, ::djinni::String>::fromCpp(r);
@@ -103,14 +103,12 @@ auto Client::toCpp(ObjcType objc) -> CppType
     return objc->_cppRefHandle.get();
 }
 
-auto Client::fromCpp(const CppType& cpp) -> ObjcType
+auto Client::fromCppOpt(const CppOptType& cpp) -> ObjcType
 {
     if (!cpp) {
         return nil;
     }
-    return ::djinni::DbxCppWrapperCache<::Kullo::Api::Client>::getInstance()->get(cpp, [] (const CppType& p) {
-        return [[KAClient alloc] initWithCpp:p];
-    });
+    return ::djinni::get_cpp_proxy<KAClient>(cpp);
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

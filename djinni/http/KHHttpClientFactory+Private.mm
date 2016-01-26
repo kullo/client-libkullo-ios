@@ -13,21 +13,21 @@ namespace ObjCpp { namespace Kullo { namespace Http {
 
 class HttpClientFactory::ObjcProxy final
 : public ::Kullo::Http::HttpClientFactory
-, public ::djinni::DbxObjcWrapperCache<ObjcProxy>::Handle
+, public ::djinni::ObjcProxyCache::Handle<ObjcType>
 {
 public:
     using Handle::Handle;
     std::shared_ptr<::Kullo::Http::HttpClient> createHttpClient() override
     {
         @autoreleasepool {
-            auto r = [(ObjcType)Handle::get() createHttpClient];
+            auto r = [Handle::get() createHttpClient];
             return ::ObjCpp::Kullo::Http::HttpClient::toCpp(r);
         }
     }
     std::unordered_map<std::string, std::string> versions() override
     {
         @autoreleasepool {
-            auto r = [(ObjcType)Handle::get() versions];
+            auto r = [Handle::get() versions];
             return ::djinni::Map<::djinni::String, ::djinni::String>::toCpp(r);
         }
     }
@@ -42,10 +42,10 @@ auto HttpClientFactory::toCpp(ObjcType objc) -> CppType
     if (!objc) {
         return nullptr;
     }
-    return ::djinni::DbxObjcWrapperCache<ObjcProxy>::getInstance()->get(objc);
+    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
 }
 
-auto HttpClientFactory::fromCpp(const CppType& cpp) -> ObjcType
+auto HttpClientFactory::fromCppOpt(const CppOptType& cpp) -> ObjcType
 {
     if (!cpp) {
         return nil;

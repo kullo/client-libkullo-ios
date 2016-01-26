@@ -8,15 +8,15 @@
 @interface KHResponse : NSObject
 - (nonnull instancetype)initWithError:(nullable NSNumber *)error
                            statusCode:(int32_t)statusCode
-                              headers:(nonnull NSArray *)headers;
+                              headers:(nonnull NSArray<KHHttpHeader *> *)headers;
 + (nonnull instancetype)ResponseWithError:(nullable NSNumber *)error
                                statusCode:(int32_t)statusCode
-                                  headers:(nonnull NSArray *)headers;
+                                  headers:(nonnull NSArray<KHHttpHeader *> *)headers;
 
 @property (nonatomic, readonly, nullable) NSNumber * error;
 
 @property (nonatomic, readonly) int32_t statusCode;
 
-@property (nonatomic, readonly, nonnull) NSArray * headers;
+@property (nonatomic, readonly, nonnull) NSArray<KHHttpHeader *> * headers;
 
 @end

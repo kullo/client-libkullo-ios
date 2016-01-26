@@ -1,4 +1,4 @@
-/* Copyright 2015 Kullo GmbH. All rights reserved. */
+/* Copyright 2015-2016 Kullo GmbH. All rights reserved. */
 #import "KIOperationTaskRunner.h"
 #import "KATask.h"
 
@@ -19,6 +19,7 @@
     if (!queue)
     {
         queue = [[NSOperationQueue alloc] init];
+        queue.qualityOfService = NSQualityOfServiceUtility;
         NSAssert(queue, @"Queue initialization must succeed");
     }
     [queue addOperation:op];

@@ -1,5 +1,5 @@
 //
-// Copyright 2014 Dropbox, Inc.
+// Copyright 2015 Dropbox, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,18 +14,10 @@
 // limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
 
-#include <memory>
-
-/*
- * Helper class for DbxObjcWrapperCache to store C++ weak_ptr in Objective-C NSMapTable.
- */
-
-@interface DBWeakPtrWrapper : NSObject
-
-@property (nonatomic, readonly) std::weak_ptr<void> ptr;
-
-- (id)initWithWeakPtr:(std::weak_ptr<void>)ptr;
-
-@end
+#ifdef _MSC_VER // weak attribute not supported by MSVC
+#define DJINNI_WEAK_DEFINITION
+#else
+#define DJINNI_WEAK_DEFINITION __attribute__((weak))
+#endif

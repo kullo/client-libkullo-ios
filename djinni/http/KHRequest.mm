@@ -8,23 +8,28 @@
 
 - (nonnull instancetype)initWithMethod:(KHHttpMethod)method
                                    url:(nonnull NSString *)url
-                               headers:(nonnull NSArray *)headers
+                               headers:(nonnull NSArray<KHHttpHeader *> *)headers
 {
     if (self = [super init]) {
         _method = method;
         _url = [url copy];
-        _headers = headers;
+        _headers = [headers copy];
     }
     return self;
 }
 
 + (nonnull instancetype)RequestWithMethod:(KHHttpMethod)method
                                       url:(nonnull NSString *)url
-                                  headers:(nonnull NSArray *)headers
+                                  headers:(nonnull NSArray<KHHttpHeader *> *)headers
 {
     return [[self alloc] initWithMethod:method
                                     url:url
                                 headers:headers];
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@ %p method:%@ url:%@ headers:%@>", self.class, self, @(self.method), self.url, self.headers];
 }
 
 @end

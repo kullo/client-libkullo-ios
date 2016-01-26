@@ -18,7 +18,7 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 @end
 
 @implementation KHRequestListener {
-    ::djinni::DbxCppWrapperCache<::Kullo::Http::RequestListener>::Handle _cppRefHandle;
+    ::djinni::CppProxyCache::Handle<std::shared_ptr<::Kullo::Http::RequestListener>> _cppRefHandle;
 }
 
 - (id)initWithCpp:(const std::shared_ptr<::Kullo::Http::RequestListener>&)cppRef
@@ -46,14 +46,12 @@ auto RequestListener::toCpp(ObjcType objc) -> CppType
     return objc->_cppRefHandle.get();
 }
 
-auto RequestListener::fromCpp(const CppType& cpp) -> ObjcType
+auto RequestListener::fromCppOpt(const CppOptType& cpp) -> ObjcType
 {
     if (!cpp) {
         return nil;
     }
-    return ::djinni::DbxCppWrapperCache<::Kullo::Http::RequestListener>::getInstance()->get(cpp, [] (const CppType& p) {
-        return [[KHRequestListener alloc] initWithCpp:p];
-    });
+    return ::djinni::get_cpp_proxy<KHRequestListener>(cpp);
 }
 
 } } }  // namespace ObjCpp::Kullo::Http

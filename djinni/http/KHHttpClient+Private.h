@@ -14,12 +14,14 @@ class HttpClient
 {
 public:
     using CppType = std::shared_ptr<::Kullo::Http::HttpClient>;
+    using CppOptType = std::shared_ptr<::Kullo::Http::HttpClient>;
     using ObjcType = id<KHHttpClient>;
 
     using Boxed = HttpClient;
 
     static CppType toCpp(ObjcType objc);
-    static ObjcType fromCpp(const CppType& cpp);
+    static ObjcType fromCppOpt(const CppOptType& cpp);
+    static ObjcType fromCpp(const CppType& cpp) { return fromCppOpt(cpp); }
 
 private:
     class ObjcProxy;

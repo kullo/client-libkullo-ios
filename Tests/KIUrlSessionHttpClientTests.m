@@ -1,4 +1,4 @@
-/* Copyright 2015 Kullo GmbH. All rights reserved. */
+/* Copyright 2015-2016 Kullo GmbH. All rights reserved. */
 #import <XCTest/XCTest.h>
 #import "KIUrlSessionHttpClient.h"
 #import "KHRequestListener.h"
@@ -171,6 +171,18 @@
                        responseListener:respL];
     XCTAssert(!resp.error);
     XCTAssertEqual(resp.statusCode, 200);
+}
+
+- (void)testFailOnBadAuth {
+    KHRequest *request = [KHRequest RequestWithMethod:KHHttpMethodGet
+                                                  url:@"http://httpbin.org/basic-auth/user/passwd"
+                                              headers:@[]];
+    KHResponse *resp = [uut sendRequest:request
+                                timeout:5000
+                        requestListener:nil
+                       responseListener:respL];
+    XCTAssert(!resp.error);
+    XCTAssertEqual(resp.statusCode, 401);
 }
 #endif
 

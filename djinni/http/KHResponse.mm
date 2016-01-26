@@ -8,23 +8,28 @@
 
 - (nonnull instancetype)initWithError:(nullable NSNumber *)error
                            statusCode:(int32_t)statusCode
-                              headers:(nonnull NSArray *)headers
+                              headers:(nonnull NSArray<KHHttpHeader *> *)headers
 {
     if (self = [super init]) {
         _error = error;
         _statusCode = statusCode;
-        _headers = headers;
+        _headers = [headers copy];
     }
     return self;
 }
 
 + (nonnull instancetype)ResponseWithError:(nullable NSNumber *)error
                                statusCode:(int32_t)statusCode
-                                  headers:(nonnull NSArray *)headers
+                                  headers:(nonnull NSArray<KHHttpHeader *> *)headers
 {
     return [[self alloc] initWithError:error
                             statusCode:statusCode
                                headers:headers];
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@ %p error:%@ statusCode:%@ headers:%@>", self.class, self, self.error, @(self.statusCode), self.headers];
 }
 
 @end

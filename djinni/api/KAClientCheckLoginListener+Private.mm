@@ -14,23 +14,23 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class ClientCheckLoginListener::ObjcProxy final
 : public ::Kullo::Api::ClientCheckLoginListener
-, public ::djinni::DbxObjcWrapperCache<ObjcProxy>::Handle
+, public ::djinni::ObjcProxyCache::Handle<ObjcType>
 {
 public:
     using Handle::Handle;
     void finished(const std::shared_ptr<::Kullo::Api::Address> & c_address, const std::shared_ptr<::Kullo::Api::MasterKey> & c_masterKey, bool c_valid) override
     {
         @autoreleasepool {
-            [(ObjcType)Handle::get() finished:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
-                                    masterKey:(::ObjCpp::Kullo::Api::MasterKey::fromCpp(c_masterKey))
-                                        valid:(::djinni::Bool::fromCpp(c_valid))];
+            [Handle::get() finished:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
+                          masterKey:(::ObjCpp::Kullo::Api::MasterKey::fromCpp(c_masterKey))
+                              valid:(::djinni::Bool::fromCpp(c_valid))];
         }
     }
     void error(const std::shared_ptr<::Kullo::Api::Address> & c_address, ::Kullo::Api::NetworkError c_error) override
     {
         @autoreleasepool {
-            [(ObjcType)Handle::get() error:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
-                                     error:(::djinni::Enum<::Kullo::Api::NetworkError, KANetworkError>::fromCpp(c_error))];
+            [Handle::get() error:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
+                           error:(::djinni::Enum<::Kullo::Api::NetworkError, KANetworkError>::fromCpp(c_error))];
         }
     }
 };
@@ -44,10 +44,10 @@ auto ClientCheckLoginListener::toCpp(ObjcType objc) -> CppType
     if (!objc) {
         return nullptr;
     }
-    return ::djinni::DbxObjcWrapperCache<ObjcProxy>::getInstance()->get(objc);
+    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
 }
 
-auto ClientCheckLoginListener::fromCpp(const CppType& cpp) -> ObjcType
+auto ClientCheckLoginListener::fromCppOpt(const CppOptType& cpp) -> ObjcType
 {
     if (!cpp) {
         return nil;

@@ -13,20 +13,20 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class ClientGenerateKeysListener::ObjcProxy final
 : public ::Kullo::Api::ClientGenerateKeysListener
-, public ::djinni::DbxObjcWrapperCache<ObjcProxy>::Handle
+, public ::djinni::ObjcProxyCache::Handle<ObjcType>
 {
 public:
     using Handle::Handle;
     void progress(int8_t c_progress) override
     {
         @autoreleasepool {
-            [(ObjcType)Handle::get() progress:(::djinni::I8::fromCpp(c_progress))];
+            [Handle::get() progress:(::djinni::I8::fromCpp(c_progress))];
         }
     }
     void finished(const std::shared_ptr<::Kullo::Api::Registration> & c_registration) override
     {
         @autoreleasepool {
-            [(ObjcType)Handle::get() finished:(::ObjCpp::Kullo::Api::Registration::fromCpp(c_registration))];
+            [Handle::get() finished:(::ObjCpp::Kullo::Api::Registration::fromCpp(c_registration))];
         }
     }
 };
@@ -40,10 +40,10 @@ auto ClientGenerateKeysListener::toCpp(ObjcType objc) -> CppType
     if (!objc) {
         return nullptr;
     }
-    return ::djinni::DbxObjcWrapperCache<ObjcProxy>::getInstance()->get(objc);
+    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
 }
 
-auto ClientGenerateKeysListener::fromCpp(const CppType& cpp) -> ObjcType
+auto ClientGenerateKeysListener::fromCppOpt(const CppOptType& cpp) -> ObjcType
 {
     if (!cpp) {
         return nil;

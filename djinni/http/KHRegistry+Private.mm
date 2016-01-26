@@ -18,7 +18,7 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 @end
 
 @implementation KHRegistry {
-    ::djinni::DbxCppWrapperCache<::Kullo::Http::Registry>::Handle _cppRefHandle;
+    ::djinni::CppProxyCache::Handle<std::shared_ptr<::Kullo::Http::Registry>> _cppRefHandle;
 }
 
 - (id)initWithCpp:(const std::shared_ptr<::Kullo::Http::Registry>&)cppRef
@@ -45,14 +45,12 @@ auto Registry::toCpp(ObjcType objc) -> CppType
     return objc->_cppRefHandle.get();
 }
 
-auto Registry::fromCpp(const CppType& cpp) -> ObjcType
+auto Registry::fromCppOpt(const CppOptType& cpp) -> ObjcType
 {
     if (!cpp) {
         return nil;
     }
-    return ::djinni::DbxCppWrapperCache<::Kullo::Http::Registry>::getInstance()->get(cpp, [] (const CppType& p) {
-        return [[KHRegistry alloc] initWithCpp:p];
-    });
+    return ::djinni::get_cpp_proxy<KHRegistry>(cpp);
 }
 
 } } }  // namespace ObjCpp::Kullo::Http

@@ -14,12 +14,14 @@ class ClientGenerateKeysListener
 {
 public:
     using CppType = std::shared_ptr<::Kullo::Api::ClientGenerateKeysListener>;
+    using CppOptType = std::shared_ptr<::Kullo::Api::ClientGenerateKeysListener>;
     using ObjcType = id<KAClientGenerateKeysListener>;
 
     using Boxed = ClientGenerateKeysListener;
 
     static CppType toCpp(ObjcType objc);
-    static ObjcType fromCpp(const CppType& cpp);
+    static ObjcType fromCppOpt(const CppOptType& cpp);
+    static ObjcType fromCpp(const CppType& cpp) { return fromCppOpt(cpp); }
 
 private:
     class ObjcProxy;

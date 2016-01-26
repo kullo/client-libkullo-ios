@@ -14,12 +14,14 @@ class Registry
 {
 public:
     using CppType = std::shared_ptr<::Kullo::Http::Registry>;
+    using CppOptType = std::shared_ptr<::Kullo::Http::Registry>;
     using ObjcType = KHRegistry*;
 
     using Boxed = Registry;
 
     static CppType toCpp(ObjcType objc);
-    static ObjcType fromCpp(const CppType& cpp);
+    static ObjcType fromCppOpt(const CppOptType& cpp);
+    static ObjcType fromCpp(const CppType& cpp) { return fromCppOpt(cpp); }
 
 private:
     class ObjcProxy;

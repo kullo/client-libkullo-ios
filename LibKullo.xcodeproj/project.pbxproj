@@ -10,8 +10,13 @@
 		651FAFFE1BC400DB00C8B24E /* KIOperationTaskRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 651FAFFC1BC400DB00C8B24E /* KIOperationTaskRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		651FAFFF1BC400DB00C8B24E /* KIOperationTaskRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 651FAFFD1BC400DB00C8B24E /* KIOperationTaskRunner.m */; };
 		651FB0011BC414C200C8B24E /* KIOperationTaskRunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 651FB0001BC414C200C8B24E /* KIOperationTaskRunnerTests.m */; };
-		65B26D931BC8614600EC09A1 /* DJIWeakPtrWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65B26D911BC8614600EC09A1 /* DJIWeakPtrWrapper.mm */; };
-		65B26D941BC8614600EC09A1 /* DJIWeakPtrWrapper+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B26D921BC8614600EC09A1 /* DJIWeakPtrWrapper+Private.h */; };
+		655757931C50FBE300E7B5B3 /* DJIProxyCaches.mm in Sources */ = {isa = PBXBuildFile; fileRef = 655757921C50FBE300E7B5B3 /* DJIProxyCaches.mm */; };
+		655757971C50FBFD00E7B5B3 /* djinni_common.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 655757941C50FBFD00E7B5B3 /* djinni_common.hpp */; };
+		655757981C50FBFD00E7B5B3 /* proxy_cache_impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 655757951C50FBFD00E7B5B3 /* proxy_cache_impl.hpp */; };
+		655757991C50FBFD00E7B5B3 /* proxy_cache_interface.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 655757961C50FBFD00E7B5B3 /* proxy_cache_interface.hpp */; };
+		6566F1021C0DE75400BFC101 /* KASyncerListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 6566F0FF1C0DE75400BFC101 /* KASyncerListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6566F1031C0DE75400BFC101 /* KASyncerListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 6566F1001C0DE75400BFC101 /* KASyncerListener+Private.h */; };
+		6566F1041C0DE75400BFC101 /* KASyncerListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6566F1011C0DE75400BFC101 /* KASyncerListener+Private.mm */; };
 		65B8CE7F1BCFD9FA004446F5 /* KIUrlSessionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B8CE7D1BCFD9FA004446F5 /* KIUrlSessionDelegate.h */; };
 		65B8CE801BCFD9FA004446F5 /* KIUrlSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B8CE7E1BCFD9FA004446F5 /* KIUrlSessionDelegate.m */; };
 		65BCA6141BCE651500C6C059 /* KIRequestBodyInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 65BCA6121BCE651500C6C059 /* KIRequestBodyInputStream.h */; };
@@ -137,9 +142,6 @@
 		65CF1B8E1BC2C28100A9855D /* KASyncer+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AE71BC2C27E00A9855D /* KASyncer+Private.h */; };
 		65CF1B8F1BC2C28200A9855D /* KASyncer+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AE81BC2C27E00A9855D /* KASyncer+Private.mm */; };
 		65CF1B901BC2C28200A9855D /* KASyncer.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AE91BC2C27E00A9855D /* KASyncer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		65CF1B911BC2C28200A9855D /* KASyncerRunListener+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AEA1BC2C27E00A9855D /* KASyncerRunListener+Private.h */; };
-		65CF1B921BC2C28200A9855D /* KASyncerRunListener+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AEB1BC2C27E00A9855D /* KASyncerRunListener+Private.mm */; };
-		65CF1B931BC2C28200A9855D /* KASyncerRunListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AEC1BC2C27E00A9855D /* KASyncerRunListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65CF1B941BC2C28200A9855D /* KASyncMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AED1BC2C27E00A9855D /* KASyncMode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65CF1B951BC2C28200A9855D /* KATask+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1AEE1BC2C27E00A9855D /* KATask+Private.h */; };
 		65CF1B961BC2C28200A9855D /* KATask+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1AEF1BC2C27E00A9855D /* KATask+Private.mm */; };
@@ -184,6 +186,10 @@
 		65CF1BC81BC2C92700A9855D /* KADateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1BC61BC2C92700A9855D /* KADateTime.m */; };
 		65CF1BD51BC2D82300A9855D /* KISystemLogLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CF1BD31BC2D82300A9855D /* KISystemLogLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65CF1BD61BC2D82300A9855D /* KISystemLogLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CF1BD41BC2D82300A9855D /* KISystemLogLogger.m */; };
+		65E8815F1C21A5E1000E9F81 /* KASyncProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = 65E8815B1C21A5E1000E9F81 /* KASyncProgress.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65E881601C21A5E1000E9F81 /* KASyncProgress.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65E8815C1C21A5E1000E9F81 /* KASyncProgress.mm */; };
+		65E881611C21A5E1000E9F81 /* KASyncProgress+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65E8815D1C21A5E1000E9F81 /* KASyncProgress+Private.h */; };
+		65E881621C21A5E1000E9F81 /* KASyncProgress+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65E8815E1C21A5E1000E9F81 /* KASyncProgress+Private.mm */; };
 		65F902E41BEA3E0900FE32EF /* KAAddressNotAvailableReason.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F902E21BEA3E0900FE32EF /* KAAddressNotAvailableReason.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65F902E51BEA3E0900FE32EF /* KADraftState.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F902E31BEA3E0900FE32EF /* KADraftState.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65FE05BA1BC7F8CC00A74BF5 /* DJICppWrapperCache+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE05B11BC7F8CC00A74BF5 /* DJICppWrapperCache+Private.h */; };
@@ -207,8 +213,13 @@
 		651FAFFC1BC400DB00C8B24E /* KIOperationTaskRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIOperationTaskRunner.h; sourceTree = "<group>"; };
 		651FAFFD1BC400DB00C8B24E /* KIOperationTaskRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIOperationTaskRunner.m; sourceTree = "<group>"; };
 		651FB0001BC414C200C8B24E /* KIOperationTaskRunnerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIOperationTaskRunnerTests.m; sourceTree = "<group>"; };
-		65B26D911BC8614600EC09A1 /* DJIWeakPtrWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DJIWeakPtrWrapper.mm; sourceTree = "<group>"; };
-		65B26D921BC8614600EC09A1 /* DJIWeakPtrWrapper+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DJIWeakPtrWrapper+Private.h"; sourceTree = "<group>"; };
+		655757921C50FBE300E7B5B3 /* DJIProxyCaches.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DJIProxyCaches.mm; sourceTree = "<group>"; };
+		655757941C50FBFD00E7B5B3 /* djinni_common.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = djinni_common.hpp; sourceTree = "<group>"; };
+		655757951C50FBFD00E7B5B3 /* proxy_cache_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = proxy_cache_impl.hpp; sourceTree = "<group>"; };
+		655757961C50FBFD00E7B5B3 /* proxy_cache_interface.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = proxy_cache_interface.hpp; sourceTree = "<group>"; };
+		6566F0FF1C0DE75400BFC101 /* KASyncerListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASyncerListener.h; sourceTree = "<group>"; };
+		6566F1001C0DE75400BFC101 /* KASyncerListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KASyncerListener+Private.h"; sourceTree = "<group>"; };
+		6566F1011C0DE75400BFC101 /* KASyncerListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KASyncerListener+Private.mm"; sourceTree = "<group>"; };
 		65B8CE7D1BCFD9FA004446F5 /* KIUrlSessionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIUrlSessionDelegate.h; sourceTree = "<group>"; };
 		65B8CE7E1BCFD9FA004446F5 /* KIUrlSessionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIUrlSessionDelegate.m; sourceTree = "<group>"; };
 		65BCA6121BCE651500C6C059 /* KIRequestBodyInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIRequestBodyInputStream.h; sourceTree = "<group>"; };
@@ -337,9 +348,6 @@
 		65CF1AE71BC2C27E00A9855D /* KASyncer+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KASyncer+Private.h"; sourceTree = "<group>"; };
 		65CF1AE81BC2C27E00A9855D /* KASyncer+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KASyncer+Private.mm"; sourceTree = "<group>"; };
 		65CF1AE91BC2C27E00A9855D /* KASyncer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASyncer.h; sourceTree = "<group>"; };
-		65CF1AEA1BC2C27E00A9855D /* KASyncerRunListener+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KASyncerRunListener+Private.h"; sourceTree = "<group>"; };
-		65CF1AEB1BC2C27E00A9855D /* KASyncerRunListener+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KASyncerRunListener+Private.mm"; sourceTree = "<group>"; };
-		65CF1AEC1BC2C27E00A9855D /* KASyncerRunListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASyncerRunListener.h; sourceTree = "<group>"; };
 		65CF1AED1BC2C27E00A9855D /* KASyncMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASyncMode.h; sourceTree = "<group>"; };
 		65CF1AEE1BC2C27E00A9855D /* KATask+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KATask+Private.h"; sourceTree = "<group>"; };
 		65CF1AEF1BC2C27E00A9855D /* KATask+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KATask+Private.mm"; sourceTree = "<group>"; };
@@ -384,6 +392,10 @@
 		65CF1BC61BC2C92700A9855D /* KADateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KADateTime.m; sourceTree = "<group>"; };
 		65CF1BD31BC2D82300A9855D /* KISystemLogLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KISystemLogLogger.h; sourceTree = "<group>"; };
 		65CF1BD41BC2D82300A9855D /* KISystemLogLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KISystemLogLogger.m; sourceTree = "<group>"; };
+		65E8815B1C21A5E1000E9F81 /* KASyncProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KASyncProgress.h; sourceTree = "<group>"; };
+		65E8815C1C21A5E1000E9F81 /* KASyncProgress.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KASyncProgress.mm; sourceTree = "<group>"; };
+		65E8815D1C21A5E1000E9F81 /* KASyncProgress+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KASyncProgress+Private.h"; sourceTree = "<group>"; };
+		65E8815E1C21A5E1000E9F81 /* KASyncProgress+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "KASyncProgress+Private.mm"; sourceTree = "<group>"; };
 		65F902E21BEA3E0900FE32EF /* KAAddressNotAvailableReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KAAddressNotAvailableReason.h; sourceTree = "<group>"; };
 		65F902E31BEA3E0900FE32EF /* KADraftState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KADraftState.h; sourceTree = "<group>"; };
 		65FE05B11BC7F8CC00A74BF5 /* DJICppWrapperCache+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DJICppWrapperCache+Private.h"; sourceTree = "<group>"; };
@@ -478,134 +490,138 @@
 		65CF1A781BC2C27D00A9855D /* api */ = {
 			isa = PBXGroup;
 			children = (
-				65F902E21BEA3E0900FE32EF /* KAAddressNotAvailableReason.h */,
-				65F902E31BEA3E0900FE32EF /* KADraftState.h */,
-				65CF1A791BC2C27D00A9855D /* KAAccountInfo+Private.h */,
-				65CF1A7A1BC2C27D00A9855D /* KAAccountInfo+Private.mm */,
+				65E8815B1C21A5E1000E9F81 /* KASyncProgress.h */,
+				65E8815C1C21A5E1000E9F81 /* KASyncProgress.mm */,
+				65E8815D1C21A5E1000E9F81 /* KASyncProgress+Private.h */,
+				65E8815E1C21A5E1000E9F81 /* KASyncProgress+Private.mm */,
 				65CF1A7B1BC2C27D00A9855D /* KAAccountInfo.h */,
 				65CF1A7C1BC2C27D00A9855D /* KAAccountInfo.mm */,
+				65CF1A791BC2C27D00A9855D /* KAAccountInfo+Private.h */,
+				65CF1A7A1BC2C27D00A9855D /* KAAccountInfo+Private.mm */,
+				65CF1A7F1BC2C27D00A9855D /* KAAddress.h */,
 				65CF1A7D1BC2C27D00A9855D /* KAAddress+Private.h */,
 				65CF1A7E1BC2C27D00A9855D /* KAAddress+Private.mm */,
-				65CF1A7F1BC2C27D00A9855D /* KAAddress.h */,
+				65F902E21BEA3E0900FE32EF /* KAAddressNotAvailableReason.h */,
+				65CF1A821BC2C27D00A9855D /* KAAsyncTask.h */,
 				65CF1A801BC2C27D00A9855D /* KAAsyncTask+Private.h */,
 				65CF1A811BC2C27D00A9855D /* KAAsyncTask+Private.mm */,
-				65CF1A821BC2C27D00A9855D /* KAAsyncTask.h */,
+				65CF1A851BC2C27D00A9855D /* KAChallenge.h */,
 				65CF1A831BC2C27D00A9855D /* KAChallenge+Private.h */,
 				65CF1A841BC2C27D00A9855D /* KAChallenge+Private.mm */,
-				65CF1A851BC2C27D00A9855D /* KAChallenge.h */,
 				65CF1A861BC2C27D00A9855D /* KAChallengeType.h */,
-				65CF1A871BC2C27D00A9855D /* KAClient+Private.h */,
-				65CF1A881BC2C27D00A9855D /* KAClient+Private.mm */,
 				65CF1A891BC2C27D00A9855D /* KAClient.h */,
 				65CF1A8A1BC2C27D00A9855D /* KAClient.mm */,
+				65CF1A871BC2C27D00A9855D /* KAClient+Private.h */,
+				65CF1A881BC2C27D00A9855D /* KAClient+Private.mm */,
+				65CF1A8D1BC2C27D00A9855D /* KAClientAddressExistsListener.h */,
 				65CF1A8B1BC2C27D00A9855D /* KAClientAddressExistsListener+Private.h */,
 				65CF1A8C1BC2C27D00A9855D /* KAClientAddressExistsListener+Private.mm */,
-				65CF1A8D1BC2C27D00A9855D /* KAClientAddressExistsListener.h */,
+				65CF1A901BC2C27D00A9855D /* KAClientCheckLoginListener.h */,
 				65CF1A8E1BC2C27D00A9855D /* KAClientCheckLoginListener+Private.h */,
 				65CF1A8F1BC2C27D00A9855D /* KAClientCheckLoginListener+Private.mm */,
-				65CF1A901BC2C27D00A9855D /* KAClientCheckLoginListener.h */,
+				65CF1A931BC2C27D00A9855D /* KAClientCreateSessionListener.h */,
 				65CF1A911BC2C27D00A9855D /* KAClientCreateSessionListener+Private.h */,
 				65CF1A921BC2C27D00A9855D /* KAClientCreateSessionListener+Private.mm */,
-				65CF1A931BC2C27D00A9855D /* KAClientCreateSessionListener.h */,
+				65CF1A961BC2C27D00A9855D /* KAClientGenerateKeysListener.h */,
 				65CF1A941BC2C27D00A9855D /* KAClientGenerateKeysListener+Private.h */,
 				65CF1A951BC2C27D00A9855D /* KAClientGenerateKeysListener+Private.mm */,
-				65CF1A961BC2C27D00A9855D /* KAClientGenerateKeysListener.h */,
+				65CF1A991BC2C27D00A9855D /* KAConversations.h */,
 				65CF1A971BC2C27D00A9855D /* KAConversations+Private.h */,
 				65CF1A981BC2C27D00A9855D /* KAConversations+Private.mm */,
-				65CF1A991BC2C27D00A9855D /* KAConversations.h */,
-				65CF1A9A1BC2C27D00A9855D /* KADateTimeBase+Private.h */,
-				65CF1A9B1BC2C27D00A9855D /* KADateTimeBase+Private.mm */,
 				65CF1A9C1BC2C27D00A9855D /* KADateTimeBase.h */,
 				65CF1A9D1BC2C27D00A9855D /* KADateTimeBase.mm */,
+				65CF1A9A1BC2C27D00A9855D /* KADateTimeBase+Private.h */,
+				65CF1A9B1BC2C27D00A9855D /* KADateTimeBase+Private.mm */,
+				65CF1AA01BC2C27D00A9855D /* KADelivery.h */,
 				65CF1A9E1BC2C27D00A9855D /* KADelivery+Private.h */,
 				65CF1A9F1BC2C27D00A9855D /* KADelivery+Private.mm */,
-				65CF1AA01BC2C27D00A9855D /* KADelivery.h */,
 				65CF1AA11BC2C27D00A9855D /* KADeliveryReason.h */,
 				65CF1AA21BC2C27D00A9855D /* KADeliveryState.h */,
+				65CF1AA51BC2C27D00A9855D /* KADraftAttachments.h */,
 				65CF1AA31BC2C27D00A9855D /* KADraftAttachments+Private.h */,
 				65CF1AA41BC2C27D00A9855D /* KADraftAttachments+Private.mm */,
-				65CF1AA51BC2C27D00A9855D /* KADraftAttachments.h */,
+				65CF1AA81BC2C27D00A9855D /* KADraftAttachmentsAddListener.h */,
 				65CF1AA61BC2C27D00A9855D /* KADraftAttachmentsAddListener+Private.h */,
 				65CF1AA71BC2C27D00A9855D /* KADraftAttachmentsAddListener+Private.mm */,
-				65CF1AA81BC2C27D00A9855D /* KADraftAttachmentsAddListener.h */,
+				65CF1AAB1BC2C27D00A9855D /* KADraftAttachmentsContentListener.h */,
 				65CF1AA91BC2C27D00A9855D /* KADraftAttachmentsContentListener+Private.h */,
 				65CF1AAA1BC2C27D00A9855D /* KADraftAttachmentsContentListener+Private.mm */,
-				65CF1AAB1BC2C27D00A9855D /* KADraftAttachmentsContentListener.h */,
+				65CF1AAE1BC2C27D00A9855D /* KADraftAttachmentsSaveToListener.h */,
 				65CF1AAC1BC2C27D00A9855D /* KADraftAttachmentsSaveToListener+Private.h */,
 				65CF1AAD1BC2C27D00A9855D /* KADraftAttachmentsSaveToListener+Private.mm */,
-				65CF1AAE1BC2C27D00A9855D /* KADraftAttachmentsSaveToListener.h */,
+				65CF1AB11BC2C27D00A9855D /* KADrafts.h */,
 				65CF1AAF1BC2C27D00A9855D /* KADrafts+Private.h */,
 				65CF1AB01BC2C27D00A9855D /* KADrafts+Private.mm */,
-				65CF1AB11BC2C27D00A9855D /* KADrafts.h */,
-				65CF1AB21BC2C27D00A9855D /* KAEvent+Private.h */,
-				65CF1AB31BC2C27D00A9855D /* KAEvent+Private.mm */,
+				65F902E31BEA3E0900FE32EF /* KADraftState.h */,
 				65CF1AB41BC2C27D00A9855D /* KAEvent.h */,
 				65CF1AB51BC2C27D00A9855D /* KAEvent.mm */,
+				65CF1AB21BC2C27D00A9855D /* KAEvent+Private.h */,
+				65CF1AB31BC2C27D00A9855D /* KAEvent+Private.mm */,
 				65CF1AB61BC2C27D00A9855D /* KAEventType.h */,
+				65CF1AB91BC2C27D00A9855D /* KAInternalDateTimeUtils.h */,
 				65CF1AB71BC2C27D00A9855D /* KAInternalDateTimeUtils+Private.h */,
 				65CF1AB81BC2C27D00A9855D /* KAInternalDateTimeUtils+Private.mm */,
-				65CF1AB91BC2C27D00A9855D /* KAInternalDateTimeUtils.h */,
+				65CF1ABC1BC2C27D00A9855D /* KAInternalEvent.h */,
 				65CF1ABA1BC2C27D00A9855D /* KAInternalEvent+Private.h */,
 				65CF1ABB1BC2C27D00A9855D /* KAInternalEvent+Private.mm */,
-				65CF1ABC1BC2C27D00A9855D /* KAInternalEvent.h */,
 				65CF1ABD1BC2C27D00A9855D /* KALocalError.h */,
+				65CF1AC01BC2C27D00A9855D /* KALogListener.h */,
 				65CF1ABE1BC2C27D00A9855D /* KALogListener+Private.h */,
 				65CF1ABF1BC2C27D00A9855D /* KALogListener+Private.mm */,
-				65CF1AC01BC2C27D00A9855D /* KALogListener.h */,
 				65CF1AC11BC2C27D00A9855D /* KALogType.h */,
+				65CF1AC41BC2C27D00A9855D /* KAMasterKey.h */,
 				65CF1AC21BC2C27D00A9855D /* KAMasterKey+Private.h */,
 				65CF1AC31BC2C27D00A9855D /* KAMasterKey+Private.mm */,
-				65CF1AC41BC2C27D00A9855D /* KAMasterKey.h */,
+				65CF1AC71BC2C27D00A9855D /* KAMessageAttachments.h */,
 				65CF1AC51BC2C27D00A9855D /* KAMessageAttachments+Private.h */,
 				65CF1AC61BC2C27D00A9855D /* KAMessageAttachments+Private.mm */,
-				65CF1AC71BC2C27D00A9855D /* KAMessageAttachments.h */,
+				65CF1ACA1BC2C27D00A9855D /* KAMessageAttachmentsContentListener.h */,
 				65CF1AC81BC2C27D00A9855D /* KAMessageAttachmentsContentListener+Private.h */,
 				65CF1AC91BC2C27D00A9855D /* KAMessageAttachmentsContentListener+Private.mm */,
-				65CF1ACA1BC2C27D00A9855D /* KAMessageAttachmentsContentListener.h */,
+				65CF1ACD1BC2C27D00A9855D /* KAMessageAttachmentsSaveToListener.h */,
 				65CF1ACB1BC2C27D00A9855D /* KAMessageAttachmentsSaveToListener+Private.h */,
 				65CF1ACC1BC2C27D00A9855D /* KAMessageAttachmentsSaveToListener+Private.mm */,
-				65CF1ACD1BC2C27D00A9855D /* KAMessageAttachmentsSaveToListener.h */,
+				65CF1AD01BC2C27D00A9855D /* KAMessages.h */,
 				65CF1ACE1BC2C27D00A9855D /* KAMessages+Private.h */,
 				65CF1ACF1BC2C27D00A9855D /* KAMessages+Private.mm */,
-				65CF1AD01BC2C27D00A9855D /* KAMessages.h */,
 				65CF1AD11BC2C27D00A9855D /* KANetworkError.h */,
+				65CF1AD41BC2C27D00A9855D /* KARegistration.h */,
 				65CF1AD21BC2C27D00A9855D /* KARegistration+Private.h */,
 				65CF1AD31BC2C27D00A9855D /* KARegistration+Private.mm */,
-				65CF1AD41BC2C27D00A9855D /* KARegistration.h */,
+				65CF1AD71BC2C27D00A9855D /* KARegistrationRegisterAccountListener.h */,
 				65CF1AD51BC2C27D00A9855D /* KARegistrationRegisterAccountListener+Private.h */,
 				65CF1AD61BC2C27D00A9855D /* KARegistrationRegisterAccountListener+Private.mm */,
-				65CF1AD71BC2C27D00A9855D /* KARegistrationRegisterAccountListener.h */,
+				65CF1ADA1BC2C27D00A9855D /* KARegistry.h */,
 				65CF1AD81BC2C27D00A9855D /* KARegistry+Private.h */,
 				65CF1AD91BC2C27D00A9855D /* KARegistry+Private.mm */,
-				65CF1ADA1BC2C27D00A9855D /* KARegistry.h */,
+				65CF1ADD1BC2C27E00A9855D /* KASenders.h */,
 				65CF1ADB1BC2C27D00A9855D /* KASenders+Private.h */,
 				65CF1ADC1BC2C27D00A9855D /* KASenders+Private.mm */,
-				65CF1ADD1BC2C27E00A9855D /* KASenders.h */,
+				65CF1AE01BC2C27E00A9855D /* KASession.h */,
 				65CF1ADE1BC2C27E00A9855D /* KASession+Private.h */,
 				65CF1ADF1BC2C27E00A9855D /* KASession+Private.mm */,
-				65CF1AE01BC2C27E00A9855D /* KASession.h */,
+				65CF1AE31BC2C27E00A9855D /* KASessionAccountInfoListener.h */,
 				65CF1AE11BC2C27E00A9855D /* KASessionAccountInfoListener+Private.h */,
 				65CF1AE21BC2C27E00A9855D /* KASessionAccountInfoListener+Private.mm */,
-				65CF1AE31BC2C27E00A9855D /* KASessionAccountInfoListener.h */,
+				65CF1AE61BC2C27E00A9855D /* KASessionListener.h */,
 				65CF1AE41BC2C27E00A9855D /* KASessionListener+Private.h */,
 				65CF1AE51BC2C27E00A9855D /* KASessionListener+Private.mm */,
-				65CF1AE61BC2C27E00A9855D /* KASessionListener.h */,
+				65CF1AE91BC2C27E00A9855D /* KASyncer.h */,
 				65CF1AE71BC2C27E00A9855D /* KASyncer+Private.h */,
 				65CF1AE81BC2C27E00A9855D /* KASyncer+Private.mm */,
-				65CF1AE91BC2C27E00A9855D /* KASyncer.h */,
-				65CF1AEA1BC2C27E00A9855D /* KASyncerRunListener+Private.h */,
-				65CF1AEB1BC2C27E00A9855D /* KASyncerRunListener+Private.mm */,
-				65CF1AEC1BC2C27E00A9855D /* KASyncerRunListener.h */,
+				6566F0FF1C0DE75400BFC101 /* KASyncerListener.h */,
+				6566F1001C0DE75400BFC101 /* KASyncerListener+Private.h */,
+				6566F1011C0DE75400BFC101 /* KASyncerListener+Private.mm */,
 				65CF1AED1BC2C27E00A9855D /* KASyncMode.h */,
+				65CF1AF01BC2C27E00A9855D /* KATask.h */,
 				65CF1AEE1BC2C27E00A9855D /* KATask+Private.h */,
 				65CF1AEF1BC2C27E00A9855D /* KATask+Private.mm */,
-				65CF1AF01BC2C27E00A9855D /* KATask.h */,
+				65CF1AF31BC2C27E00A9855D /* KATaskRunner.h */,
 				65CF1AF11BC2C27E00A9855D /* KATaskRunner+Private.h */,
 				65CF1AF21BC2C27E00A9855D /* KATaskRunner+Private.mm */,
-				65CF1AF31BC2C27E00A9855D /* KATaskRunner.h */,
+				65CF1AF61BC2C27E00A9855D /* KAUserSettings.h */,
 				65CF1AF41BC2C27E00A9855D /* KAUserSettings+Private.h */,
 				65CF1AF51BC2C27E00A9855D /* KAUserSettings+Private.mm */,
-				65CF1AF61BC2C27E00A9855D /* KAUserSettings.h */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -651,6 +667,9 @@
 			isa = PBXGroup;
 			children = (
 				65FE05B01BC7F8CC00A74BF5 /* objc */,
+				655757941C50FBFD00E7B5B3 /* djinni_common.hpp */,
+				655757951C50FBFD00E7B5B3 /* proxy_cache_impl.hpp */,
+				655757961C50FBFD00E7B5B3 /* proxy_cache_interface.hpp */,
 			);
 			path = "support-lib";
 			sourceTree = "<group>";
@@ -658,13 +677,12 @@
 		65FE05B01BC7F8CC00A74BF5 /* objc */ = {
 			isa = PBXGroup;
 			children = (
-				65B26D911BC8614600EC09A1 /* DJIWeakPtrWrapper.mm */,
-				65B26D921BC8614600EC09A1 /* DJIWeakPtrWrapper+Private.h */,
 				65FE05B11BC7F8CC00A74BF5 /* DJICppWrapperCache+Private.h */,
 				65FE05B21BC7F8CC00A74BF5 /* DJIError.h */,
 				65FE05B31BC7F8CC00A74BF5 /* DJIError.mm */,
 				65FE05B41BC7F8CC00A74BF5 /* DJIMarshal+Private.h */,
 				65FE05B51BC7F8CC00A74BF5 /* DJIObjcWrapperCache+Private.h */,
+				655757921C50FBE300E7B5B3 /* DJIProxyCaches.mm */,
 			);
 			path = objc;
 			sourceTree = "<group>";
@@ -676,6 +694,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65E8815F1C21A5E1000E9F81 /* KASyncProgress.h in Headers */,
+				6566F1021C0DE75400BFC101 /* KASyncerListener.h in Headers */,
 				65CF1BA91BC2C28400A9855D /* KHHttpMethod.h in Headers */,
 				65FE05BB1BC7F8CC00A74BF5 /* DJIError.h in Headers */,
 				65CF1B791BC2C28000A9855D /* KARegistration+Private.h in Headers */,
@@ -709,6 +729,7 @@
 				65CF1BAD1BC2C28500A9855D /* KHRegistry.h in Headers */,
 				65CF1B3A1BC2C27E00A9855D /* KAClientCreateSessionListener.h in Headers */,
 				65CF1B341BC2C27E00A9855D /* KAClientAddressExistsListener.h in Headers */,
+				655757981C50FBFD00E7B5B3 /* proxy_cache_impl.hpp in Headers */,
 				65CF1B9A1BC2C28300A9855D /* KATaskRunner.h in Headers */,
 				65CF1B371BC2C27E00A9855D /* KAClientCheckLoginListener.h in Headers */,
 				65CF1B291BC2C27E00A9855D /* KAAsyncTask.h in Headers */,
@@ -725,10 +746,9 @@
 				65CF1B941BC2C28200A9855D /* KASyncMode.h in Headers */,
 				65CF1BA71BC2C28400A9855D /* KHHttpHeader.h in Headers */,
 				65CF1B221BC2C27E00A9855D /* KAAccountInfo.h in Headers */,
-				65CF1B931BC2C28200A9855D /* KASyncerRunListener.h in Headers */,
+				65E881611C21A5E1000E9F81 /* KASyncProgress+Private.h in Headers */,
 				65CF1B3D1BC2C27E00A9855D /* KAClientGenerateKeysListener.h in Headers */,
 				65CF1B901BC2C28200A9855D /* KASyncer.h in Headers */,
-				65B26D941BC8614600EC09A1 /* DJIWeakPtrWrapper+Private.h in Headers */,
 				65CF1B681BC2C27F00A9855D /* KALogType.h in Headers */,
 				65CF1B4F1BC2C27E00A9855D /* KADraftAttachmentsAddListener.h in Headers */,
 				65CF1B521BC2C27E00A9855D /* KADraftAttachmentsContentListener.h in Headers */,
@@ -742,13 +762,16 @@
 				65CF1B6E1BC2C27F00A9855D /* KAMessageAttachments.h in Headers */,
 				65FE05BD1BC7F8CC00A74BF5 /* DJIMarshal+Private.h in Headers */,
 				65CF1BC71BC2C92700A9855D /* KADateTime.h in Headers */,
+				655757971C50FBFD00E7B5B3 /* djinni_common.hpp in Headers */,
 				65C951B61BC6C38600323570 /* KIUrlSessionHttpClientFactory.h in Headers */,
 				651FAFFE1BC400DB00C8B24E /* KIOperationTaskRunner.h in Headers */,
 				65CF1BD51BC2D82300A9855D /* KISystemLogLogger.h in Headers */,
 				65CF1BB71BC2C28600A9855D /* KHResponse.h in Headers */,
 				65CF1B4D1BC2C27E00A9855D /* KADraftAttachmentsAddListener+Private.h in Headers */,
+				655757991C50FBFD00E7B5B3 /* proxy_cache_interface.hpp in Headers */,
 				65CF1BA21BC2C28300A9855D /* KHHttpClientFactory+Private.h in Headers */,
 				65CF1B351BC2C27E00A9855D /* KAClientCheckLoginListener+Private.h in Headers */,
+				6566F1031C0DE75400BFC101 /* KASyncerListener+Private.h in Headers */,
 				65CF1B411BC2C27E00A9855D /* KADateTimeBase+Private.h in Headers */,
 				65CF1B611BC2C27F00A9855D /* KAInternalEvent+Private.h in Headers */,
 				65CF1B561BC2C27E00A9855D /* KADrafts+Private.h in Headers */,
@@ -775,7 +798,6 @@
 				65CF1B451BC2C27E00A9855D /* KADelivery+Private.h in Headers */,
 				65CF1B7C1BC2C28000A9855D /* KARegistrationRegisterAccountListener+Private.h in Headers */,
 				65CF1B271BC2C27E00A9855D /* KAAsyncTask+Private.h in Headers */,
-				65CF1B911BC2C28200A9855D /* KASyncerRunListener+Private.h in Headers */,
 				65CF1BB51BC2C28600A9855D /* KHResponse+Private.h in Headers */,
 				65CF1B4A1BC2C27E00A9855D /* KADraftAttachments+Private.h in Headers */,
 				65CF1B591BC2C27E00A9855D /* KAEvent+Private.h in Headers */,
@@ -894,6 +916,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65CF1BC81BC2C92700A9855D /* KADateTime.m in Sources */,
+				6566F1041C0DE75400BFC101 /* KASyncerListener+Private.mm in Sources */,
 				65CF1B5C1BC2C27F00A9855D /* KAEvent.mm in Sources */,
 				65CF1B761BC2C28000A9855D /* KAMessages+Private.mm in Sources */,
 				65CF1B2B1BC2C27E00A9855D /* KAChallenge+Private.mm in Sources */,
@@ -904,7 +927,6 @@
 				65CF1B211BC2C27E00A9855D /* KAAccountInfo+Private.mm in Sources */,
 				65CF1B891BC2C28100A9855D /* KASessionAccountInfoListener+Private.mm in Sources */,
 				65CF1B4B1BC2C27E00A9855D /* KADraftAttachments+Private.mm in Sources */,
-				65CF1B921BC2C28200A9855D /* KASyncerRunListener+Private.mm in Sources */,
 				65CF1BA81BC2C28400A9855D /* KHHttpHeader.mm in Sources */,
 				65CF1B6A1BC2C27F00A9855D /* KAMasterKey+Private.mm in Sources */,
 				65CF1B7A1BC2C28000A9855D /* KARegistration+Private.mm in Sources */,
@@ -930,6 +952,7 @@
 				65CF1B701BC2C27F00A9855D /* KAMessageAttachmentsContentListener+Private.mm in Sources */,
 				65CF1B961BC2C28200A9855D /* KATask+Private.mm in Sources */,
 				65CF1BB61BC2C28600A9855D /* KHResponse+Private.mm in Sources */,
+				65E881621C21A5E1000E9F81 /* KASyncProgress+Private.mm in Sources */,
 				65CF1BBB1BC2C28700A9855D /* KHResponseListener+Private.mm in Sources */,
 				65CF1B5F1BC2C27F00A9855D /* KAInternalDateTimeUtils+Private.mm in Sources */,
 				65CF1B861BC2C28100A9855D /* KASession+Private.mm in Sources */,
@@ -947,13 +970,14 @@
 				65B8CE801BCFD9FA004446F5 /* KIUrlSessionDelegate.m in Sources */,
 				65CF1B541BC2C27E00A9855D /* KADraftAttachmentsSaveToListener+Private.mm in Sources */,
 				65C951B71BC6C38600323570 /* KIUrlSessionHttpClientFactory.m in Sources */,
+				65E881601C21A5E1000E9F81 /* KASyncProgress.mm in Sources */,
 				65CF1B251BC2C27E00A9855D /* KAAddress+Private.mm in Sources */,
 				65CF1B231BC2C27E00A9855D /* KAAccountInfo.mm in Sources */,
 				65CF1B661BC2C27F00A9855D /* KALogListener+Private.mm in Sources */,
 				65CF1B391BC2C27E00A9855D /* KAClientCreateSessionListener+Private.mm in Sources */,
+				655757931C50FBE300E7B5B3 /* DJIProxyCaches.mm in Sources */,
 				65CF1B7D1BC2C28000A9855D /* KARegistrationRegisterAccountListener+Private.mm in Sources */,
 				65CF1B421BC2C27E00A9855D /* KADateTimeBase+Private.mm in Sources */,
-				65B26D931BC8614600EC09A1 /* DJIWeakPtrWrapper.mm in Sources */,
 				65CF1B3C1BC2C27E00A9855D /* KAClientGenerateKeysListener+Private.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

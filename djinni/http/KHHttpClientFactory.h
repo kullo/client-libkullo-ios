@@ -10,6 +10,6 @@
 - (nullable id<KHHttpClient>)createHttpClient;
 
 /** Returns pairs of <library name, version number> for the libraries used. */
-- (nonnull NSDictionary *)versions;
+- (nonnull NSDictionary<NSString *, NSString *> *)versions;
 
 @end

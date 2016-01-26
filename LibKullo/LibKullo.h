@@ -1,4 +1,4 @@
-/* Copyright 2015 Kullo GmbH. All rights reserved. */
+/* Copyright 2015-2016 Kullo GmbH. All rights reserved. */
 #import <UIKit/UIKit.h>
 
 //! Project version number for LibKullo.
@@ -51,8 +51,9 @@ FOUNDATION_EXPORT const unsigned char LibKulloVersionString[];
 #import <LibKullo/KASessionAccountInfoListener.h>
 #import <LibKullo/KASessionListener.h>
 #import <LibKullo/KASyncMode.h>
+#import <LibKullo/KASyncProgress.h>
 #import <LibKullo/KASyncer.h>
-#import <LibKullo/KASyncerRunListener.h>
+#import <LibKullo/KASyncerListener.h>
 #import <LibKullo/KATask.h>
 #import <LibKullo/KATaskRunner.h>
 #import <LibKullo/KAUserSettings.h>

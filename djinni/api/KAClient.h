@@ -53,6 +53,6 @@ extern NSString * __nonnull const KAClientSQLITE;
 - (nullable KAAsyncTask *)generateKeysAsync:(nullable id<KAClientGenerateKeysListener>)listener;
 
 /** Returns pairs of <library name, version number> for the libraries used. */
-- (nonnull NSDictionary *)versions;
+- (nonnull NSDictionary<NSString *, NSString *> *)versions;
 
 @end

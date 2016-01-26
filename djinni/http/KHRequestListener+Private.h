@@ -14,12 +14,14 @@ class RequestListener
 {
 public:
     using CppType = std::shared_ptr<::Kullo::Http::RequestListener>;
+    using CppOptType = std::shared_ptr<::Kullo::Http::RequestListener>;
     using ObjcType = KHRequestListener*;
 
     using Boxed = RequestListener;
 
     static CppType toCpp(ObjcType objc);
-    static ObjcType fromCpp(const CppType& cpp);
+    static ObjcType fromCppOpt(const CppOptType& cpp);
+    static ObjcType fromCpp(const CppType& cpp) { return fromCppOpt(cpp); }
 
 private:
     class ObjcProxy;

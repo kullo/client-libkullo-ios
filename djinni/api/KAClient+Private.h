@@ -14,12 +14,14 @@ class Client
 {
 public:
     using CppType = std::shared_ptr<::Kullo::Api::Client>;
+    using CppOptType = std::shared_ptr<::Kullo::Api::Client>;
     using ObjcType = KAClient*;
 
     using Boxed = Client;
 
     static CppType toCpp(ObjcType objc);
-    static ObjcType fromCpp(const CppType& cpp);
+    static ObjcType fromCppOpt(const CppOptType& cpp);
+    static ObjcType fromCpp(const CppType& cpp) { return fromCppOpt(cpp); }
 
 private:
     class ObjcProxy;

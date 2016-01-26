@@ -8,15 +8,15 @@
 @interface KHRequest : NSObject
 - (nonnull instancetype)initWithMethod:(KHHttpMethod)method
                                    url:(nonnull NSString *)url
-                               headers:(nonnull NSArray *)headers;
+                               headers:(nonnull NSArray<KHHttpHeader *> *)headers;
 + (nonnull instancetype)RequestWithMethod:(KHHttpMethod)method
                                       url:(nonnull NSString *)url
-                                  headers:(nonnull NSArray *)headers;
+                                  headers:(nonnull NSArray<KHHttpHeader *> *)headers;
 
 @property (nonatomic, readonly) KHHttpMethod method;
 
 @property (nonatomic, readonly, nonnull) NSString * url;
 
-@property (nonatomic, readonly, nonnull) NSArray * headers;
+@property (nonatomic, readonly, nonnull) NSArray<KHHttpHeader *> * headers;
 
 @end

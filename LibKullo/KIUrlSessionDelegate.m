@@ -1,4 +1,4 @@
-/* Copyright 2015 Kullo GmbH. All rights reserved. */
+/* Copyright 2015-2016 Kullo GmbH. All rights reserved. */
 #import "KIUrlSessionDelegate.h"
 
 @implementation KIUrlSessionDelegate {
@@ -45,6 +45,14 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
                            downloadTransferred:0
                                  downloadTotal:0];
     if (result == KHProgressResultCancel) [task cancel];
+}
+
+- (void)URLSession:(NSURLSession *)session
+              task:(NSURLSessionTask *)task
+didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
+ completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler
+{
+    completionHandler(NSURLSessionAuthChallengeRejectProtectionSpace, NULL);
 }
 
 - (void)URLSession:(NSURLSession *)session
