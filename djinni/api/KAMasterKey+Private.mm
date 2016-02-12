@@ -33,14 +33,14 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 + (nullable KAMasterKey *)createFromPem:(nonnull NSString *)pem {
     try {
         auto r = ::Kullo::Api::MasterKey::createFromPem(::djinni::String::toCpp(pem));
-        return ::ObjCpp::Kullo::Api::MasterKey::fromCpp(r);
+        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::MasterKey>::fromCpp(r);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 + (nullable KAMasterKey *)createFromDataBlocks:(nonnull NSArray<NSString *> *)dataBlocks {
     try {
         auto r = ::Kullo::Api::MasterKey::createFromDataBlocks(::djinni::List<::djinni::String>::toCpp(dataBlocks));
-        return ::ObjCpp::Kullo::Api::MasterKey::fromCpp(r);
+        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::MasterKey>::fromCpp(r);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

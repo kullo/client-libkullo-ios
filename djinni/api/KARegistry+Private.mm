@@ -5,6 +5,7 @@
 #import "KARegistry.h"
 #import "DJICppWrapperCache+Private.h"
 #import "DJIError.h"
+#import "DJIMarshal+Private.h"
 #import "KALogListener+Private.h"
 #import "KATaskRunner+Private.h"
 #include <exception>
@@ -32,7 +33,7 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 + (void)setLogListener:(nullable id<KALogListener>)listener {
     try {
-        ::Kullo::Api::Registry::setLogListener(::ObjCpp::Kullo::Api::LogListener::toCpp(listener));
+        ::Kullo::Api::Registry::setLogListener(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::LogListener>::toCpp(listener));
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

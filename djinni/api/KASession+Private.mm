@@ -14,6 +14,7 @@
 #import "KAInternalEvent+Private.h"
 #import "KAMessageAttachments+Private.h"
 #import "KAMessages+Private.h"
+#import "KAPushToken+Private.h"
 #import "KASenders+Private.h"
 #import "KASessionAccountInfoListener+Private.h"
 #import "KASyncer+Private.h"
@@ -104,16 +105,16 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)registerPushToken:(nonnull NSString *)registrationToken {
+- (nullable KAAsyncTask *)registerPushToken:(nonnull KAPushToken *)token {
     try {
-        auto r = _cppRefHandle.get()->registerPushToken(::djinni::String::toCpp(registrationToken));
+        auto r = _cppRefHandle.get()->registerPushToken(::ObjCpp::Kullo::Api::PushToken::toCpp(token));
         return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(r);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)unregisterPushToken:(nonnull NSString *)registrationToken {
+- (nullable KAAsyncTask *)unregisterPushToken:(nonnull KAPushToken *)token {
     try {
-        auto r = _cppRefHandle.get()->unregisterPushToken(::djinni::String::toCpp(registrationToken));
+        auto r = _cppRefHandle.get()->unregisterPushToken(::ObjCpp::Kullo::Api::PushToken::toCpp(token));
         return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(r);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }

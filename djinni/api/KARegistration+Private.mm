@@ -39,7 +39,7 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
                                       listener:(nullable id<KARegistrationRegisterAccountListener>)listener {
     try {
         auto r = _cppRefHandle.get()->registerAccountAsync(::ObjCpp::Kullo::Api::Address::toCpp(address),
-                                                           ::ObjCpp::Kullo::Api::Challenge::toCpp(challenge),
+                                                           ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::Challenge>::toCpp(challenge),
                                                            ::djinni::String::toCpp(challengeAnswer),
                                                            ::ObjCpp::Kullo::Api::RegistrationRegisterAccountListener::toCpp(listener));
         return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(r);

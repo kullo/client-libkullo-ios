@@ -9,7 +9,7 @@ typedef NS_ENUM(NSInteger, KANetworkError)
     KANetworkErrorForbidden,
     /** Client and server protocol incompatible; should check for update */
     KANetworkErrorProtocol,
-    /** Bad login info (address + master key) */
+    /** Bad credentials (address + master key) */
     KANetworkErrorUnauthorized,
     /** Server-side error */
     KANetworkErrorServer,

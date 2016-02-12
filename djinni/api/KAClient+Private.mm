@@ -10,7 +10,7 @@
 #import "KAAsyncTask+Private.h"
 #import "KAClient+Private.h"
 #import "KAClientAddressExistsListener+Private.h"
-#import "KAClientCheckLoginListener+Private.h"
+#import "KAClientCheckCredentialsListener+Private.h"
 #import "KAClientCreateSessionListener+Private.h"
 #import "KAClientGenerateKeysListener+Private.h"
 #import "KAMasterKey+Private.h"
@@ -68,13 +68,13 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)checkLoginAsync:(nullable KAAddress *)address
-                                masterKey:(nullable KAMasterKey *)masterKey
-                                 listener:(nullable id<KAClientCheckLoginListener>)listener {
+- (nullable KAAsyncTask *)checkCredentialsAsync:(nullable KAAddress *)address
+                                      masterKey:(nullable KAMasterKey *)masterKey
+                                       listener:(nullable id<KAClientCheckCredentialsListener>)listener {
     try {
-        auto r = _cppRefHandle.get()->checkLoginAsync(::ObjCpp::Kullo::Api::Address::toCpp(address),
-                                                      ::ObjCpp::Kullo::Api::MasterKey::toCpp(masterKey),
-                                                      ::ObjCpp::Kullo::Api::ClientCheckLoginListener::toCpp(listener));
+        auto r = _cppRefHandle.get()->checkCredentialsAsync(::ObjCpp::Kullo::Api::Address::toCpp(address),
+                                                            ::ObjCpp::Kullo::Api::MasterKey::toCpp(masterKey),
+                                                            ::ObjCpp::Kullo::Api::ClientCheckCredentialsListener::toCpp(listener));
         return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(r);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }

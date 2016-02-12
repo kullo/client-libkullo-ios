@@ -9,6 +9,7 @@
 
 - (nonnull NSString *)name:(int64_t)msgId;
 
+/** Returns null if the msgId is invalid */
 - (nullable KAAddress *)address:(int64_t)msgId;
 
 - (nonnull NSString *)organization:(int64_t)msgId;

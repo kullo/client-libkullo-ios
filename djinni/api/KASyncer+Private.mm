@@ -6,7 +6,7 @@
 #import "DJICppWrapperCache+Private.h"
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
-#import "KAAsyncTask+Private.h"
+#import "KADateTimeBase+Private.h"
 #import "KASyncerListener+Private.h"
 #include <exception>
 #include <utility>
@@ -37,6 +37,13 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
+- (nullable KADateTime *)lastFullSync {
+    try {
+        auto r = _cppRefHandle.get()->lastFullSync();
+        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::DateTime>::fromCpp(r);
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
 - (void)requestSync:(KASyncMode)mode {
     try {
         _cppRefHandle.get()->requestSync(::djinni::Enum<::Kullo::Api::SyncMode, KASyncMode>::toCpp(mode));
@@ -49,10 +56,29 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)asyncTask {
+- (void)cancel {
     try {
-        auto r = _cppRefHandle.get()->asyncTask();
-        return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(r);
+        _cppRefHandle.get()->cancel();
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
+- (BOOL)isSyncing {
+    try {
+        auto r = _cppRefHandle.get()->isSyncing();
+        return ::djinni::Bool::fromCpp(r);
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
+- (void)waitUntilDone {
+    try {
+        _cppRefHandle.get()->waitUntilDone();
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
+- (BOOL)waitForMs:(int32_t)timeout {
+    try {
+        auto r = _cppRefHandle.get()->waitForMs(::djinni::I32::toCpp(timeout));
+        return ::djinni::Bool::fromCpp(r);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

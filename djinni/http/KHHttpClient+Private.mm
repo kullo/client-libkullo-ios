@@ -25,8 +25,8 @@ public:
         @autoreleasepool {
             auto r = [Handle::get() sendRequest:(::ObjCpp::Kullo::Http::Request::fromCpp(c_request))
                                         timeout:(::djinni::I64::fromCpp(c_timeout))
-                                requestListener:(::ObjCpp::Kullo::Http::RequestListener::fromCpp(c_requestListener))
-                               responseListener:(::ObjCpp::Kullo::Http::ResponseListener::fromCpp(c_responseListener))];
+                                requestListener:(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Http::RequestListener>::fromCpp(c_requestListener))
+                               responseListener:(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Http::ResponseListener>::fromCpp(c_responseListener))];
             return ::ObjCpp::Kullo::Http::Response::toCpp(r);
         }
     }

@@ -33,7 +33,7 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 + (nullable KAAddress *)create:(nonnull NSString *)address {
     try {
         auto r = ::Kullo::Api::Address::create(::djinni::String::toCpp(address));
-        return ::ObjCpp::Kullo::Api::Address::fromCpp(r);
+        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::Address>::fromCpp(r);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

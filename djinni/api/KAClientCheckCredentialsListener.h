@@ -7,8 +7,8 @@
 @class KAMasterKey;
 
 
-/** Listener used in Client.checkLoginAsync() */
-@protocol KAClientCheckLoginListener
+/** Listener used in Client.checkCredentialsAsync() */
+@protocol KAClientCheckCredentialsListener
 
 - (void)finished:(nullable KAAddress *)address
        masterKey:(nullable KAMasterKey *)masterKey

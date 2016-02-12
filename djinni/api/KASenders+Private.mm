@@ -40,7 +40,7 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 - (nullable KAAddress *)address:(int64_t)msgId {
     try {
         auto r = _cppRefHandle.get()->address(::djinni::I64::toCpp(msgId));
-        return ::ObjCpp::Kullo::Api::Address::fromCpp(r);
+        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::Address>::fromCpp(r);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

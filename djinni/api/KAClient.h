@@ -8,7 +8,7 @@
 @class KAMasterKey;
 @class KAUserSettings;
 @protocol KAClientAddressExistsListener;
-@protocol KAClientCheckLoginListener;
+@protocol KAClientCheckCredentialsListener;
 @protocol KAClientCreateSessionListener;
 @protocol KAClientGenerateKeysListener;
 @protocol KASessionListener;
@@ -45,9 +45,9 @@ extern NSString * __nonnull const KAClientSQLITE;
                                     listener:(nullable id<KAClientAddressExistsListener>)listener;
 
 /** Check whether the master key is valid for the given address. */
-- (nullable KAAsyncTask *)checkLoginAsync:(nullable KAAddress *)address
-                                masterKey:(nullable KAMasterKey *)masterKey
-                                 listener:(nullable id<KAClientCheckLoginListener>)listener;
+- (nullable KAAsyncTask *)checkCredentialsAsync:(nullable KAAddress *)address
+                                      masterKey:(nullable KAMasterKey *)masterKey
+                                       listener:(nullable id<KAClientCheckCredentialsListener>)listener;
 
 /** Generate new keys, which is the first step to registering an account. */
 - (nullable KAAsyncTask *)generateKeysAsync:(nullable id<KAClientGenerateKeysListener>)listener;
