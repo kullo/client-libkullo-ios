@@ -42,12 +42,12 @@
     urlRequest.HTTPMethod = methodString;
 }
 
-- (void)setTimeout:(int64_t)timeout ofRequest:(nonnull NSMutableURLRequest *)urlRequest
+- (void)setTimeoutMs:(int64_t)timeoutMs ofRequest:(nonnull NSMutableURLRequest *)urlRequest
 {
     // round timeouts to 1s if they would have been rounded to 0 otherwise
-    if (timeout > 0 && timeout <= 500) timeout = 1000;
+    if (timeoutMs > 0 && timeoutMs <= 500) timeoutMs = 1000;
 
-    long long timeoutSeconds = llround(timeout / 1000.0);
+    long long timeoutSeconds = llround(timeoutMs / 1000.0);
     if (timeoutSeconds > 0) urlRequest.timeoutInterval = timeoutSeconds;
 }
 
@@ -90,17 +90,17 @@
 }
 
 - (nonnull KHResponse *)sendRequest:(nonnull KHRequest *)request
-                            timeout:(int64_t)timeout
+                          timeoutMs:(int32_t)timeoutMs
                     requestListener:(nullable KHRequestListener *)requestListener
                    responseListener:(nullable KHResponseListener *)responseListener
 {
-    NSAssert(timeout >= 0, @"timeout cannot be negative");
+    NSAssert(timeoutMs >= 0, @"timeout cannot be negative");
 
     // create request
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest
                                        requestWithURL:[NSURL URLWithString:request.url]];
     [self setMethod:request.method ofRequest:urlRequest];
-    [self setTimeout:timeout ofRequest:urlRequest];
+    [self setTimeoutMs:timeoutMs ofRequest:urlRequest];
     [self setHeaders:request.headers ofRequest:urlRequest];
 
     if (requestListener)

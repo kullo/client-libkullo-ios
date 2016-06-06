@@ -29,7 +29,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ %p method:%@ url:%@ headers:%@>", self.class, self, @(self.method), self.url, self.headers];
+    return [NSString stringWithFormat:@"<%@ %p method:%@ url:%@ headers:%@>", self.class, (void *)self, @(self.method), self.url, self.headers];
 }
 
 @end

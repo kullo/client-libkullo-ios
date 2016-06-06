@@ -6,7 +6,7 @@
 
 - (nullable id<KHHttpClient>)createHttpClient
 {
-    return [[KIUrlSessionHttpClient alloc] init];
+    return [KIUrlSessionHttpClient new];
 }
 
 - (nonnull NSDictionary *)versions

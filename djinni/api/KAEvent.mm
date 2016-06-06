@@ -33,7 +33,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ %p event:%@ conversationId:%@ messageId:%@ attachmentId:%@>", self.class, self, @(self.event), @(self.conversationId), @(self.messageId), @(self.attachmentId)];
+    return [NSString stringWithFormat:@"<%@ %p event:%@ conversationId:%@ messageId:%@ attachmentId:%@>", self.class, (void *)self, @(self.event), @(self.conversationId), @(self.messageId), @(self.attachmentId)];
 }
 
 @end

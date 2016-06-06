@@ -9,7 +9,6 @@
 #import "KAAddress+Private.h"
 #import "KADateTimeBase+Private.h"
 #import "KAMasterKey+Private.h"
-#import "KAUserSettings+Private.h"
 #include <exception>
 #include <utility>
 
@@ -31,15 +30,6 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
         _cppRefHandle.assign(cppRef);
     }
     return self;
-}
-
-+ (nullable KAUserSettings *)create:(nullable KAAddress *)address
-                          masterKey:(nullable KAMasterKey *)masterKey {
-    try {
-        auto r = ::Kullo::Api::UserSettings::create(::ObjCpp::Kullo::Api::Address::toCpp(address),
-                                                    ::ObjCpp::Kullo::Api::MasterKey::toCpp(masterKey));
-        return ::ObjCpp::Kullo::Api::UserSettings::fromCpp(r);
-    } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nullable KAAddress *)address {
@@ -121,29 +111,16 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (BOOL)keyBackupConfirmed {
+- (nullable KADateTime *)nextMasterKeyBackupReminder {
     try {
-        auto r = _cppRefHandle.get()->keyBackupConfirmed();
-        return ::djinni::Bool::fromCpp(r);
-    } DJINNI_TRANSLATE_EXCEPTIONS()
-}
-
-- (void)setKeyBackupConfirmed {
-    try {
-        _cppRefHandle.get()->setKeyBackupConfirmed();
-    } DJINNI_TRANSLATE_EXCEPTIONS()
-}
-
-- (nullable KADateTime *)keyBackupDontRemindBefore {
-    try {
-        auto r = _cppRefHandle.get()->keyBackupDontRemindBefore();
+        auto r = _cppRefHandle.get()->nextMasterKeyBackupReminder();
         return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::DateTime>::fromCpp(r);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (void)setKeyBackupDontRemindBefore:(nullable KADateTime *)dontRemindBefore {
+- (void)setNextMasterKeyBackupReminder:(nullable KADateTime *)reminderDate {
     try {
-        _cppRefHandle.get()->setKeyBackupDontRemindBefore(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::DateTime>::toCpp(dontRemindBefore));
+        _cppRefHandle.get()->setNextMasterKeyBackupReminder(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::DateTime>::toCpp(reminderDate));
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

@@ -6,7 +6,6 @@
 @class KAAsyncTask;
 @class KAClient;
 @class KAMasterKey;
-@class KAUserSettings;
 @protocol KAClientAddressExistsListener;
 @protocol KAClientCheckCredentialsListener;
 @protocol KAClientCreateSessionListener;
@@ -35,7 +34,8 @@ extern NSString * __nonnull const KAClientSQLITE;
  *
  * Attention: Don't ever re-use the same DB file for multiple accounts!
  */
-- (nullable KAAsyncTask *)createSessionAsync:(nullable KAUserSettings *)settings
+- (nullable KAAsyncTask *)createSessionAsync:(nullable KAAddress *)address
+                                   masterKey:(nullable KAMasterKey *)masterKey
                                   dbFilePath:(nonnull NSString *)dbFilePath
                              sessionListener:(nullable id<KASessionListener>)sessionListener
                                     listener:(nullable id<KAClientCreateSessionListener>)listener;

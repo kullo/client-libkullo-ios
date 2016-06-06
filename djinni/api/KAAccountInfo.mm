@@ -21,7 +21,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ %p settingsUrl:%@>", self.class, self, self.settingsUrl];
+    return [NSString stringWithFormat:@"<%@ %p settingsUrl:%@>", self.class, (void *)self, self.settingsUrl];
 }
 
 @end

@@ -49,7 +49,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ %p countLeft:%@ countProcessed:%@ countTotal:%@ countNew:%@ countNewUnread:%@ countModified:%@ countDeleted:%@ runTimeMs:%@>", self.class, self, @(self.countLeft), @(self.countProcessed), @(self.countTotal), @(self.countNew), @(self.countNewUnread), @(self.countModified), @(self.countDeleted), @(self.runTimeMs)];
+    return [NSString stringWithFormat:@"<%@ %p countLeft:%@ countProcessed:%@ countTotal:%@ countNew:%@ countNewUnread:%@ countModified:%@ countDeleted:%@ runTimeMs:%@>", self.class, (void *)self, @(self.countLeft), @(self.countProcessed), @(self.countTotal), @(self.countNew), @(self.countNewUnread), @(self.countModified), @(self.countDeleted), @(self.runTimeMs)];
 }
 
 @end

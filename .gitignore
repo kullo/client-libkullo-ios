@@ -1,3 +1,9 @@
 *.swp
 xcuserdata
 /build
+
+# Finder
+.DS_Store
+
+# Text file backups (e.g. from joe)
+*~

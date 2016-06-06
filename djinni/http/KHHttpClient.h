@@ -14,12 +14,12 @@
  * Synchronously send the given request.
  * Not thread-safe! Use a separate HttpClient instance per thread.
  *
- * * timeout is measured in milliseconds
+ * * timeout in milliseconds or 0 for no timeout
  * * requestListener must be non-null if method is PATCH, POST or PUT
  * * responseListener may be null
  */
 - (nonnull KHResponse *)sendRequest:(nonnull KHRequest *)request
-                            timeout:(int64_t)timeout
+                          timeoutMs:(int32_t)timeoutMs
                     requestListener:(nullable KHRequestListener *)requestListener
                    responseListener:(nullable KHResponseListener *)responseListener;
 

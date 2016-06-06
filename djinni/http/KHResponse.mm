@@ -29,7 +29,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ %p error:%@ statusCode:%@ headers:%@>", self.class, self, self.error, @(self.statusCode), self.headers];
+    return [NSString stringWithFormat:@"<%@ %p error:%@ statusCode:%@ headers:%@>", self.class, (void *)self, self.error, @(self.statusCode), self.headers];
 }
 
 @end

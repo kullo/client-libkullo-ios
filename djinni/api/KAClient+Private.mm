@@ -15,7 +15,6 @@
 #import "KAClientGenerateKeysListener+Private.h"
 #import "KAMasterKey+Private.h"
 #import "KASessionListener+Private.h"
-#import "KAUserSettings+Private.h"
 #include <exception>
 #include <utility>
 
@@ -46,12 +45,14 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)createSessionAsync:(nullable KAUserSettings *)settings
+- (nullable KAAsyncTask *)createSessionAsync:(nullable KAAddress *)address
+                                   masterKey:(nullable KAMasterKey *)masterKey
                                   dbFilePath:(nonnull NSString *)dbFilePath
                              sessionListener:(nullable id<KASessionListener>)sessionListener
                                     listener:(nullable id<KAClientCreateSessionListener>)listener {
     try {
-        auto r = _cppRefHandle.get()->createSessionAsync(::ObjCpp::Kullo::Api::UserSettings::toCpp(settings),
+        auto r = _cppRefHandle.get()->createSessionAsync(::ObjCpp::Kullo::Api::Address::toCpp(address),
+                                                         ::ObjCpp::Kullo::Api::MasterKey::toCpp(masterKey),
                                                          ::djinni::String::toCpp(dbFilePath),
                                                          ::ObjCpp::Kullo::Api::SessionListener::toCpp(sessionListener),
                                                          ::ObjCpp::Kullo::Api::ClientCreateSessionListener::toCpp(listener));

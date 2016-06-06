@@ -5,14 +5,10 @@
 #import <Foundation/Foundation.h>
 @class KAAddress;
 @class KAMasterKey;
-@class KAUserSettings;
 
 
 /** Settings specific to the local user */
 @interface KAUserSettings : NSObject
-
-+ (nullable KAUserSettings *)create:(nullable KAAddress *)address
-                          masterKey:(nullable KAMasterKey *)masterKey;
 
 /** Kullo address (e.g. "john.doe#kullo.net") */
 - (nullable KAAddress *)address;
@@ -47,18 +43,12 @@
 
 - (void)setAvatar:(nonnull NSData *)avatar;
 
-/** Whether the masterKey has been backed up by the user. Defaults to false. */
-- (BOOL)keyBackupConfirmed;
-
-/** Sets keyBackupConfirmed to true and nulls keyBackupDontRemindBefore. */
-- (void)setKeyBackupConfirmed;
-
 /**
  * When to show the next backup reminder. Returns null if no reminder date
  * is set. Defaults to a date in the past.
  */
-- (nullable KADateTime *)keyBackupDontRemindBefore;
+- (nullable KADateTime *)nextMasterKeyBackupReminder;
 
-- (void)setKeyBackupDontRemindBefore:(nullable KADateTime *)dontRemindBefore;
+- (void)setNextMasterKeyBackupReminder:(nullable KADateTime *)reminderDate;
 
 @end

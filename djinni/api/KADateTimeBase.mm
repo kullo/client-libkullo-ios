@@ -28,7 +28,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ %p year:%@ month:%@ day:%@ hour:%@ minute:%@ second:%@ tzOffsetMinutes:%@>", self.class, self, @(self.year), @(self.month), @(self.day), @(self.hour), @(self.minute), @(self.second), @(self.tzOffsetMinutes)];
+    return [NSString stringWithFormat:@"<%@ %p year:%@ month:%@ day:%@ hour:%@ minute:%@ second:%@ tzOffsetMinutes:%@>", self.class, (void *)self, @(self.year), @(self.month), @(self.day), @(self.hour), @(self.minute), @(self.second), @(self.tzOffsetMinutes)];
 }
 
 @end

@@ -20,11 +20,11 @@ class HttpClient::ObjcProxy final
 {
 public:
     using Handle::Handle;
-    ::Kullo::Http::Response sendRequest(const ::Kullo::Http::Request & c_request, int64_t c_timeout, const std::shared_ptr<::Kullo::Http::RequestListener> & c_requestListener, const std::shared_ptr<::Kullo::Http::ResponseListener> & c_responseListener) override
+    ::Kullo::Http::Response sendRequest(const ::Kullo::Http::Request & c_request, int32_t c_timeoutMs, const std::shared_ptr<::Kullo::Http::RequestListener> & c_requestListener, const std::shared_ptr<::Kullo::Http::ResponseListener> & c_responseListener) override
     {
         @autoreleasepool {
             auto r = [Handle::get() sendRequest:(::ObjCpp::Kullo::Http::Request::fromCpp(c_request))
-                                        timeout:(::djinni::I64::fromCpp(c_timeout))
+                                      timeoutMs:(::djinni::I32::fromCpp(c_timeoutMs))
                                 requestListener:(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Http::RequestListener>::fromCpp(c_requestListener))
                                responseListener:(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Http::ResponseListener>::fromCpp(c_responseListener))];
             return ::ObjCpp::Kullo::Http::Response::toCpp(r);

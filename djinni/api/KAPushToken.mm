@@ -29,7 +29,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ %p type:%@ token:%@ environment:%@>", self.class, self, @(self.type), self.token, @(self.environment)];
+    return [NSString stringWithFormat:@"<%@ %p type:%@ token:%@ environment:%@>", self.class, (void *)self, @(self.type), self.token, @(self.environment)];
 }
 
 @end

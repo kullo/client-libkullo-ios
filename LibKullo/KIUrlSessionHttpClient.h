@@ -5,7 +5,7 @@
 @interface KIUrlSessionHttpClient : NSObject <KHHttpClient>
 
 - (nonnull KHResponse *)sendRequest:(nonnull KHRequest *)request
-                            timeout:(int64_t)timeout
+                          timeoutMs:(int32_t)timeoutMs
                     requestListener:(nullable KHRequestListener *)requestListener
                    responseListener:(nullable KHResponseListener *)responseListener;
 
