@@ -9,9 +9,10 @@
 
 @interface KIUrlSessionHttpClient () {
     NSOperationQueue *queue;
+    KIUrlSessionDelegate *sessionDelegate;
+    NSURLSession *session;
 }
 
-- (instancetype)init;
 @end
 
 @implementation KIUrlSessionHttpClient
@@ -21,9 +22,19 @@
     self = [super init];
     if (self)
     {
-        queue = [[NSOperationQueue alloc] init];
+        queue = [NSOperationQueue new];
+        sessionDelegate = [KIUrlSessionDelegate new];
+        session = [self createSession];
     }
     return self;
+}
+
+- (NSURLSession *)createSession
+{
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    return [NSURLSession sessionWithConfiguration:config
+                                         delegate:sessionDelegate
+                                    delegateQueue:queue];
 }
 
 - (void)setMethod:(KHHttpMethod)method ofRequest:(nonnull NSMutableURLRequest *)urlRequest
@@ -89,6 +100,8 @@
     return result;
 }
 
+#pragma mark KHHttpClient
+
 - (nonnull KHResponse *)sendRequest:(nonnull KHRequest *)request
                           timeoutMs:(int32_t)timeoutMs
                     requestListener:(nullable KHRequestListener *)requestListener
@@ -109,50 +122,23 @@
                                      initWithRequestListener:requestListener];
     }
 
-    // create session
-    __block NSHTTPURLResponse *httpResp;
-    __block NSError *respError;
-    __block NSConditionLock *finishedLock = [[NSConditionLock alloc] initWithCondition:NO];
-
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-    KIUrlSessionDelegate *delegate = [[KIUrlSessionDelegate alloc]
-                                      initWithResponseListener:responseListener
-                                      completionHandler:^(NSHTTPURLResponse * _Nullable response,
-                                                          NSError * _Nullable error) {
-#if 0
-                                          NSLog(@"response: %@, error: %@\n", response, error);
-#endif
-
-                                          httpResp = response;
-                                          respError = error;
-
-                                          // signal that we are finished
-                                          [finishedLock lock];
-                                          [finishedLock unlockWithCondition:YES];
-                                      }];
-
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:config
-                                                          delegate:delegate
-                                                     delegateQueue:queue];
+    [sessionDelegate resetWithResponseListener:responseListener];
     [[session dataTaskWithRequest:urlRequest] resume];
-
-    // wait for finish
-    [finishedLock lockWhenCondition:YES];
-    [finishedLock unlock];
+    [sessionDelegate waitForCompletion];
 
     NSNumber *error = nil;
     int32_t statusCode = 0;
     NSArray<KHHttpHeader*> *headers = @[];
-    if (respError)
+    if (sessionDelegate.error)
     {
-        error = [self convertToResponseError:respError];
+        error = [self convertToResponseError:sessionDelegate.error];
     }
     else // success
     {
-        NSAssert(httpResp, @"httpResp must be non-null");
-        NSAssert(httpResp.statusCode <= UINT32_MAX, @"statusCode must fit into uint32_t");
-        statusCode = (uint32_t)httpResp.statusCode;
-        headers = [self convertToHttpHeaders:httpResp.allHeaderFields];
+        NSAssert(sessionDelegate.response, @"httpResp must be non-null");
+        NSAssert(sessionDelegate.response.statusCode <= UINT32_MAX, @"statusCode must fit into uint32_t");
+        statusCode = (uint32_t)sessionDelegate.response.statusCode;
+        headers = [self convertToHttpHeaders:sessionDelegate.response.allHeaderFields];
     }
 
     return [KHResponse ResponseWithError:error

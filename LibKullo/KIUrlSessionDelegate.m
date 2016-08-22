@@ -2,20 +2,22 @@
 #import "KIUrlSessionDelegate.h"
 
 @implementation KIUrlSessionDelegate {
-    KHResponseListener *_respL;
-    KIUSDCompletionHandler _completionHandler;
+    KHResponseListener *_responseListener;
+    NSConditionLock *_finishedLock;
 }
 
-- (nullable instancetype)initWithResponseListener:(nonnull KHResponseListener *)respL
-                                completionHandler:(nonnull KIUSDCompletionHandler)completionHandler;
+- (void)resetWithResponseListener:(KHResponseListener *)responseListener
 {
-    self = [super init];
-    if (self)
-    {
-        _respL = respL;
-        _completionHandler = completionHandler;
-    }
-    return self;
+    _response = NULL;
+    _error = NULL;
+    _responseListener = responseListener;
+    _finishedLock = [[NSConditionLock alloc] initWithCondition:NO];
+}
+
+- (void)waitForCompletion
+{
+    [_finishedLock lockWhenCondition:YES];
+    [_finishedLock unlock];
 }
 
 #pragma mark NSURLSessionDataDelegate
@@ -24,11 +26,11 @@
           dataTask:(NSURLSessionDataTask *)dataTask
     didReceiveData:(NSData *)data
 {
-    [_respL dataReceived:data];
-    KHProgressResult result = [_respL progress:dataTask.countOfBytesSent
-                                   uploadTotal:dataTask.countOfBytesExpectedToSend
-                           downloadTransferred:dataTask.countOfBytesReceived
-                                 downloadTotal:dataTask.countOfBytesExpectedToReceive];
+    [_responseListener dataReceived:data];
+    KHProgressResult result = [_responseListener progress:dataTask.countOfBytesSent
+                                              uploadTotal:dataTask.countOfBytesExpectedToSend
+                                      downloadTransferred:dataTask.countOfBytesReceived
+                                            downloadTotal:dataTask.countOfBytesExpectedToReceive];
     if (result == KHProgressResultCancel) [dataTask cancel];
 }
 
@@ -40,10 +42,10 @@
     totalBytesSent:(int64_t)totalBytesSent
 totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
 {
-    KHProgressResult result = [_respL progress:totalBytesSent
-                                   uploadTotal:totalBytesExpectedToSend
-                           downloadTransferred:0
-                                 downloadTotal:0];
+    KHProgressResult result = [_responseListener progress:totalBytesSent
+                                              uploadTotal:totalBytesExpectedToSend
+                                      downloadTransferred:0
+                                            downloadTotal:0];
     if (result == KHProgressResultCancel) [task cancel];
 }
 
@@ -59,7 +61,16 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error
 {
-    _completionHandler((NSHTTPURLResponse *)task.response, error);
+    _response = task.response;
+    _error = error;
+
+#if 0
+    NSLog(@"response: %@, error: %@\n", _response, _error);
+#endif
+
+    // signal that we are finished
+    [_finishedLock lock];
+    [_finishedLock unlockWithCondition:YES];
 }
 
 #pragma mark NSURLSessionDelegate

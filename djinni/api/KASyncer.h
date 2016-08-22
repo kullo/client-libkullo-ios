@@ -19,37 +19,63 @@
  */
 @interface KASyncer : NSObject
 
-/** Set or replace the SyncerListener which should receive sync events. */
+/**
+ * Set or replace the SyncerListener which should receive sync events.
+ *
+ * Thread-safe.
+ */
 - (void)setListener:(nullable id<KASyncerListener>)listener;
 
 /**
  * Get the finishing time of the last successful full sync.
  * A full sync is one with "WithoutAttachments" or "Everything" sync mode.
  * Returns null if there hasn't been a sync yet.
+ *
+ * Thread-safe.
  */
 - (nullable KADateTime *)lastFullSync;
 
-/** Request that the data specified in mode is synced. */
+/**
+ * Request that the data specified in mode is synced.
+ *
+ * Thread-safe.
+ */
 - (void)requestSync:(KASyncMode)mode;
 
-/** Request that all attachments for the given message are downloaded. */
+/**
+ * Request that all attachments for the given message are downloaded.
+ *
+ * Thread-safe.
+ */
 - (void)requestDownloadingAttachmentsForMessage:(int64_t)msgId;
 
 /**
  * Cancels the running sync and enqueued syncs, but doesn't wait for
  * termination. Stops all callbacks, even if the task continues to run.
+ *
+ * Thread-safe.
  */
 - (void)cancel;
 
-/** Returns true iff a sync is currently running. */
+/**
+ * Returns true iff a sync is currently running.
+ *
+ * Thread-safe.
+ */
 - (BOOL)isSyncing;
 
-/** Blocks until the running sync and all enqueued syncs have finished. */
+/**
+ * Blocks until the running sync and all enqueued syncs have finished.
+ *
+ * Thread-safe.
+ */
 - (void)waitUntilDone;
 
 /**
  * Blocks until the sync and all enqueued syncs have finished executing or
  * until the timeout has expired. Returns false on timeout, true otherwise.
+ *
+ * Thread-safe.
  */
 - (BOOL)waitForMs:(int32_t)timeout;
 

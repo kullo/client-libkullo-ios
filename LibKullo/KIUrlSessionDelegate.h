@@ -2,13 +2,13 @@
 #import <Foundation/Foundation.h>
 #import "KHResponseListener.h"
 
-typedef void (^KIUSDCompletionHandler)(NSHTTPURLResponse * _Nullable response,
-                                       NSError * _Nullable error);
-
 @interface KIUrlSessionDelegate
     : NSObject <NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 
-- (nullable instancetype)initWithResponseListener:(nonnull KHResponseListener *)respL
-                                completionHandler:(nonnull KIUSDCompletionHandler)completionHandler;
+@property (nullable,readonly) NSHTTPURLResponse *response;
+@property (nullable,readonly) NSError *error;
+
+- (void)resetWithResponseListener:(nonnull KHResponseListener *)responseListener;
+- (void)waitForCompletion;
 
 @end
