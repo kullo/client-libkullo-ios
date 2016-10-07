@@ -26,10 +26,11 @@
 - (int64_t)add:(nonnull NSSet<KAAddress *> *)participants;
 
 /**
- * Removes the given conversation and all data that depends on it (messages,
- * draft, ...)
+ * Triggers removal of the given conversation. This will also remove all
+ * dependencies (messages, drafts, ...). Removal happens asynchronously after
+ * calling this method.
  */
-- (void)remove:(int64_t)convId;
+- (void)triggerRemoval:(int64_t)convId;
 
 /** Returns the participants (excluding the local user) */
 - (nonnull NSSet<KAAddress *> *)participants:(int64_t)convId;
@@ -42,6 +43,12 @@
 
 /** Total number of undone messages */
 - (int32_t)undoneMessages:(int64_t)convId;
+
+/** Total number of incoming messages */
+- (int32_t)incomingMessages:(int64_t)convId;
+
+/** Total number of outgoing messages */
+- (int32_t)outgoingMessages:(int64_t)convId;
 
 /**
  * Timestamp of the latest message (for sorting). Returns the result of

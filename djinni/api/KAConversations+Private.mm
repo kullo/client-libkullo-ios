@@ -52,9 +52,9 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (void)remove:(int64_t)convId {
+- (void)triggerRemoval:(int64_t)convId {
     try {
-        _cppRefHandle.get()->remove(::djinni::I64::toCpp(convId));
+        _cppRefHandle.get()->triggerRemoval(::djinni::I64::toCpp(convId));
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -82,6 +82,20 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 - (int32_t)undoneMessages:(int64_t)convId {
     try {
         auto r = _cppRefHandle.get()->undoneMessages(::djinni::I64::toCpp(convId));
+        return ::djinni::I32::fromCpp(r);
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
+- (int32_t)incomingMessages:(int64_t)convId {
+    try {
+        auto r = _cppRefHandle.get()->incomingMessages(::djinni::I64::toCpp(convId));
+        return ::djinni::I32::fromCpp(r);
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
+- (int32_t)outgoingMessages:(int64_t)convId {
+    try {
+        auto r = _cppRefHandle.get()->outgoingMessages(::djinni::I64::toCpp(convId));
         return ::djinni::I32::fromCpp(r);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
