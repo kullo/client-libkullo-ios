@@ -3,6 +3,8 @@
 
 #import "KAPushToken+Private.h"
 #import "DJIMarshal+Private.h"
+#import "KAPushTokenEnvironment+Private.h"
+#import "KAPushTokenType+Private.h"
 #include <cassert>
 
 namespace ObjCpp { namespace Kullo { namespace Api {

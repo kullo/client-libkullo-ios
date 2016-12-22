@@ -8,6 +8,15 @@
 /** Listener used in DraftAttachments.addAsync() */
 @protocol KADraftAttachmentsAddListener
 
+/**
+ * Indicates progress when adding an attachment.
+ * Note: not guaranteed to be called at any specific point.
+ */
+- (void)progressed:(int64_t)convId
+             attId:(int64_t)attId
+    bytesProcessed:(int64_t)bytesProcessed
+        bytesTotal:(int64_t)bytesTotal;
+
 - (void)finished:(int64_t)convId
            attId:(int64_t)attId
             path:(nonnull NSString *)path;

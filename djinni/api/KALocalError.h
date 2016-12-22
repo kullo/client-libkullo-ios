@@ -5,6 +5,8 @@
 
 typedef NS_ENUM(NSInteger, KALocalError)
 {
+    /** File is too big */
+    KALocalErrorFileTooBig,
     /** Couldn't read or write to file */
     KALocalErrorFilesystem,
     /** Any other error */

@@ -6,8 +6,8 @@
 #import "DJICppWrapperCache+Private.h"
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
-#import "KAAddress+Private.h"
 #include <exception>
+#include <stdexcept>
 #include <utility>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -32,43 +32,43 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 + (nullable KAAddress *)create:(nonnull NSString *)address {
     try {
-        auto r = ::Kullo::Api::Address::create(::djinni::String::toCpp(address));
-        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::Address>::fromCpp(r);
+        auto objcpp_result_ = ::Kullo::Api::Address::create(::djinni::String::toCpp(address));
+        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::Address>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSString *)toString {
     try {
-        auto r = _cppRefHandle.get()->toString();
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->toString();
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSString *)localPart {
     try {
-        auto r = _cppRefHandle.get()->localPart();
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->localPart();
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSString *)domainPart {
     try {
-        auto r = _cppRefHandle.get()->domainPart();
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->domainPart();
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (BOOL)isEqualTo:(nullable KAAddress *)other {
     try {
-        auto r = _cppRefHandle.get()->isEqualTo(::ObjCpp::Kullo::Api::Address::toCpp(other));
-        return ::djinni::Bool::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->isEqualTo(::ObjCpp::Kullo::Api::Address::toCpp(other));
+        return ::djinni::Bool::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (BOOL)isLessThan:(nullable KAAddress *)rhs {
     try {
-        auto r = _cppRefHandle.get()->isLessThan(::ObjCpp::Kullo::Api::Address::toCpp(rhs));
-        return ::djinni::Bool::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->isLessThan(::ObjCpp::Kullo::Api::Address::toCpp(rhs));
+        return ::djinni::Bool::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

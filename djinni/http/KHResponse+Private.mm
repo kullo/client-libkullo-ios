@@ -4,6 +4,7 @@
 #import "KHResponse+Private.h"
 #import "DJIMarshal+Private.h"
 #import "KHHttpHeader+Private.h"
+#import "KHResponseError+Private.h"
 #include <cassert>
 
 namespace ObjCpp { namespace Kullo { namespace Http {

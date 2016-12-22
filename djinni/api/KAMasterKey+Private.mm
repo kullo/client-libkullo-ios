@@ -6,8 +6,8 @@
 #import "DJICppWrapperCache+Private.h"
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
-#import "KAMasterKey+Private.h"
 #include <exception>
+#include <stdexcept>
 #include <utility>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -32,43 +32,43 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 + (nullable KAMasterKey *)createFromPem:(nonnull NSString *)pem {
     try {
-        auto r = ::Kullo::Api::MasterKey::createFromPem(::djinni::String::toCpp(pem));
-        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::MasterKey>::fromCpp(r);
+        auto objcpp_result_ = ::Kullo::Api::MasterKey::createFromPem(::djinni::String::toCpp(pem));
+        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::MasterKey>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 + (nullable KAMasterKey *)createFromDataBlocks:(nonnull NSArray<NSString *> *)dataBlocks {
     try {
-        auto r = ::Kullo::Api::MasterKey::createFromDataBlocks(::djinni::List<::djinni::String>::toCpp(dataBlocks));
-        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::MasterKey>::fromCpp(r);
+        auto objcpp_result_ = ::Kullo::Api::MasterKey::createFromDataBlocks(::djinni::List<::djinni::String>::toCpp(dataBlocks));
+        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::MasterKey>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 + (BOOL)isValidBlock:(nonnull NSString *)block {
     try {
-        auto r = ::Kullo::Api::MasterKey::isValidBlock(::djinni::String::toCpp(block));
-        return ::djinni::Bool::fromCpp(r);
+        auto objcpp_result_ = ::Kullo::Api::MasterKey::isValidBlock(::djinni::String::toCpp(block));
+        return ::djinni::Bool::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSString *)pem {
     try {
-        auto r = _cppRefHandle.get()->pem();
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->pem();
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSArray<NSString *> *)dataBlocks {
     try {
-        auto r = _cppRefHandle.get()->dataBlocks();
-        return ::djinni::List<::djinni::String>::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->dataBlocks();
+        return ::djinni::List<::djinni::String>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (BOOL)isEqualTo:(nullable KAMasterKey *)other {
     try {
-        auto r = _cppRefHandle.get()->isEqualTo(::ObjCpp::Kullo::Api::MasterKey::toCpp(other));
-        return ::djinni::Bool::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->isEqualTo(::ObjCpp::Kullo::Api::MasterKey::toCpp(other));
+        return ::djinni::Bool::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

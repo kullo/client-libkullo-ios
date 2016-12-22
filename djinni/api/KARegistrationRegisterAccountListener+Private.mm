@@ -3,11 +3,13 @@
 
 #import "KARegistrationRegisterAccountListener+Private.h"
 #import "KARegistrationRegisterAccountListener.h"
-#import "DJIMarshal+Private.h"
 #import "DJIObjcWrapperCache+Private.h"
 #import "KAAddress+Private.h"
+#import "KAAddressNotAvailableReason+Private.h"
 #import "KAChallenge+Private.h"
 #import "KAMasterKey+Private.h"
+#import "KANetworkError+Private.h"
+#include <stdexcept>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
 

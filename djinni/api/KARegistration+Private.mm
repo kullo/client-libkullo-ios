@@ -11,6 +11,7 @@
 #import "KAChallenge+Private.h"
 #import "KARegistrationRegisterAccountListener+Private.h"
 #include <exception>
+#include <stdexcept>
 #include <utility>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -34,15 +35,17 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 }
 
 - (nullable KAAsyncTask *)registerAccountAsync:(nullable KAAddress *)address
+                                 acceptedTerms:(nonnull NSString *)acceptedTerms
                                      challenge:(nullable KAChallenge *)challenge
                                challengeAnswer:(nonnull NSString *)challengeAnswer
                                       listener:(nullable id<KARegistrationRegisterAccountListener>)listener {
     try {
-        auto r = _cppRefHandle.get()->registerAccountAsync(::ObjCpp::Kullo::Api::Address::toCpp(address),
-                                                           ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::Challenge>::toCpp(challenge),
-                                                           ::djinni::String::toCpp(challengeAnswer),
-                                                           ::ObjCpp::Kullo::Api::RegistrationRegisterAccountListener::toCpp(listener));
-        return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->registerAccountAsync(::ObjCpp::Kullo::Api::Address::toCpp(address),
+                                                                        ::djinni::String::toCpp(acceptedTerms),
+                                                                        ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::Challenge>::toCpp(challenge),
+                                                                        ::djinni::String::toCpp(challengeAnswer),
+                                                                        ::ObjCpp::Kullo::Api::RegistrationRegisterAccountListener::toCpp(listener));
+        return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

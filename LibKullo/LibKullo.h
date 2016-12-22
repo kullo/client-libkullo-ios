@@ -28,6 +28,7 @@ FOUNDATION_EXPORT const unsigned char LibKulloVersionString[];
 #import <LibKullo/KADraftAttachmentsAddListener.h>
 #import <LibKullo/KADraftAttachmentsContentListener.h>
 #import <LibKullo/KADraftAttachmentsSaveToListener.h>
+#import <LibKullo/KADraftPart.h>
 #import <LibKullo/KADraftState.h>
 #import <LibKullo/KADrafts.h>
 #import <LibKullo/KAEvent.h>
@@ -54,6 +55,7 @@ FOUNDATION_EXPORT const unsigned char LibKulloVersionString[];
 #import <LibKullo/KASessionAccountInfoListener.h>
 #import <LibKullo/KASessionListener.h>
 #import <LibKullo/KASyncMode.h>
+#import <LibKullo/KASyncPhase.h>
 #import <LibKullo/KASyncProgress.h>
 #import <LibKullo/KASyncer.h>
 #import <LibKullo/KASyncerListener.h>
@@ -72,6 +74,7 @@ FOUNDATION_EXPORT const unsigned char LibKulloVersionString[];
 #import <LibKullo/KHResponse.h>
 #import <LibKullo/KHResponseError.h>
 #import <LibKullo/KHResponseListener.h>
+#import <LibKullo/KHTransferProgress.h>
 
 #import <LibKullo/KISystemLogLogger.h>
 #import <LibKullo/KIOperationTaskRunner.h>

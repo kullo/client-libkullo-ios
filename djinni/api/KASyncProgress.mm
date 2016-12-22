@@ -6,50 +6,66 @@
 
 @implementation KASyncProgress
 
-- (nonnull instancetype)initWithCountLeft:(int64_t)countLeft
-                           countProcessed:(int64_t)countProcessed
-                               countTotal:(int64_t)countTotal
-                                 countNew:(int64_t)countNew
-                           countNewUnread:(int64_t)countNewUnread
-                            countModified:(int64_t)countModified
-                             countDeleted:(int64_t)countDeleted
-                                runTimeMs:(int64_t)runTimeMs
+- (nonnull instancetype)initWithPhase:(KASyncPhase)phase
+            incomingMessagesProcessed:(int64_t)incomingMessagesProcessed
+                incomingMessagesTotal:(int64_t)incomingMessagesTotal
+                  incomingMessagesNew:(int64_t)incomingMessagesNew
+            incomingMessagesNewUnread:(int64_t)incomingMessagesNewUnread
+             incomingMessagesModified:(int64_t)incomingMessagesModified
+              incomingMessagesDeleted:(int64_t)incomingMessagesDeleted
+   incomingAttachmentsDownloadedBytes:(int64_t)incomingAttachmentsDownloadedBytes
+        incomingAttachmentsTotalBytes:(int64_t)incomingAttachmentsTotalBytes
+        outgoingMessagesUploadedBytes:(int64_t)outgoingMessagesUploadedBytes
+           outgoingMessagesTotalBytes:(int64_t)outgoingMessagesTotalBytes
+                            runTimeMs:(int64_t)runTimeMs
 {
     if (self = [super init]) {
-        _countLeft = countLeft;
-        _countProcessed = countProcessed;
-        _countTotal = countTotal;
-        _countNew = countNew;
-        _countNewUnread = countNewUnread;
-        _countModified = countModified;
-        _countDeleted = countDeleted;
+        _phase = phase;
+        _incomingMessagesProcessed = incomingMessagesProcessed;
+        _incomingMessagesTotal = incomingMessagesTotal;
+        _incomingMessagesNew = incomingMessagesNew;
+        _incomingMessagesNewUnread = incomingMessagesNewUnread;
+        _incomingMessagesModified = incomingMessagesModified;
+        _incomingMessagesDeleted = incomingMessagesDeleted;
+        _incomingAttachmentsDownloadedBytes = incomingAttachmentsDownloadedBytes;
+        _incomingAttachmentsTotalBytes = incomingAttachmentsTotalBytes;
+        _outgoingMessagesUploadedBytes = outgoingMessagesUploadedBytes;
+        _outgoingMessagesTotalBytes = outgoingMessagesTotalBytes;
         _runTimeMs = runTimeMs;
     }
     return self;
 }
 
-+ (nonnull instancetype)SyncProgressWithCountLeft:(int64_t)countLeft
-                                   countProcessed:(int64_t)countProcessed
-                                       countTotal:(int64_t)countTotal
-                                         countNew:(int64_t)countNew
-                                   countNewUnread:(int64_t)countNewUnread
-                                    countModified:(int64_t)countModified
-                                     countDeleted:(int64_t)countDeleted
-                                        runTimeMs:(int64_t)runTimeMs
++ (nonnull instancetype)SyncProgressWithPhase:(KASyncPhase)phase
+                    incomingMessagesProcessed:(int64_t)incomingMessagesProcessed
+                        incomingMessagesTotal:(int64_t)incomingMessagesTotal
+                          incomingMessagesNew:(int64_t)incomingMessagesNew
+                    incomingMessagesNewUnread:(int64_t)incomingMessagesNewUnread
+                     incomingMessagesModified:(int64_t)incomingMessagesModified
+                      incomingMessagesDeleted:(int64_t)incomingMessagesDeleted
+           incomingAttachmentsDownloadedBytes:(int64_t)incomingAttachmentsDownloadedBytes
+                incomingAttachmentsTotalBytes:(int64_t)incomingAttachmentsTotalBytes
+                outgoingMessagesUploadedBytes:(int64_t)outgoingMessagesUploadedBytes
+                   outgoingMessagesTotalBytes:(int64_t)outgoingMessagesTotalBytes
+                                    runTimeMs:(int64_t)runTimeMs
 {
-    return [[self alloc] initWithCountLeft:countLeft
-                            countProcessed:countProcessed
-                                countTotal:countTotal
-                                  countNew:countNew
-                            countNewUnread:countNewUnread
-                             countModified:countModified
-                              countDeleted:countDeleted
-                                 runTimeMs:runTimeMs];
+    return [[self alloc] initWithPhase:phase
+             incomingMessagesProcessed:incomingMessagesProcessed
+                 incomingMessagesTotal:incomingMessagesTotal
+                   incomingMessagesNew:incomingMessagesNew
+             incomingMessagesNewUnread:incomingMessagesNewUnread
+              incomingMessagesModified:incomingMessagesModified
+               incomingMessagesDeleted:incomingMessagesDeleted
+    incomingAttachmentsDownloadedBytes:incomingAttachmentsDownloadedBytes
+         incomingAttachmentsTotalBytes:incomingAttachmentsTotalBytes
+         outgoingMessagesUploadedBytes:outgoingMessagesUploadedBytes
+            outgoingMessagesTotalBytes:outgoingMessagesTotalBytes
+                             runTimeMs:runTimeMs];
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ %p countLeft:%@ countProcessed:%@ countTotal:%@ countNew:%@ countNewUnread:%@ countModified:%@ countDeleted:%@ runTimeMs:%@>", self.class, (void *)self, @(self.countLeft), @(self.countProcessed), @(self.countTotal), @(self.countNew), @(self.countNewUnread), @(self.countModified), @(self.countDeleted), @(self.runTimeMs)];
+    return [NSString stringWithFormat:@"<%@ %p phase:%@ incomingMessagesProcessed:%@ incomingMessagesTotal:%@ incomingMessagesNew:%@ incomingMessagesNewUnread:%@ incomingMessagesModified:%@ incomingMessagesDeleted:%@ incomingAttachmentsDownloadedBytes:%@ incomingAttachmentsTotalBytes:%@ outgoingMessagesUploadedBytes:%@ outgoingMessagesTotalBytes:%@ runTimeMs:%@>", self.class, (void *)self, @(self.phase), @(self.incomingMessagesProcessed), @(self.incomingMessagesTotal), @(self.incomingMessagesNew), @(self.incomingMessagesNewUnread), @(self.incomingMessagesModified), @(self.incomingMessagesDeleted), @(self.incomingAttachmentsDownloadedBytes), @(self.incomingAttachmentsTotalBytes), @(self.outgoingMessagesUploadedBytes), @(self.outgoingMessagesTotalBytes), @(self.runTimeMs)];
 }
 
 @end

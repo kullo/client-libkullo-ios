@@ -6,7 +6,9 @@
 #import "DJICppWrapperCache+Private.h"
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
+#import "KADraftState+Private.h"
 #include <exception>
+#include <stdexcept>
 #include <utility>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -31,8 +33,8 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (nonnull NSString *)text:(int64_t)convId {
     try {
-        auto r = _cppRefHandle.get()->text(::djinni::I64::toCpp(convId));
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->text(::djinni::I64::toCpp(convId));
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -46,8 +48,8 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (KADraftState)state:(int64_t)convId {
     try {
-        auto r = _cppRefHandle.get()->state(::djinni::I64::toCpp(convId));
-        return ::djinni::Enum<::Kullo::Api::DraftState, KADraftState>::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->state(::djinni::I64::toCpp(convId));
+        return ::djinni::Enum<::Kullo::Api::DraftState, KADraftState>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

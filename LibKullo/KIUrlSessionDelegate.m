@@ -20,6 +20,11 @@
     [_finishedLock unlock];
 }
 
+static int64_t sanitizeTotalBytes(int64_t bytes)
+{
+    return bytes == NSURLSessionTransferSizeUnknown ? 0 : bytes;
+}
+
 #pragma mark NSURLSessionDataDelegate
 
 - (void)URLSession:(NSURLSession *)session
@@ -27,10 +32,12 @@
     didReceiveData:(NSData *)data
 {
     [_responseListener dataReceived:data];
-    KHProgressResult result = [_responseListener progress:dataTask.countOfBytesSent
-                                              uploadTotal:dataTask.countOfBytesExpectedToSend
-                                      downloadTransferred:dataTask.countOfBytesReceived
-                                            downloadTotal:dataTask.countOfBytesExpectedToReceive];
+    KHTransferProgress *progress = [KHTransferProgress
+                                    TransferProgressWithUploadTransferred:dataTask.countOfBytesSent
+                                    uploadTotal:sanitizeTotalBytes(dataTask.countOfBytesExpectedToSend)
+                                    downloadTransferred:dataTask.countOfBytesReceived
+                                    downloadTotal:sanitizeTotalBytes(dataTask.countOfBytesExpectedToReceive)];
+    KHProgressResult result = [_responseListener progressed:progress];
     if (result == KHProgressResultCancel) [dataTask cancel];
 }
 
@@ -42,10 +49,12 @@
     totalBytesSent:(int64_t)totalBytesSent
 totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
 {
-    KHProgressResult result = [_responseListener progress:totalBytesSent
-                                              uploadTotal:totalBytesExpectedToSend
-                                      downloadTransferred:0
-                                            downloadTotal:0];
+    KHTransferProgress *progress = [KHTransferProgress
+                                    TransferProgressWithUploadTransferred:totalBytesSent
+                                    uploadTotal:sanitizeTotalBytes(totalBytesExpectedToSend)
+                                    downloadTransferred:0
+                                    downloadTotal:0];
+    KHProgressResult result = [_responseListener progressed:progress];
     if (result == KHProgressResultCancel) [task cancel];
 }
 
@@ -61,7 +70,9 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error
 {
-    _response = task.response;
+    NSAssert(!task.response || [task.response isKindOfClass:[NSHTTPURLResponse class]],
+             @"must be a HTTP response");
+    _response = (NSHTTPURLResponse *)task.response;
     _error = error;
 
 #if 0

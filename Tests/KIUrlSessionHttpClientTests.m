@@ -39,10 +39,7 @@
 
 @implementation TestResponseListener
 
-- (KHProgressResult)progress:(int64_t)uploadTransferred
-                 uploadTotal:(int64_t)uploadTotal
-         downloadTransferred:(int64_t)downloadTransferred
-               downloadTotal:(int64_t)downloadTotal
+- (KHProgressResult)progress:(nonnull KHTransferProgress *)progress
 {
     return KHProgressResultContinue;
 }
@@ -191,7 +188,7 @@
                                                   url:@"http://httpbin.org/get"
                                               headers:[NSArray array]];
     XCTAssertThrows([uut sendRequest:request
-                             timeout:-1
+                           timeoutMs:-1
                      requestListener:nil
                     responseListener:respL]);
 }
@@ -201,7 +198,7 @@
                                                   url:@"http://localhost:1/"
                                               headers:[NSArray array]];
     KHResponse *resp = [uut sendRequest:request
-                                timeout:5000
+                              timeoutMs:5000
                         requestListener:nil
                        responseListener:respL];
     XCTAssertEqual(resp.error, [NSNumber numberWithInteger:KHResponseErrorNetworkError]);

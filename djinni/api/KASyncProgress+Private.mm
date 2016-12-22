@@ -3,6 +3,7 @@
 
 #import "KASyncProgress+Private.h"
 #import "DJIMarshal+Private.h"
+#import "KASyncPhase+Private.h"
 #include <cassert>
 
 namespace ObjCpp { namespace Kullo { namespace Api {
@@ -10,26 +11,34 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto SyncProgress::toCpp(ObjcType obj) -> CppType
 {
     assert(obj);
-    return {::djinni::I64::toCpp(obj.countLeft),
-            ::djinni::I64::toCpp(obj.countProcessed),
-            ::djinni::I64::toCpp(obj.countTotal),
-            ::djinni::I64::toCpp(obj.countNew),
-            ::djinni::I64::toCpp(obj.countNewUnread),
-            ::djinni::I64::toCpp(obj.countModified),
-            ::djinni::I64::toCpp(obj.countDeleted),
+    return {::djinni::Enum<::Kullo::Api::SyncPhase, KASyncPhase>::toCpp(obj.phase),
+            ::djinni::I64::toCpp(obj.incomingMessagesProcessed),
+            ::djinni::I64::toCpp(obj.incomingMessagesTotal),
+            ::djinni::I64::toCpp(obj.incomingMessagesNew),
+            ::djinni::I64::toCpp(obj.incomingMessagesNewUnread),
+            ::djinni::I64::toCpp(obj.incomingMessagesModified),
+            ::djinni::I64::toCpp(obj.incomingMessagesDeleted),
+            ::djinni::I64::toCpp(obj.incomingAttachmentsDownloadedBytes),
+            ::djinni::I64::toCpp(obj.incomingAttachmentsTotalBytes),
+            ::djinni::I64::toCpp(obj.outgoingMessagesUploadedBytes),
+            ::djinni::I64::toCpp(obj.outgoingMessagesTotalBytes),
             ::djinni::I64::toCpp(obj.runTimeMs)};
 }
 
 auto SyncProgress::fromCpp(const CppType& cpp) -> ObjcType
 {
-    return [[KASyncProgress alloc] initWithCountLeft:(::djinni::I64::fromCpp(cpp.countLeft))
-                                      countProcessed:(::djinni::I64::fromCpp(cpp.countProcessed))
-                                          countTotal:(::djinni::I64::fromCpp(cpp.countTotal))
-                                            countNew:(::djinni::I64::fromCpp(cpp.countNew))
-                                      countNewUnread:(::djinni::I64::fromCpp(cpp.countNewUnread))
-                                       countModified:(::djinni::I64::fromCpp(cpp.countModified))
-                                        countDeleted:(::djinni::I64::fromCpp(cpp.countDeleted))
-                                           runTimeMs:(::djinni::I64::fromCpp(cpp.runTimeMs))];
+    return [[KASyncProgress alloc] initWithPhase:(::djinni::Enum<::Kullo::Api::SyncPhase, KASyncPhase>::fromCpp(cpp.phase))
+                       incomingMessagesProcessed:(::djinni::I64::fromCpp(cpp.incomingMessagesProcessed))
+                           incomingMessagesTotal:(::djinni::I64::fromCpp(cpp.incomingMessagesTotal))
+                             incomingMessagesNew:(::djinni::I64::fromCpp(cpp.incomingMessagesNew))
+                       incomingMessagesNewUnread:(::djinni::I64::fromCpp(cpp.incomingMessagesNewUnread))
+                        incomingMessagesModified:(::djinni::I64::fromCpp(cpp.incomingMessagesModified))
+                         incomingMessagesDeleted:(::djinni::I64::fromCpp(cpp.incomingMessagesDeleted))
+              incomingAttachmentsDownloadedBytes:(::djinni::I64::fromCpp(cpp.incomingAttachmentsDownloadedBytes))
+                   incomingAttachmentsTotalBytes:(::djinni::I64::fromCpp(cpp.incomingAttachmentsTotalBytes))
+                   outgoingMessagesUploadedBytes:(::djinni::I64::fromCpp(cpp.outgoingMessagesUploadedBytes))
+                      outgoingMessagesTotalBytes:(::djinni::I64::fromCpp(cpp.outgoingMessagesTotalBytes))
+                                       runTimeMs:(::djinni::I64::fromCpp(cpp.runTimeMs))];
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

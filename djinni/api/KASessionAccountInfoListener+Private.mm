@@ -3,9 +3,10 @@
 
 #import "KASessionAccountInfoListener+Private.h"
 #import "KASessionAccountInfoListener.h"
-#import "DJIMarshal+Private.h"
 #import "DJIObjcWrapperCache+Private.h"
 #import "KAAccountInfo+Private.h"
+#import "KANetworkError+Private.h"
+#include <stdexcept>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
 

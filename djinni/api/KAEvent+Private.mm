@@ -3,6 +3,7 @@
 
 #import "KAEvent+Private.h"
 #import "DJIMarshal+Private.h"
+#import "KAEventType+Private.h"
 #include <cassert>
 
 namespace ObjCpp { namespace Kullo { namespace Api {

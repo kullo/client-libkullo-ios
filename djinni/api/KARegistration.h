@@ -22,6 +22,7 @@
  * If no challenge is needed, set challengeAnswer to ""
  */
 - (nullable KAAsyncTask *)registerAccountAsync:(nullable KAAddress *)address
+                                 acceptedTerms:(nonnull NSString *)acceptedTerms
                                      challenge:(nullable KAChallenge *)challenge
                                challengeAnswer:(nonnull NSString *)challengeAnswer
                                       listener:(nullable id<KARegistrationRegisterAccountListener>)listener;

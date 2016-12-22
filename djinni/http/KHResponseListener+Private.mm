@@ -6,7 +6,10 @@
 #import "DJICppWrapperCache+Private.h"
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
+#import "KHProgressResult+Private.h"
+#import "KHTransferProgress+Private.h"
 #include <exception>
+#include <stdexcept>
 #include <utility>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -29,16 +32,10 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     return self;
 }
 
-- (KHProgressResult)progress:(int64_t)uploadTransferred
-                 uploadTotal:(int64_t)uploadTotal
-         downloadTransferred:(int64_t)downloadTransferred
-               downloadTotal:(int64_t)downloadTotal {
+- (KHProgressResult)progressed:(nonnull KHTransferProgress *)progress {
     try {
-        auto r = _cppRefHandle.get()->progress(::djinni::I64::toCpp(uploadTransferred),
-                                               ::djinni::I64::toCpp(uploadTotal),
-                                               ::djinni::I64::toCpp(downloadTransferred),
-                                               ::djinni::I64::toCpp(downloadTotal));
-        return ::djinni::Enum<::Kullo::Http::ProgressResult, KHProgressResult>::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->progressed(::ObjCpp::Kullo::Http::TransferProgress::toCpp(progress));
+        return ::djinni::Enum<::Kullo::Http::ProgressResult, KHProgressResult>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

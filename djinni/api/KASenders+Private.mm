@@ -8,6 +8,7 @@
 #import "DJIMarshal+Private.h"
 #import "KAAddress+Private.h"
 #include <exception>
+#include <stdexcept>
 #include <utility>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -32,36 +33,36 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (nonnull NSString *)name:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->name(::djinni::I64::toCpp(msgId));
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->name(::djinni::I64::toCpp(msgId));
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nullable KAAddress *)address:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->address(::djinni::I64::toCpp(msgId));
-        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::Address>::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->address(::djinni::I64::toCpp(msgId));
+        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::Address>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSString *)organization:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->organization(::djinni::I64::toCpp(msgId));
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->organization(::djinni::I64::toCpp(msgId));
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSString *)avatarMimeType:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->avatarMimeType(::djinni::I64::toCpp(msgId));
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->avatarMimeType(::djinni::I64::toCpp(msgId));
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSData *)avatar:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->avatar(::djinni::I64::toCpp(msgId));
-        return ::djinni::Binary::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->avatar(::djinni::I64::toCpp(msgId));
+        return ::djinni::Binary::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

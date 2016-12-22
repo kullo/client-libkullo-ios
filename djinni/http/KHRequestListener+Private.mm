@@ -7,6 +7,7 @@
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
 #include <exception>
+#include <stdexcept>
 #include <utility>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -31,8 +32,8 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (nonnull NSData *)read:(int64_t)maxSize {
     try {
-        auto r = _cppRefHandle.get()->read(::djinni::I64::toCpp(maxSize));
-        return ::djinni::Binary::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->read(::djinni::I64::toCpp(maxSize));
+        return ::djinni::Binary::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

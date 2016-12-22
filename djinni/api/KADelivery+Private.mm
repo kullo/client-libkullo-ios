@@ -8,7 +8,10 @@
 #import "DJIMarshal+Private.h"
 #import "KAAddress+Private.h"
 #import "KADateTimeBase+Private.h"
+#import "KADeliveryReason+Private.h"
+#import "KADeliveryState+Private.h"
 #include <exception>
+#include <stdexcept>
 #include <utility>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -33,29 +36,29 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (nullable KAAddress *)recipient {
     try {
-        auto r = _cppRefHandle.get()->recipient();
-        return ::ObjCpp::Kullo::Api::Address::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->recipient();
+        return ::ObjCpp::Kullo::Api::Address::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (KADeliveryState)state {
     try {
-        auto r = _cppRefHandle.get()->state();
-        return ::djinni::Enum<::Kullo::Api::DeliveryState, KADeliveryState>::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->state();
+        return ::djinni::Enum<::Kullo::Api::DeliveryState, KADeliveryState>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nullable NSNumber *)reason {
     try {
-        auto r = _cppRefHandle.get()->reason();
-        return ::djinni::Optional<boost::optional, ::djinni::Enum<::Kullo::Api::DeliveryReason, KADeliveryReason>>::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->reason();
+        return ::djinni::Optional<boost::optional, ::djinni::Enum<::Kullo::Api::DeliveryReason, KADeliveryReason>>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nullable KADateTime *)date {
     try {
-        auto r = _cppRefHandle.get()->date();
-        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::DateTime>::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->date();
+        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::DateTime>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

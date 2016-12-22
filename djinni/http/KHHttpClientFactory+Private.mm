@@ -6,6 +6,7 @@
 #import "DJIMarshal+Private.h"
 #import "DJIObjcWrapperCache+Private.h"
 #import "KHHttpClient+Private.h"
+#include <stdexcept>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
 
@@ -20,15 +21,15 @@ public:
     std::shared_ptr<::Kullo::Http::HttpClient> createHttpClient() override
     {
         @autoreleasepool {
-            auto r = [Handle::get() createHttpClient];
-            return ::ObjCpp::Kullo::Http::HttpClient::toCpp(r);
+            auto objcpp_result_ = [Handle::get() createHttpClient];
+            return ::ObjCpp::Kullo::Http::HttpClient::toCpp(objcpp_result_);
         }
     }
     std::unordered_map<std::string, std::string> versions() override
     {
         @autoreleasepool {
-            auto r = [Handle::get() versions];
-            return ::djinni::Map<::djinni::String, ::djinni::String>::toCpp(r);
+            auto objcpp_result_ = [Handle::get() versions];
+            return ::djinni::Map<::djinni::String, ::djinni::String>::toCpp(objcpp_result_);
         }
     }
 };

@@ -5,7 +5,10 @@
 #import "KASyncerListener.h"
 #import "DJIMarshal+Private.h"
 #import "DJIObjcWrapperCache+Private.h"
+#import "KADraftPart+Private.h"
+#import "KANetworkError+Private.h"
 #import "KASyncProgress+Private.h"
+#include <stdexcept>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
 
@@ -23,10 +26,13 @@ public:
             [Handle::get() started];
         }
     }
-    void draftAttachmentsTooBig(int64_t c_convId) override
+    void draftPartTooBig(int64_t c_convId, ::Kullo::Api::DraftPart c_part, int64_t c_currentSize, int64_t c_maxSize) override
     {
         @autoreleasepool {
-            [Handle::get() draftAttachmentsTooBig:(::djinni::I64::fromCpp(c_convId))];
+            [Handle::get() draftPartTooBig:(::djinni::I64::fromCpp(c_convId))
+                                      part:(::djinni::Enum<::Kullo::Api::DraftPart, KADraftPart>::fromCpp(c_part))
+                               currentSize:(::djinni::I64::fromCpp(c_currentSize))
+                                   maxSize:(::djinni::I64::fromCpp(c_maxSize))];
         }
     }
     void progressed(const ::Kullo::Api::SyncProgress & c_progress) override

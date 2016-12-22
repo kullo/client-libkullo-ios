@@ -8,6 +8,7 @@
 #import "DJIMarshal+Private.h"
 #import "KADateTimeBase+Private.h"
 #include <exception>
+#include <stdexcept>
 #include <utility>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -38,37 +39,37 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
          second:(int8_t)second
 tzOffsetMinutes:(int16_t)tzOffsetMinutes {
     try {
-        auto r = ::Kullo::Api::InternalDateTimeUtils::isValid(::djinni::I16::toCpp(year),
-                                                              ::djinni::I8::toCpp(month),
-                                                              ::djinni::I8::toCpp(day),
-                                                              ::djinni::I8::toCpp(hour),
-                                                              ::djinni::I8::toCpp(minute),
-                                                              ::djinni::I8::toCpp(second),
-                                                              ::djinni::I16::toCpp(tzOffsetMinutes));
-        return ::djinni::Bool::fromCpp(r);
+        auto objcpp_result_ = ::Kullo::Api::InternalDateTimeUtils::isValid(::djinni::I16::toCpp(year),
+                                                                           ::djinni::I8::toCpp(month),
+                                                                           ::djinni::I8::toCpp(day),
+                                                                           ::djinni::I8::toCpp(hour),
+                                                                           ::djinni::I8::toCpp(minute),
+                                                                           ::djinni::I8::toCpp(second),
+                                                                           ::djinni::I16::toCpp(tzOffsetMinutes));
+        return ::djinni::Bool::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 + (nonnull KADateTime *)nowUtc {
     try {
-        auto r = ::Kullo::Api::InternalDateTimeUtils::nowUtc();
-        return ::ObjCpp::Kullo::Api::DateTime::fromCpp(r);
+        auto objcpp_result_ = ::Kullo::Api::InternalDateTimeUtils::nowUtc();
+        return ::ObjCpp::Kullo::Api::DateTime::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 + (nonnull NSString *)toString:(nonnull KADateTime *)dateTime {
     try {
-        auto r = ::Kullo::Api::InternalDateTimeUtils::toString(::ObjCpp::Kullo::Api::DateTime::toCpp(dateTime));
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = ::Kullo::Api::InternalDateTimeUtils::toString(::ObjCpp::Kullo::Api::DateTime::toCpp(dateTime));
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 + (int8_t)compare:(nonnull KADateTime *)lhs
               rhs:(nonnull KADateTime *)rhs {
     try {
-        auto r = ::Kullo::Api::InternalDateTimeUtils::compare(::ObjCpp::Kullo::Api::DateTime::toCpp(lhs),
-                                                              ::ObjCpp::Kullo::Api::DateTime::toCpp(rhs));
-        return ::djinni::I8::fromCpp(r);
+        auto objcpp_result_ = ::Kullo::Api::InternalDateTimeUtils::compare(::ObjCpp::Kullo::Api::DateTime::toCpp(lhs),
+                                                                           ::ObjCpp::Kullo::Api::DateTime::toCpp(rhs));
+        return ::djinni::I8::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

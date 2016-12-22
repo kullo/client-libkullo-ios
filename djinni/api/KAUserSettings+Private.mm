@@ -10,6 +10,7 @@
 #import "KADateTimeBase+Private.h"
 #import "KAMasterKey+Private.h"
 #include <exception>
+#include <stdexcept>
 #include <utility>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -34,22 +35,22 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (nullable KAAddress *)address {
     try {
-        auto r = _cppRefHandle.get()->address();
-        return ::ObjCpp::Kullo::Api::Address::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->address();
+        return ::ObjCpp::Kullo::Api::Address::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nullable KAMasterKey *)masterKey {
     try {
-        auto r = _cppRefHandle.get()->masterKey();
-        return ::ObjCpp::Kullo::Api::MasterKey::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->masterKey();
+        return ::ObjCpp::Kullo::Api::MasterKey::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSString *)name {
     try {
-        auto r = _cppRefHandle.get()->name();
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->name();
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -61,8 +62,8 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (nonnull NSString *)organization {
     try {
-        auto r = _cppRefHandle.get()->organization();
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->organization();
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -74,8 +75,8 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (nonnull NSString *)footer {
     try {
-        auto r = _cppRefHandle.get()->footer();
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->footer();
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -87,8 +88,8 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (nonnull NSString *)avatarMimeType {
     try {
-        auto r = _cppRefHandle.get()->avatarMimeType();
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->avatarMimeType();
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -100,8 +101,8 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (nonnull NSData *)avatar {
     try {
-        auto r = _cppRefHandle.get()->avatar();
-        return ::djinni::Binary::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->avatar();
+        return ::djinni::Binary::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -113,8 +114,8 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (nullable KADateTime *)nextMasterKeyBackupReminder {
     try {
-        auto r = _cppRefHandle.get()->nextMasterKeyBackupReminder();
-        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::DateTime>::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->nextMasterKeyBackupReminder();
+        return ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::DateTime>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

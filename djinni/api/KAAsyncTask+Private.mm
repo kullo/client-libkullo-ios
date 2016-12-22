@@ -7,6 +7,7 @@
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
 #include <exception>
+#include <stdexcept>
 #include <utility>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -37,8 +38,8 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (BOOL)isDone {
     try {
-        auto r = _cppRefHandle.get()->isDone();
-        return ::djinni::Bool::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->isDone();
+        return ::djinni::Bool::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -50,8 +51,8 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (BOOL)waitForMs:(int32_t)timeout {
     try {
-        auto r = _cppRefHandle.get()->waitForMs(::djinni::I32::toCpp(timeout));
-        return ::djinni::Bool::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->waitForMs(::djinni::I32::toCpp(timeout));
+        return ::djinni::Bool::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

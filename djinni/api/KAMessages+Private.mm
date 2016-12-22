@@ -10,6 +10,7 @@
 #import "KADateTimeBase+Private.h"
 #import "KADelivery+Private.h"
 #include <exception>
+#include <stdexcept>
 #include <utility>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -34,15 +35,15 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (nonnull NSArray<NSNumber *> *)allForConversation:(int64_t)convId {
     try {
-        auto r = _cppRefHandle.get()->allForConversation(::djinni::I64::toCpp(convId));
-        return ::djinni::List<::djinni::I64>::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->allForConversation(::djinni::I64::toCpp(convId));
+        return ::djinni::List<::djinni::I64>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (int64_t)latestForSender:(nullable KAAddress *)address {
     try {
-        auto r = _cppRefHandle.get()->latestForSender(::ObjCpp::Kullo::Api::Address::toCpp(address));
-        return ::djinni::I64::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->latestForSender(::ObjCpp::Kullo::Api::Address::toCpp(address));
+        return ::djinni::I64::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -54,22 +55,22 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (int64_t)conversation:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->conversation(::djinni::I64::toCpp(msgId));
-        return ::djinni::I64::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->conversation(::djinni::I64::toCpp(msgId));
+        return ::djinni::I64::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSArray<KADelivery *> *)deliveryState:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->deliveryState(::djinni::I64::toCpp(msgId));
-        return ::djinni::List<::ObjCpp::Kullo::Api::Delivery>::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->deliveryState(::djinni::I64::toCpp(msgId));
+        return ::djinni::List<::ObjCpp::Kullo::Api::Delivery>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (BOOL)isRead:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->isRead(::djinni::I64::toCpp(msgId));
-        return ::djinni::Bool::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->isRead(::djinni::I64::toCpp(msgId));
+        return ::djinni::Bool::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -83,8 +84,8 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (BOOL)isDone:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->isDone(::djinni::I64::toCpp(msgId));
-        return ::djinni::Bool::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->isDone(::djinni::I64::toCpp(msgId));
+        return ::djinni::Bool::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -98,36 +99,36 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (nonnull KADateTime *)dateSent:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->dateSent(::djinni::I64::toCpp(msgId));
-        return ::ObjCpp::Kullo::Api::DateTime::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->dateSent(::djinni::I64::toCpp(msgId));
+        return ::ObjCpp::Kullo::Api::DateTime::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull KADateTime *)dateReceived:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->dateReceived(::djinni::I64::toCpp(msgId));
-        return ::ObjCpp::Kullo::Api::DateTime::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->dateReceived(::djinni::I64::toCpp(msgId));
+        return ::ObjCpp::Kullo::Api::DateTime::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSString *)text:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->text(::djinni::I64::toCpp(msgId));
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->text(::djinni::I64::toCpp(msgId));
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSString *)textAsHtml:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->textAsHtml(::djinni::I64::toCpp(msgId));
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->textAsHtml(::djinni::I64::toCpp(msgId));
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSString *)footer:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->footer(::djinni::I64::toCpp(msgId));
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->footer(::djinni::I64::toCpp(msgId));
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

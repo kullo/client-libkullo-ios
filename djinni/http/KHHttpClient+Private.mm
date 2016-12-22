@@ -9,6 +9,7 @@
 #import "KHRequestListener+Private.h"
 #import "KHResponse+Private.h"
 #import "KHResponseListener+Private.h"
+#include <stdexcept>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
 
@@ -23,11 +24,11 @@ public:
     ::Kullo::Http::Response sendRequest(const ::Kullo::Http::Request & c_request, int32_t c_timeoutMs, const std::shared_ptr<::Kullo::Http::RequestListener> & c_requestListener, const std::shared_ptr<::Kullo::Http::ResponseListener> & c_responseListener) override
     {
         @autoreleasepool {
-            auto r = [Handle::get() sendRequest:(::ObjCpp::Kullo::Http::Request::fromCpp(c_request))
-                                      timeoutMs:(::djinni::I32::fromCpp(c_timeoutMs))
-                                requestListener:(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Http::RequestListener>::fromCpp(c_requestListener))
-                               responseListener:(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Http::ResponseListener>::fromCpp(c_responseListener))];
-            return ::ObjCpp::Kullo::Http::Response::toCpp(r);
+            auto objcpp_result_ = [Handle::get() sendRequest:(::ObjCpp::Kullo::Http::Request::fromCpp(c_request))
+                                                   timeoutMs:(::djinni::I32::fromCpp(c_timeoutMs))
+                                             requestListener:(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Http::RequestListener>::fromCpp(c_requestListener))
+                                            responseListener:(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Http::ResponseListener>::fromCpp(c_responseListener))];
+            return ::ObjCpp::Kullo::Http::Response::toCpp(objcpp_result_);
         }
     }
 };

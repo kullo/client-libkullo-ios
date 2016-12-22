@@ -5,6 +5,8 @@
 #import "KADraftAttachmentsAddListener.h"
 #import "DJIMarshal+Private.h"
 #import "DJIObjcWrapperCache+Private.h"
+#import "KALocalError+Private.h"
+#include <stdexcept>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
 
@@ -16,6 +18,15 @@ class DraftAttachmentsAddListener::ObjcProxy final
 {
 public:
     using Handle::Handle;
+    void progressed(int64_t c_convId, int64_t c_attId, int64_t c_bytesProcessed, int64_t c_bytesTotal) override
+    {
+        @autoreleasepool {
+            [Handle::get() progressed:(::djinni::I64::fromCpp(c_convId))
+                                attId:(::djinni::I64::fromCpp(c_attId))
+                       bytesProcessed:(::djinni::I64::fromCpp(c_bytesProcessed))
+                           bytesTotal:(::djinni::I64::fromCpp(c_bytesTotal))];
+        }
+    }
     void finished(int64_t c_convId, int64_t c_attId, const std::string & c_path) override
     {
         @autoreleasepool {

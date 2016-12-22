@@ -10,6 +10,7 @@
 #import "KAMessageAttachmentsContentListener+Private.h"
 #import "KAMessageAttachmentsSaveToListener+Private.h"
 #include <exception>
+#include <stdexcept>
 #include <utility>
 
 static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for this file");
@@ -34,51 +35,51 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 
 - (nonnull NSArray<NSNumber *> *)allForMessage:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->allForMessage(::djinni::I64::toCpp(msgId));
-        return ::djinni::List<::djinni::I64>::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->allForMessage(::djinni::I64::toCpp(msgId));
+        return ::djinni::List<::djinni::I64>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (BOOL)allAttachmentsDownloaded:(int64_t)msgId {
     try {
-        auto r = _cppRefHandle.get()->allAttachmentsDownloaded(::djinni::I64::toCpp(msgId));
-        return ::djinni::Bool::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->allAttachmentsDownloaded(::djinni::I64::toCpp(msgId));
+        return ::djinni::Bool::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSString *)filename:(int64_t)msgId
                          attId:(int64_t)attId {
     try {
-        auto r = _cppRefHandle.get()->filename(::djinni::I64::toCpp(msgId),
-                                               ::djinni::I64::toCpp(attId));
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->filename(::djinni::I64::toCpp(msgId),
+                                                            ::djinni::I64::toCpp(attId));
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSString *)mimeType:(int64_t)msgId
                          attId:(int64_t)attId {
     try {
-        auto r = _cppRefHandle.get()->mimeType(::djinni::I64::toCpp(msgId),
-                                               ::djinni::I64::toCpp(attId));
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->mimeType(::djinni::I64::toCpp(msgId),
+                                                            ::djinni::I64::toCpp(attId));
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (int64_t)size:(int64_t)msgId
           attId:(int64_t)attId {
     try {
-        auto r = _cppRefHandle.get()->size(::djinni::I64::toCpp(msgId),
-                                           ::djinni::I64::toCpp(attId));
-        return ::djinni::I64::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->size(::djinni::I64::toCpp(msgId),
+                                                        ::djinni::I64::toCpp(attId));
+        return ::djinni::I64::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
 - (nonnull NSString *)hash:(int64_t)msgId
                      attId:(int64_t)attId {
     try {
-        auto r = _cppRefHandle.get()->hash(::djinni::I64::toCpp(msgId),
-                                           ::djinni::I64::toCpp(attId));
-        return ::djinni::String::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->hash(::djinni::I64::toCpp(msgId),
+                                                        ::djinni::I64::toCpp(attId));
+        return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -86,10 +87,10 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
                                  attId:(int64_t)attId
                               listener:(nullable id<KAMessageAttachmentsContentListener>)listener {
     try {
-        auto r = _cppRefHandle.get()->contentAsync(::djinni::I64::toCpp(msgId),
-                                                   ::djinni::I64::toCpp(attId),
-                                                   ::ObjCpp::Kullo::Api::MessageAttachmentsContentListener::toCpp(listener));
-        return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->contentAsync(::djinni::I64::toCpp(msgId),
+                                                                ::djinni::I64::toCpp(attId),
+                                                                ::ObjCpp::Kullo::Api::MessageAttachmentsContentListener::toCpp(listener));
+        return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -98,11 +99,11 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
                                  path:(nonnull NSString *)path
                              listener:(nullable id<KAMessageAttachmentsSaveToListener>)listener {
     try {
-        auto r = _cppRefHandle.get()->saveToAsync(::djinni::I64::toCpp(msgId),
-                                                  ::djinni::I64::toCpp(attId),
-                                                  ::djinni::String::toCpp(path),
-                                                  ::ObjCpp::Kullo::Api::MessageAttachmentsSaveToListener::toCpp(listener));
-        return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(r);
+        auto objcpp_result_ = _cppRefHandle.get()->saveToAsync(::djinni::I64::toCpp(msgId),
+                                                               ::djinni::I64::toCpp(attId),
+                                                               ::djinni::String::toCpp(path),
+                                                               ::ObjCpp::Kullo::Api::MessageAttachmentsSaveToListener::toCpp(listener));
+        return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
