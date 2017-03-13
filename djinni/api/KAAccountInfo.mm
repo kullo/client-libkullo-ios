@@ -6,22 +6,34 @@
 
 @implementation KAAccountInfo
 
-- (nonnull instancetype)initWithSettingsUrl:(nonnull NSString *)settingsUrl
+- (nonnull instancetype)initWithPlanName:(nullable NSString *)planName
+                            storageQuota:(nullable NSNumber *)storageQuota
+                             storageUsed:(nullable NSNumber *)storageUsed
+                             settingsUrl:(nullable NSString *)settingsUrl
 {
     if (self = [super init]) {
+        _planName = [planName copy];
+        _storageQuota = storageQuota;
+        _storageUsed = storageUsed;
         _settingsUrl = [settingsUrl copy];
     }
     return self;
 }
 
-+ (nonnull instancetype)AccountInfoWithSettingsUrl:(nonnull NSString *)settingsUrl
++ (nonnull instancetype)AccountInfoWithPlanName:(nullable NSString *)planName
+                                   storageQuota:(nullable NSNumber *)storageQuota
+                                    storageUsed:(nullable NSNumber *)storageUsed
+                                    settingsUrl:(nullable NSString *)settingsUrl
 {
-    return [[self alloc] initWithSettingsUrl:settingsUrl];
+    return [[self alloc] initWithPlanName:planName
+                             storageQuota:storageQuota
+                              storageUsed:storageUsed
+                              settingsUrl:settingsUrl];
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ %p settingsUrl:%@>", self.class, (void *)self, self.settingsUrl];
+    return [NSString stringWithFormat:@"<%@ %p planName:%@ storageQuota:%@ storageUsed:%@ settingsUrl:%@>", self.class, (void *)self, self.planName, self.storageQuota, self.storageUsed, self.settingsUrl];
 }
 
 @end

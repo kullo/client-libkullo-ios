@@ -10,12 +10,18 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto AccountInfo::toCpp(ObjcType obj) -> CppType
 {
     assert(obj);
-    return {::djinni::String::toCpp(obj.settingsUrl)};
+    return {::djinni::Optional<boost::optional, ::djinni::String>::toCpp(obj.planName),
+            ::djinni::Optional<boost::optional, ::djinni::I64>::toCpp(obj.storageQuota),
+            ::djinni::Optional<boost::optional, ::djinni::I64>::toCpp(obj.storageUsed),
+            ::djinni::Optional<boost::optional, ::djinni::String>::toCpp(obj.settingsUrl)};
 }
 
 auto AccountInfo::fromCpp(const CppType& cpp) -> ObjcType
 {
-    return [[KAAccountInfo alloc] initWithSettingsUrl:(::djinni::String::fromCpp(cpp.settingsUrl))];
+    return [[KAAccountInfo alloc] initWithPlanName:(::djinni::Optional<boost::optional, ::djinni::String>::fromCpp(cpp.planName))
+                                      storageQuota:(::djinni::Optional<boost::optional, ::djinni::I64>::fromCpp(cpp.storageQuota))
+                                       storageUsed:(::djinni::Optional<boost::optional, ::djinni::I64>::fromCpp(cpp.storageUsed))
+                                       settingsUrl:(::djinni::Optional<boost::optional, ::djinni::String>::fromCpp(cpp.settingsUrl))];
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

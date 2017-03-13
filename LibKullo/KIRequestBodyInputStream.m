@@ -1,4 +1,4 @@
-/* Copyright 2015-2016 Kullo GmbH. All rights reserved. */
+/* Copyright 2015-2017 Kullo GmbH. All rights reserved. */
 #import "KIRequestBodyInputStream.h"
 
 @implementation KIRequestBodyInputStream {
@@ -6,7 +6,7 @@
     BOOL dataAvailable;
 
     NSStreamStatus streamStatus;
-    id<NSStreamDelegate> delegate;
+    __weak id<NSStreamDelegate> delegate;
 }
 
 - (nullable instancetype)initWithRequestListener:(nonnull KHRequestListener *)theRequestListener
@@ -56,12 +56,12 @@
 
 - (id<NSStreamDelegate>)delegate
 {
-    return delegate;
+    return (delegate) ? delegate : self;
 }
 
 - (void)setDelegate:(id<NSStreamDelegate>)theDelegate
 {
-    delegate = (theDelegate) ? theDelegate : self;
+    delegate = theDelegate;
 }
 
 - (void)scheduleInRunLoop:(NSRunLoop *)aRunLoop forMode:(NSString *)mode {}

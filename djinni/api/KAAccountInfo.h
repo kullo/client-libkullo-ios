@@ -5,13 +5,26 @@
 
 /** Information about a Kullo account */
 @interface KAAccountInfo : NSObject
-- (nonnull instancetype)initWithSettingsUrl:(nonnull NSString *)settingsUrl;
-+ (nonnull instancetype)AccountInfoWithSettingsUrl:(nonnull NSString *)settingsUrl;
+- (nonnull instancetype)initWithPlanName:(nullable NSString *)planName
+                            storageQuota:(nullable NSNumber *)storageQuota
+                             storageUsed:(nullable NSNumber *)storageUsed
+                             settingsUrl:(nullable NSString *)settingsUrl;
++ (nonnull instancetype)AccountInfoWithPlanName:(nullable NSString *)planName
+                                   storageQuota:(nullable NSNumber *)storageQuota
+                                    storageUsed:(nullable NSNumber *)storageUsed
+                                    settingsUrl:(nullable NSString *)settingsUrl;
+
+@property (nonatomic, readonly, nullable) NSString * planName;
+
+/** in bytes */
+@property (nonatomic, readonly, nullable) NSNumber * storageQuota;
+
+@property (nonatomic, readonly, nullable) NSNumber * storageUsed;
 
 /**
  * URL to web interface where account settings (notifications, ...) can be
  * configured
  */
-@property (nonatomic, readonly, nonnull) NSString * settingsUrl;
+@property (nonatomic, readonly, nullable) NSString * settingsUrl;
 
 @end

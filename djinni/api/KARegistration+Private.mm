@@ -35,13 +35,13 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
 }
 
 - (nullable KAAsyncTask *)registerAccountAsync:(nullable KAAddress *)address
-                                 acceptedTerms:(nonnull NSString *)acceptedTerms
+                                 acceptedTerms:(nullable NSString *)acceptedTerms
                                      challenge:(nullable KAChallenge *)challenge
                                challengeAnswer:(nonnull NSString *)challengeAnswer
                                       listener:(nullable id<KARegistrationRegisterAccountListener>)listener {
     try {
         auto objcpp_result_ = _cppRefHandle.get()->registerAccountAsync(::ObjCpp::Kullo::Api::Address::toCpp(address),
-                                                                        ::djinni::String::toCpp(acceptedTerms),
+                                                                        ::djinni::Optional<boost::optional, ::djinni::String>::toCpp(acceptedTerms),
                                                                         ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::Challenge>::toCpp(challenge),
                                                                         ::djinni::String::toCpp(challengeAnswer),
                                                                         ::ObjCpp::Kullo::Api::RegistrationRegisterAccountListener::toCpp(listener));
