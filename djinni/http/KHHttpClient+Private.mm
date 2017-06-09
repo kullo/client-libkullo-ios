@@ -17,17 +17,18 @@ namespace ObjCpp { namespace Kullo { namespace Http {
 
 class HttpClient::ObjcProxy final
 : public ::Kullo::Http::HttpClient
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Http::HttpClient;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     ::Kullo::Http::Response sendRequest(const ::Kullo::Http::Request & c_request, int32_t c_timeoutMs, const std::shared_ptr<::Kullo::Http::RequestListener> & c_requestListener, const std::shared_ptr<::Kullo::Http::ResponseListener> & c_responseListener) override
     {
         @autoreleasepool {
-            auto objcpp_result_ = [Handle::get() sendRequest:(::ObjCpp::Kullo::Http::Request::fromCpp(c_request))
-                                                   timeoutMs:(::djinni::I32::fromCpp(c_timeoutMs))
-                                             requestListener:(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Http::RequestListener>::fromCpp(c_requestListener))
-                                            responseListener:(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Http::ResponseListener>::fromCpp(c_responseListener))];
+            auto objcpp_result_ = [djinni_private_get_proxied_objc_object() sendRequest:(::ObjCpp::Kullo::Http::Request::fromCpp(c_request))
+                                                                              timeoutMs:(::djinni::I32::fromCpp(c_timeoutMs))
+                                                                        requestListener:(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Http::RequestListener>::fromCpp(c_requestListener))
+                                                                       responseListener:(::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Http::ResponseListener>::fromCpp(c_responseListener))];
             return ::ObjCpp::Kullo::Http::Response::toCpp(objcpp_result_);
         }
     }
@@ -50,7 +51,7 @@ auto HttpClient::fromCppOpt(const CppOptType& cpp) -> ObjcType
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Http

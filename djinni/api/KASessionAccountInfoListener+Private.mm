@@ -14,20 +14,21 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class SessionAccountInfoListener::ObjcProxy final
 : public ::Kullo::Api::SessionAccountInfoListener
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Api::SessionAccountInfoListener;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     void finished(const ::Kullo::Api::AccountInfo & c_accountInfo) override
     {
         @autoreleasepool {
-            [Handle::get() finished:(::ObjCpp::Kullo::Api::AccountInfo::fromCpp(c_accountInfo))];
+            [djinni_private_get_proxied_objc_object() finished:(::ObjCpp::Kullo::Api::AccountInfo::fromCpp(c_accountInfo))];
         }
     }
     void error(::Kullo::Api::NetworkError c_error) override
     {
         @autoreleasepool {
-            [Handle::get() error:(::djinni::Enum<::Kullo::Api::NetworkError, KANetworkError>::fromCpp(c_error))];
+            [djinni_private_get_proxied_objc_object() error:(::djinni::Enum<::Kullo::Api::NetworkError, KANetworkError>::fromCpp(c_error))];
         }
     }
 };
@@ -49,7 +50,7 @@ auto SessionAccountInfoListener::fromCppOpt(const CppOptType& cpp) -> ObjcType
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

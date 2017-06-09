@@ -15,27 +15,28 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class ClientCreateSessionListener::ObjcProxy final
 : public ::Kullo::Api::ClientCreateSessionListener
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Api::ClientCreateSessionListener;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     void migrationStarted(const std::shared_ptr<::Kullo::Api::Address> & c_address) override
     {
         @autoreleasepool {
-            [Handle::get() migrationStarted:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))];
+            [djinni_private_get_proxied_objc_object() migrationStarted:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))];
         }
     }
     void finished(const std::shared_ptr<::Kullo::Api::Session> & c_session) override
     {
         @autoreleasepool {
-            [Handle::get() finished:(::ObjCpp::Kullo::Api::Session::fromCpp(c_session))];
+            [djinni_private_get_proxied_objc_object() finished:(::ObjCpp::Kullo::Api::Session::fromCpp(c_session))];
         }
     }
     void error(const std::shared_ptr<::Kullo::Api::Address> & c_address, ::Kullo::Api::LocalError c_error) override
     {
         @autoreleasepool {
-            [Handle::get() error:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
-                           error:(::djinni::Enum<::Kullo::Api::LocalError, KALocalError>::fromCpp(c_error))];
+            [djinni_private_get_proxied_objc_object() error:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
+                                                      error:(::djinni::Enum<::Kullo::Api::LocalError, KALocalError>::fromCpp(c_error))];
         }
     }
 };
@@ -57,7 +58,7 @@ auto ClientCreateSessionListener::fromCppOpt(const CppOptType& cpp) -> ObjcType
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

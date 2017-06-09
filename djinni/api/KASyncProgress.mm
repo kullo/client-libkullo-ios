@@ -15,6 +15,7 @@
               incomingMessagesDeleted:(int64_t)incomingMessagesDeleted
    incomingAttachmentsDownloadedBytes:(int64_t)incomingAttachmentsDownloadedBytes
         incomingAttachmentsTotalBytes:(int64_t)incomingAttachmentsTotalBytes
+                  incomingAttachments:(nonnull NSDictionary<NSNumber *, KAAttachmentsBlockDownloadProgress *> *)incomingAttachments
         outgoingMessagesUploadedBytes:(int64_t)outgoingMessagesUploadedBytes
            outgoingMessagesTotalBytes:(int64_t)outgoingMessagesTotalBytes
                             runTimeMs:(int64_t)runTimeMs
@@ -29,6 +30,7 @@
         _incomingMessagesDeleted = incomingMessagesDeleted;
         _incomingAttachmentsDownloadedBytes = incomingAttachmentsDownloadedBytes;
         _incomingAttachmentsTotalBytes = incomingAttachmentsTotalBytes;
+        _incomingAttachments = [incomingAttachments copy];
         _outgoingMessagesUploadedBytes = outgoingMessagesUploadedBytes;
         _outgoingMessagesTotalBytes = outgoingMessagesTotalBytes;
         _runTimeMs = runTimeMs;
@@ -45,6 +47,7 @@
                       incomingMessagesDeleted:(int64_t)incomingMessagesDeleted
            incomingAttachmentsDownloadedBytes:(int64_t)incomingAttachmentsDownloadedBytes
                 incomingAttachmentsTotalBytes:(int64_t)incomingAttachmentsTotalBytes
+                          incomingAttachments:(nonnull NSDictionary<NSNumber *, KAAttachmentsBlockDownloadProgress *> *)incomingAttachments
                 outgoingMessagesUploadedBytes:(int64_t)outgoingMessagesUploadedBytes
                    outgoingMessagesTotalBytes:(int64_t)outgoingMessagesTotalBytes
                                     runTimeMs:(int64_t)runTimeMs
@@ -58,6 +61,7 @@
                incomingMessagesDeleted:incomingMessagesDeleted
     incomingAttachmentsDownloadedBytes:incomingAttachmentsDownloadedBytes
          incomingAttachmentsTotalBytes:incomingAttachmentsTotalBytes
+                   incomingAttachments:incomingAttachments
          outgoingMessagesUploadedBytes:outgoingMessagesUploadedBytes
             outgoingMessagesTotalBytes:outgoingMessagesTotalBytes
                              runTimeMs:runTimeMs];
@@ -65,7 +69,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ %p phase:%@ incomingMessagesProcessed:%@ incomingMessagesTotal:%@ incomingMessagesNew:%@ incomingMessagesNewUnread:%@ incomingMessagesModified:%@ incomingMessagesDeleted:%@ incomingAttachmentsDownloadedBytes:%@ incomingAttachmentsTotalBytes:%@ outgoingMessagesUploadedBytes:%@ outgoingMessagesTotalBytes:%@ runTimeMs:%@>", self.class, (void *)self, @(self.phase), @(self.incomingMessagesProcessed), @(self.incomingMessagesTotal), @(self.incomingMessagesNew), @(self.incomingMessagesNewUnread), @(self.incomingMessagesModified), @(self.incomingMessagesDeleted), @(self.incomingAttachmentsDownloadedBytes), @(self.incomingAttachmentsTotalBytes), @(self.outgoingMessagesUploadedBytes), @(self.outgoingMessagesTotalBytes), @(self.runTimeMs)];
+    return [NSString stringWithFormat:@"<%@ %p phase:%@ incomingMessagesProcessed:%@ incomingMessagesTotal:%@ incomingMessagesNew:%@ incomingMessagesNewUnread:%@ incomingMessagesModified:%@ incomingMessagesDeleted:%@ incomingAttachmentsDownloadedBytes:%@ incomingAttachmentsTotalBytes:%@ incomingAttachments:%@ outgoingMessagesUploadedBytes:%@ outgoingMessagesTotalBytes:%@ runTimeMs:%@>", self.class, (void *)self, @(self.phase), @(self.incomingMessagesProcessed), @(self.incomingMessagesTotal), @(self.incomingMessagesNew), @(self.incomingMessagesNewUnread), @(self.incomingMessagesModified), @(self.incomingMessagesDeleted), @(self.incomingAttachmentsDownloadedBytes), @(self.incomingAttachmentsTotalBytes), self.incomingAttachments, @(self.outgoingMessagesUploadedBytes), @(self.outgoingMessagesTotalBytes), @(self.runTimeMs)];
 }
 
 @end

@@ -7,8 +7,11 @@
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
 #import "KAAddress+Private.h"
+#import "KAAsyncTask+Private.h"
 #import "KADateTimeBase+Private.h"
 #import "KADelivery+Private.h"
+#import "KAMessagesSearchListener+Private.h"
+#import "KASenderPredicate+Private.h"
 #include <exception>
 #include <stdexcept>
 #include <utility>
@@ -74,11 +77,12 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (void)setRead:(int64_t)msgId
+- (BOOL)setRead:(int64_t)msgId
           value:(BOOL)value {
     try {
-        _cppRefHandle.get()->setRead(::djinni::I64::toCpp(msgId),
-                                     ::djinni::Bool::toCpp(value));
+        auto objcpp_result_ = _cppRefHandle.get()->setRead(::djinni::I64::toCpp(msgId),
+                                                           ::djinni::Bool::toCpp(value));
+        return ::djinni::Bool::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -89,11 +93,12 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (void)setDone:(int64_t)msgId
+- (BOOL)setDone:(int64_t)msgId
           value:(BOOL)value {
     try {
-        _cppRefHandle.get()->setDone(::djinni::I64::toCpp(msgId),
-                                     ::djinni::Bool::toCpp(value));
+        auto objcpp_result_ = _cppRefHandle.get()->setDone(::djinni::I64::toCpp(msgId),
+                                                           ::djinni::Bool::toCpp(value));
+        return ::djinni::Bool::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
@@ -131,6 +136,23 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     try {
         auto objcpp_result_ = _cppRefHandle.get()->footer(::djinni::I64::toCpp(msgId));
         return ::djinni::String::fromCpp(objcpp_result_);
+    } DJINNI_TRANSLATE_EXCEPTIONS()
+}
+
+- (nullable KAAsyncTask *)searchAsync:(nonnull NSString *)searchText
+                               convId:(int64_t)convId
+                               sender:(nullable KASenderPredicate *)sender
+                         limitResults:(int32_t)limitResults
+                             boundary:(nullable NSString *)boundary
+                             listener:(nullable id<KAMessagesSearchListener>)listener {
+    try {
+        auto objcpp_result_ = _cppRefHandle.get()->searchAsync(::djinni::String::toCpp(searchText),
+                                                               ::djinni::I64::toCpp(convId),
+                                                               ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::SenderPredicate>::toCpp(sender),
+                                                               ::djinni::I32::toCpp(limitResults),
+                                                               ::djinni::Optional<boost::optional, ::djinni::String>::toCpp(boundary),
+                                                               ::ObjCpp::Kullo::Api::MessagesSearchListener::toCpp(listener));
+        return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 

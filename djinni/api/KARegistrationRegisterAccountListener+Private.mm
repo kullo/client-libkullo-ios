@@ -17,36 +17,37 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class RegistrationRegisterAccountListener::ObjcProxy final
 : public ::Kullo::Api::RegistrationRegisterAccountListener
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Api::RegistrationRegisterAccountListener;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     void challengeNeeded(const std::shared_ptr<::Kullo::Api::Address> & c_address, const std::shared_ptr<::Kullo::Api::Challenge> & c_challenge) override
     {
         @autoreleasepool {
-            [Handle::get() challengeNeeded:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
-                                 challenge:(::ObjCpp::Kullo::Api::Challenge::fromCpp(c_challenge))];
+            [djinni_private_get_proxied_objc_object() challengeNeeded:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
+                                                            challenge:(::ObjCpp::Kullo::Api::Challenge::fromCpp(c_challenge))];
         }
     }
     void addressNotAvailable(const std::shared_ptr<::Kullo::Api::Address> & c_address, ::Kullo::Api::AddressNotAvailableReason c_reason) override
     {
         @autoreleasepool {
-            [Handle::get() addressNotAvailable:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
-                                        reason:(::djinni::Enum<::Kullo::Api::AddressNotAvailableReason, KAAddressNotAvailableReason>::fromCpp(c_reason))];
+            [djinni_private_get_proxied_objc_object() addressNotAvailable:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
+                                                                   reason:(::djinni::Enum<::Kullo::Api::AddressNotAvailableReason, KAAddressNotAvailableReason>::fromCpp(c_reason))];
         }
     }
     void finished(const std::shared_ptr<::Kullo::Api::Address> & c_address, const std::shared_ptr<::Kullo::Api::MasterKey> & c_masterKey) override
     {
         @autoreleasepool {
-            [Handle::get() finished:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
-                          masterKey:(::ObjCpp::Kullo::Api::MasterKey::fromCpp(c_masterKey))];
+            [djinni_private_get_proxied_objc_object() finished:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
+                                                     masterKey:(::ObjCpp::Kullo::Api::MasterKey::fromCpp(c_masterKey))];
         }
     }
     void error(const std::shared_ptr<::Kullo::Api::Address> & c_address, ::Kullo::Api::NetworkError c_error) override
     {
         @autoreleasepool {
-            [Handle::get() error:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
-                           error:(::djinni::Enum<::Kullo::Api::NetworkError, KANetworkError>::fromCpp(c_error))];
+            [djinni_private_get_proxied_objc_object() error:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
+                                                      error:(::djinni::Enum<::Kullo::Api::NetworkError, KANetworkError>::fromCpp(c_error))];
         }
     }
 };
@@ -68,7 +69,7 @@ auto RegistrationRegisterAccountListener::fromCppOpt(const CppOptType& cpp) -> O
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

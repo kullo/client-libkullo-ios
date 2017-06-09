@@ -14,20 +14,21 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class LogListener::ObjcProxy final
 : public ::Kullo::Api::LogListener
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Api::LogListener;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     void writeLogMessage(const std::string & c_file, int32_t c_line, const std::string & c_function, ::Kullo::Api::LogType c_type, const std::string & c_message, const std::string & c_thread, const std::string & c_stacktrace) override
     {
         @autoreleasepool {
-            [Handle::get() writeLogMessage:(::djinni::String::fromCpp(c_file))
-                                      line:(::djinni::I32::fromCpp(c_line))
-                                  function:(::djinni::String::fromCpp(c_function))
-                                      type:(::djinni::Enum<::Kullo::Api::LogType, KALogType>::fromCpp(c_type))
-                                   message:(::djinni::String::fromCpp(c_message))
-                                    thread:(::djinni::String::fromCpp(c_thread))
-                                stacktrace:(::djinni::String::fromCpp(c_stacktrace))];
+            [djinni_private_get_proxied_objc_object() writeLogMessage:(::djinni::String::fromCpp(c_file))
+                                                                 line:(::djinni::I32::fromCpp(c_line))
+                                                             function:(::djinni::String::fromCpp(c_function))
+                                                                 type:(::djinni::Enum<::Kullo::Api::LogType, KALogType>::fromCpp(c_type))
+                                                              message:(::djinni::String::fromCpp(c_message))
+                                                               thread:(::djinni::String::fromCpp(c_thread))
+                                                           stacktrace:(::djinni::String::fromCpp(c_stacktrace))];
         }
     }
 };
@@ -49,7 +50,7 @@ auto LogListener::fromCppOpt(const CppOptType& cpp) -> ObjcType
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

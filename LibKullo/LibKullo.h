@@ -12,6 +12,7 @@ FOUNDATION_EXPORT const unsigned char LibKulloVersionString[];
 #import <LibKullo/KAAddress.h>
 #import <LibKullo/KAAddressNotAvailableReason.h>
 #import <LibKullo/KAAsyncTask.h>
+#import <LibKullo/KAAttachmentsBlockDownloadProgress.h>
 #import <LibKullo/KAChallenge.h>
 #import <LibKullo/KAChallengeType.h>
 #import <LibKullo/KAClient.h>
@@ -43,6 +44,8 @@ FOUNDATION_EXPORT const unsigned char LibKulloVersionString[];
 #import <LibKullo/KAMessageAttachmentsContentListener.h>
 #import <LibKullo/KAMessageAttachmentsSaveToListener.h>
 #import <LibKullo/KAMessages.h>
+#import <LibKullo/KAMessagesSearchListener.h>
+#import <LibKullo/KAMessagesSearchResult.h>
 #import <LibKullo/KANetworkError.h>
 #import <LibKullo/KAPushToken.h>
 #import <LibKullo/KAPushTokenEnvironment.h>
@@ -51,6 +54,8 @@ FOUNDATION_EXPORT const unsigned char LibKulloVersionString[];
 #import <LibKullo/KARegistrationRegisterAccountListener.h>
 #import <LibKullo/KARegistry.h>
 #import <LibKullo/KASenders.h>
+#import <LibKullo/KASearchPredicateOperator.h>
+#import <LibKullo/KASenderPredicate.h>
 #import <LibKullo/KASession.h>
 #import <LibKullo/KASessionAccountInfoListener.h>
 #import <LibKullo/KASessionListener.h>

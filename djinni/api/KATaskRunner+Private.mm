@@ -13,14 +13,15 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class TaskRunner::ObjcProxy final
 : public ::Kullo::Api::TaskRunner
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Api::TaskRunner;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     void runTaskAsync(const std::shared_ptr<::Kullo::Api::Task> & c_task) override
     {
         @autoreleasepool {
-            [Handle::get() runTaskAsync:(::ObjCpp::Kullo::Api::Task::fromCpp(c_task))];
+            [djinni_private_get_proxied_objc_object() runTaskAsync:(::ObjCpp::Kullo::Api::Task::fromCpp(c_task))];
         }
     }
 };
@@ -42,7 +43,7 @@ auto TaskRunner::fromCppOpt(const CppOptType& cpp) -> ObjcType
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

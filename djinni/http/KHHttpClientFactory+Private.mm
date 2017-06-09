@@ -14,21 +14,22 @@ namespace ObjCpp { namespace Kullo { namespace Http {
 
 class HttpClientFactory::ObjcProxy final
 : public ::Kullo::Http::HttpClientFactory
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Http::HttpClientFactory;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     std::shared_ptr<::Kullo::Http::HttpClient> createHttpClient() override
     {
         @autoreleasepool {
-            auto objcpp_result_ = [Handle::get() createHttpClient];
+            auto objcpp_result_ = [djinni_private_get_proxied_objc_object() createHttpClient];
             return ::ObjCpp::Kullo::Http::HttpClient::toCpp(objcpp_result_);
         }
     }
     std::unordered_map<std::string, std::string> versions() override
     {
         @autoreleasepool {
-            auto objcpp_result_ = [Handle::get() versions];
+            auto objcpp_result_ = [djinni_private_get_proxied_objc_object() versions];
             return ::djinni::Map<::djinni::String, ::djinni::String>::toCpp(objcpp_result_);
         }
     }
@@ -51,7 +52,7 @@ auto HttpClientFactory::fromCppOpt(const CppOptType& cpp) -> ObjcType
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Http

@@ -14,25 +14,26 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class MessageAttachmentsSaveToListener::ObjcProxy final
 : public ::Kullo::Api::MessageAttachmentsSaveToListener
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Api::MessageAttachmentsSaveToListener;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     void finished(int64_t c_msgId, int64_t c_attId, const std::string & c_path) override
     {
         @autoreleasepool {
-            [Handle::get() finished:(::djinni::I64::fromCpp(c_msgId))
-                              attId:(::djinni::I64::fromCpp(c_attId))
-                               path:(::djinni::String::fromCpp(c_path))];
+            [djinni_private_get_proxied_objc_object() finished:(::djinni::I64::fromCpp(c_msgId))
+                                                         attId:(::djinni::I64::fromCpp(c_attId))
+                                                          path:(::djinni::String::fromCpp(c_path))];
         }
     }
     void error(int64_t c_msgId, int64_t c_attId, const std::string & c_path, ::Kullo::Api::LocalError c_error) override
     {
         @autoreleasepool {
-            [Handle::get() error:(::djinni::I64::fromCpp(c_msgId))
-                           attId:(::djinni::I64::fromCpp(c_attId))
-                            path:(::djinni::String::fromCpp(c_path))
-                           error:(::djinni::Enum<::Kullo::Api::LocalError, KALocalError>::fromCpp(c_error))];
+            [djinni_private_get_proxied_objc_object() error:(::djinni::I64::fromCpp(c_msgId))
+                                                      attId:(::djinni::I64::fromCpp(c_attId))
+                                                       path:(::djinni::String::fromCpp(c_path))
+                                                      error:(::djinni::Enum<::Kullo::Api::LocalError, KALocalError>::fromCpp(c_error))];
         }
     }
 };
@@ -54,7 +55,7 @@ auto MessageAttachmentsSaveToListener::fromCppOpt(const CppOptType& cpp) -> Objc
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

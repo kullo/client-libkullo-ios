@@ -15,22 +15,23 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class ClientAddressExistsListener::ObjcProxy final
 : public ::Kullo::Api::ClientAddressExistsListener
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Api::ClientAddressExistsListener;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     void finished(const std::shared_ptr<::Kullo::Api::Address> & c_address, bool c_exists) override
     {
         @autoreleasepool {
-            [Handle::get() finished:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
-                             exists:(::djinni::Bool::fromCpp(c_exists))];
+            [djinni_private_get_proxied_objc_object() finished:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
+                                                        exists:(::djinni::Bool::fromCpp(c_exists))];
         }
     }
     void error(const std::shared_ptr<::Kullo::Api::Address> & c_address, ::Kullo::Api::NetworkError c_error) override
     {
         @autoreleasepool {
-            [Handle::get() error:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
-                           error:(::djinni::Enum<::Kullo::Api::NetworkError, KANetworkError>::fromCpp(c_error))];
+            [djinni_private_get_proxied_objc_object() error:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
+                                                      error:(::djinni::Enum<::Kullo::Api::NetworkError, KANetworkError>::fromCpp(c_error))];
         }
     }
 };
@@ -52,7 +53,7 @@ auto ClientAddressExistsListener::fromCppOpt(const CppOptType& cpp) -> ObjcType
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

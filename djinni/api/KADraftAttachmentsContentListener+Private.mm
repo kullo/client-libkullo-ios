@@ -13,16 +13,17 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class DraftAttachmentsContentListener::ObjcProxy final
 : public ::Kullo::Api::DraftAttachmentsContentListener
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Api::DraftAttachmentsContentListener;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     void finished(int64_t c_convId, int64_t c_attId, const std::vector<uint8_t> & c_content) override
     {
         @autoreleasepool {
-            [Handle::get() finished:(::djinni::I64::fromCpp(c_convId))
-                              attId:(::djinni::I64::fromCpp(c_attId))
-                            content:(::djinni::Binary::fromCpp(c_content))];
+            [djinni_private_get_proxied_objc_object() finished:(::djinni::I64::fromCpp(c_convId))
+                                                         attId:(::djinni::I64::fromCpp(c_attId))
+                                                       content:(::djinni::Binary::fromCpp(c_content))];
         }
     }
 };
@@ -44,7 +45,7 @@ auto DraftAttachmentsContentListener::fromCppOpt(const CppOptType& cpp) -> ObjcT
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

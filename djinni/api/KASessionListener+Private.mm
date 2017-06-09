@@ -13,14 +13,15 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class SessionListener::ObjcProxy final
 : public ::Kullo::Api::SessionListener
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Api::SessionListener;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     void internalEvent(const std::shared_ptr<::Kullo::Api::InternalEvent> & c_event) override
     {
         @autoreleasepool {
-            [Handle::get() internalEvent:(::ObjCpp::Kullo::Api::InternalEvent::fromCpp(c_event))];
+            [djinni_private_get_proxied_objc_object() internalEvent:(::ObjCpp::Kullo::Api::InternalEvent::fromCpp(c_event))];
         }
     }
 };
@@ -42,7 +43,7 @@ auto SessionListener::fromCppOpt(const CppOptType& cpp) -> ObjcType
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

@@ -16,41 +16,42 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class SyncerListener::ObjcProxy final
 : public ::Kullo::Api::SyncerListener
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Api::SyncerListener;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     void started() override
     {
         @autoreleasepool {
-            [Handle::get() started];
+            [djinni_private_get_proxied_objc_object() started];
         }
     }
     void draftPartTooBig(int64_t c_convId, ::Kullo::Api::DraftPart c_part, int64_t c_currentSize, int64_t c_maxSize) override
     {
         @autoreleasepool {
-            [Handle::get() draftPartTooBig:(::djinni::I64::fromCpp(c_convId))
-                                      part:(::djinni::Enum<::Kullo::Api::DraftPart, KADraftPart>::fromCpp(c_part))
-                               currentSize:(::djinni::I64::fromCpp(c_currentSize))
-                                   maxSize:(::djinni::I64::fromCpp(c_maxSize))];
+            [djinni_private_get_proxied_objc_object() draftPartTooBig:(::djinni::I64::fromCpp(c_convId))
+                                                                 part:(::djinni::Enum<::Kullo::Api::DraftPart, KADraftPart>::fromCpp(c_part))
+                                                          currentSize:(::djinni::I64::fromCpp(c_currentSize))
+                                                              maxSize:(::djinni::I64::fromCpp(c_maxSize))];
         }
     }
     void progressed(const ::Kullo::Api::SyncProgress & c_progress) override
     {
         @autoreleasepool {
-            [Handle::get() progressed:(::ObjCpp::Kullo::Api::SyncProgress::fromCpp(c_progress))];
+            [djinni_private_get_proxied_objc_object() progressed:(::ObjCpp::Kullo::Api::SyncProgress::fromCpp(c_progress))];
         }
     }
     void finished() override
     {
         @autoreleasepool {
-            [Handle::get() finished];
+            [djinni_private_get_proxied_objc_object() finished];
         }
     }
     void error(::Kullo::Api::NetworkError c_error) override
     {
         @autoreleasepool {
-            [Handle::get() error:(::djinni::Enum<::Kullo::Api::NetworkError, KANetworkError>::fromCpp(c_error))];
+            [djinni_private_get_proxied_objc_object() error:(::djinni::Enum<::Kullo::Api::NetworkError, KANetworkError>::fromCpp(c_error))];
         }
     }
 };
@@ -72,7 +73,7 @@ auto SyncerListener::fromCppOpt(const CppOptType& cpp) -> ObjcType
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

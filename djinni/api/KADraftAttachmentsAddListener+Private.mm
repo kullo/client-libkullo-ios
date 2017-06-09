@@ -14,33 +14,34 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class DraftAttachmentsAddListener::ObjcProxy final
 : public ::Kullo::Api::DraftAttachmentsAddListener
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Api::DraftAttachmentsAddListener;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     void progressed(int64_t c_convId, int64_t c_attId, int64_t c_bytesProcessed, int64_t c_bytesTotal) override
     {
         @autoreleasepool {
-            [Handle::get() progressed:(::djinni::I64::fromCpp(c_convId))
-                                attId:(::djinni::I64::fromCpp(c_attId))
-                       bytesProcessed:(::djinni::I64::fromCpp(c_bytesProcessed))
-                           bytesTotal:(::djinni::I64::fromCpp(c_bytesTotal))];
+            [djinni_private_get_proxied_objc_object() progressed:(::djinni::I64::fromCpp(c_convId))
+                                                           attId:(::djinni::I64::fromCpp(c_attId))
+                                                  bytesProcessed:(::djinni::I64::fromCpp(c_bytesProcessed))
+                                                      bytesTotal:(::djinni::I64::fromCpp(c_bytesTotal))];
         }
     }
     void finished(int64_t c_convId, int64_t c_attId, const std::string & c_path) override
     {
         @autoreleasepool {
-            [Handle::get() finished:(::djinni::I64::fromCpp(c_convId))
-                              attId:(::djinni::I64::fromCpp(c_attId))
-                               path:(::djinni::String::fromCpp(c_path))];
+            [djinni_private_get_proxied_objc_object() finished:(::djinni::I64::fromCpp(c_convId))
+                                                         attId:(::djinni::I64::fromCpp(c_attId))
+                                                          path:(::djinni::String::fromCpp(c_path))];
         }
     }
     void error(int64_t c_convId, const std::string & c_path, ::Kullo::Api::LocalError c_error) override
     {
         @autoreleasepool {
-            [Handle::get() error:(::djinni::I64::fromCpp(c_convId))
-                            path:(::djinni::String::fromCpp(c_path))
-                           error:(::djinni::Enum<::Kullo::Api::LocalError, KALocalError>::fromCpp(c_error))];
+            [djinni_private_get_proxied_objc_object() error:(::djinni::I64::fromCpp(c_convId))
+                                                       path:(::djinni::String::fromCpp(c_path))
+                                                      error:(::djinni::Enum<::Kullo::Api::LocalError, KALocalError>::fromCpp(c_error))];
         }
     }
 };
@@ -62,7 +63,7 @@ auto DraftAttachmentsAddListener::fromCppOpt(const CppOptType& cpp) -> ObjcType
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

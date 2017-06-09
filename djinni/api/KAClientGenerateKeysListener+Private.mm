@@ -14,20 +14,21 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 
 class ClientGenerateKeysListener::ObjcProxy final
 : public ::Kullo::Api::ClientGenerateKeysListener
-, public ::djinni::ObjcProxyCache::Handle<ObjcType>
+, private ::djinni::ObjcProxyBase<ObjcType>
 {
+    friend class ::ObjCpp::Kullo::Api::ClientGenerateKeysListener;
 public:
-    using Handle::Handle;
+    using ObjcProxyBase::ObjcProxyBase;
     void progress(int8_t c_progress) override
     {
         @autoreleasepool {
-            [Handle::get() progress:(::djinni::I8::fromCpp(c_progress))];
+            [djinni_private_get_proxied_objc_object() progress:(::djinni::I8::fromCpp(c_progress))];
         }
     }
     void finished(const std::shared_ptr<::Kullo::Api::Registration> & c_registration) override
     {
         @autoreleasepool {
-            [Handle::get() finished:(::ObjCpp::Kullo::Api::Registration::fromCpp(c_registration))];
+            [djinni_private_get_proxied_objc_object() finished:(::ObjCpp::Kullo::Api::Registration::fromCpp(c_registration))];
         }
     }
 };
@@ -49,7 +50,7 @@ auto ClientGenerateKeysListener::fromCppOpt(const CppOptType& cpp) -> ObjcType
     if (!cpp) {
         return nil;
     }
-    return dynamic_cast<ObjcProxy&>(*cpp).Handle::get();
+    return dynamic_cast<ObjcProxy&>(*cpp).djinni_private_get_proxied_objc_object();
 }
 
 } } }  // namespace ObjCpp::Kullo::Api

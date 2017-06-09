@@ -3,6 +3,7 @@
 
 #import "KASyncProgress+Private.h"
 #import "DJIMarshal+Private.h"
+#import "KAAttachmentsBlockDownloadProgress+Private.h"
 #import "KASyncPhase+Private.h"
 #include <cassert>
 
@@ -20,6 +21,7 @@ auto SyncProgress::toCpp(ObjcType obj) -> CppType
             ::djinni::I64::toCpp(obj.incomingMessagesDeleted),
             ::djinni::I64::toCpp(obj.incomingAttachmentsDownloadedBytes),
             ::djinni::I64::toCpp(obj.incomingAttachmentsTotalBytes),
+            ::djinni::Map<::djinni::I64, ::ObjCpp::Kullo::Api::AttachmentsBlockDownloadProgress>::toCpp(obj.incomingAttachments),
             ::djinni::I64::toCpp(obj.outgoingMessagesUploadedBytes),
             ::djinni::I64::toCpp(obj.outgoingMessagesTotalBytes),
             ::djinni::I64::toCpp(obj.runTimeMs)};
@@ -36,6 +38,7 @@ auto SyncProgress::fromCpp(const CppType& cpp) -> ObjcType
                          incomingMessagesDeleted:(::djinni::I64::fromCpp(cpp.incomingMessagesDeleted))
               incomingAttachmentsDownloadedBytes:(::djinni::I64::fromCpp(cpp.incomingAttachmentsDownloadedBytes))
                    incomingAttachmentsTotalBytes:(::djinni::I64::fromCpp(cpp.incomingAttachmentsTotalBytes))
+                             incomingAttachments:(::djinni::Map<::djinni::I64, ::ObjCpp::Kullo::Api::AttachmentsBlockDownloadProgress>::fromCpp(cpp.incomingAttachments))
                    outgoingMessagesUploadedBytes:(::djinni::I64::fromCpp(cpp.outgoingMessagesUploadedBytes))
                       outgoingMessagesTotalBytes:(::djinni::I64::fromCpp(cpp.outgoingMessagesTotalBytes))
                                        runTimeMs:(::djinni::I64::fromCpp(cpp.runTimeMs))];

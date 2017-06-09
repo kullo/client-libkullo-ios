@@ -13,18 +13,26 @@
 /**
  * Tells the asynchronous task to finish, but doesn't wait for termination.
  * Stops all callbacks, even if the task continues to run.
+ * Thread safe.
  */
 - (void)cancel;
 
-/** Returns true iff the task has finished its work. */
+/**
+ * Returns true iff the task has finished its work.
+ * Thread safe.
+ */
 - (BOOL)isDone;
 
-/** Blocks until the task has finished executing. */
+/**
+ * Blocks until the task has finished executing.
+ * Thread safe.
+ */
 - (void)waitUntilDone;
 
 /**
  * Blocks until the task has finished executing or until the timeout has
  * expired. Returns false on timeout, true otherwise.
+ * Thread safe.
  */
 - (BOOL)waitForMs:(int32_t)timeout;
 
