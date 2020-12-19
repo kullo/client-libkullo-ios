@@ -63,9 +63,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto SyncerListener::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("SyncerListener::toCpp requires non-nil object");
     }
-    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
+    return kulloForcedNn(::djinni::get_objc_proxy<ObjcProxy>(objc));
 }
 
 auto SyncerListener::fromCppOpt(const CppOptType& cpp) -> ObjcType

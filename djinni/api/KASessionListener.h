@@ -9,6 +9,6 @@
 @protocol KASessionListener
 
 /** event must be passed to Session.notify() from UI thread */
-- (void)internalEvent:(nullable KAInternalEvent *)event;
+- (void)internalEvent:(nonnull KAInternalEvent *)event;
 
 @end

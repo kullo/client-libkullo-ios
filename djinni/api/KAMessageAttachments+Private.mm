@@ -83,10 +83,13 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)contentAsync:(int64_t)msgId
-                                 attId:(int64_t)attId
-                              listener:(nullable id<KAMessageAttachmentsContentListener>)listener {
+- (nonnull KAAsyncTask *)contentAsync:(int64_t)msgId
+                                attId:(int64_t)attId
+                             listener:(nonnull id<KAMessageAttachmentsContentListener>)listener {
     try {
+        if (listener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'listener' to function KAMessageAttachments - (nonnull KAAsyncTask *)contentAsync:(int64_t)msgId attId:(int64_t)attId listener:(nonnull id<KAMessageAttachmentsContentListener>)listener");
+        }
         auto objcpp_result_ = _cppRefHandle.get()->contentAsync(::djinni::I64::toCpp(msgId),
                                                                 ::djinni::I64::toCpp(attId),
                                                                 ::ObjCpp::Kullo::Api::MessageAttachmentsContentListener::toCpp(listener));
@@ -94,11 +97,14 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)saveToAsync:(int64_t)msgId
-                                attId:(int64_t)attId
-                                 path:(nonnull NSString *)path
-                             listener:(nullable id<KAMessageAttachmentsSaveToListener>)listener {
+- (nonnull KAAsyncTask *)saveToAsync:(int64_t)msgId
+                               attId:(int64_t)attId
+                                path:(nonnull NSString *)path
+                            listener:(nonnull id<KAMessageAttachmentsSaveToListener>)listener {
     try {
+        if (listener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'listener' to function KAMessageAttachments - (nonnull KAAsyncTask *)saveToAsync:(int64_t)msgId attId:(int64_t)attId path:(nonnull NSString *)path listener:(nonnull id<KAMessageAttachmentsSaveToListener>)listener");
+        }
         auto objcpp_result_ = _cppRefHandle.get()->saveToAsync(::djinni::I64::toCpp(msgId),
                                                                ::djinni::I64::toCpp(attId),
                                                                ::djinni::String::toCpp(path),
@@ -112,9 +118,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto MessageAttachments::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("MessageAttachments::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto MessageAttachments::fromCppOpt(const CppOptType& cpp) -> ObjcType

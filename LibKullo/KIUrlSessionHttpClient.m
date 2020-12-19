@@ -1,4 +1,9 @@
-/* Copyright 2015-2017 Kullo GmbH. All rights reserved. */
+/*
+ * Copyright 2015–2019 Kullo GmbH
+ *
+ * This source code is licensed under the 3-clause BSD license. See LICENSE.txt
+ * in the root directory of this source tree for details.
+ */
 #import "KIUrlSessionHttpClient.h"
 
 #import "KHResponseListener.h"
@@ -39,7 +44,7 @@
 
 - (void)setMethod:(KHHttpMethod)method ofRequest:(nonnull NSMutableURLRequest *)urlRequest
 {
-    NSString *methodString = [NSString string];
+    NSString *methodString;
     switch (method) {
         case KHHttpMethodGet: methodString = @"GET"; break;
         case KHHttpMethodPost: methodString = @"POST"; break;
@@ -48,6 +53,7 @@
         case KHHttpMethodDelete: methodString = @"DELETE"; break;
         default:
             NSAssert(false, @"Unknown KHHttpMethod: %ld", (long)method);
+            methodString = @"UNKNOWN";
             break;
     }
     urlRequest.HTTPMethod = methodString;

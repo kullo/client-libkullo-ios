@@ -40,9 +40,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto Task::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("Task::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto Task::fromCppOpt(const CppOptType& cpp) -> ObjcType

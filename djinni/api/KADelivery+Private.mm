@@ -6,7 +6,7 @@
 #import "DJICppWrapperCache+Private.h"
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
-#import "KAAddress+Private.h"
+#import "KAAddressBase+Private.h"
 #import "KADateTimeBase+Private.h"
 #import "KADeliveryReason+Private.h"
 #import "KADeliveryState+Private.h"
@@ -34,7 +34,7 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     return self;
 }
 
-- (nullable KAAddress *)recipient {
+- (nonnull KAAddress *)recipient {
     try {
         auto objcpp_result_ = _cppRefHandle.get()->recipient();
         return ::ObjCpp::Kullo::Api::Address::fromCpp(objcpp_result_);
@@ -67,9 +67,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto Delivery::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("Delivery::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto Delivery::fromCppOpt(const CppOptType& cpp) -> ObjcType

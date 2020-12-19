@@ -18,7 +18,7 @@ class TaskRunner::ObjcProxy final
     friend class ::ObjCpp::Kullo::Api::TaskRunner;
 public:
     using ObjcProxyBase::ObjcProxyBase;
-    void runTaskAsync(const std::shared_ptr<::Kullo::Api::Task> & c_task) override
+    void runTaskAsync(const ::Kullo::nn_shared_ptr<::Kullo::Api::Task> & c_task) override
     {
         @autoreleasepool {
             [djinni_private_get_proxied_objc_object() runTaskAsync:(::ObjCpp::Kullo::Api::Task::fromCpp(c_task))];
@@ -33,9 +33,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto TaskRunner::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("TaskRunner::toCpp requires non-nil object");
     }
-    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
+    return kulloForcedNn(::djinni::get_objc_proxy<ObjcProxy>(objc));
 }
 
 auto TaskRunner::fromCppOpt(const CppOptType& cpp) -> ObjcType

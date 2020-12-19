@@ -16,6 +16,6 @@
 + (void)setLogListener:(nullable id<KALogListener>)listener;
 
 /** Sets a new TaskRunner. Must be done before any async method is called. */
-+ (void)setTaskRunner:(nullable id<KATaskRunner>)taskRunner;
++ (void)setTaskRunner:(nonnull id<KATaskRunner>)taskRunner;
 
 @end

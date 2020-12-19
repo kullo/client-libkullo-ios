@@ -78,9 +78,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto InternalDateTimeUtils::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("InternalDateTimeUtils::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto InternalDateTimeUtils::fromCppOpt(const CppOptType& cpp) -> ObjcType

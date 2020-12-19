@@ -24,7 +24,7 @@
  *
  * Thread-safe.
  */
-- (void)setListener:(nullable id<KASyncerListener>)listener;
+- (void)setListener:(nonnull id<KASyncerListener>)listener;
 
 /**
  * Get the finishing time of the last successful full sync.

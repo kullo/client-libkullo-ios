@@ -6,7 +6,7 @@
 #import "DJICppWrapperCache+Private.h"
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
-#import "KAAddress+Private.h"
+#import "KAAddressBase+Private.h"
 #import "KAAsyncTask+Private.h"
 #import "KADateTimeBase+Private.h"
 #import "KADelivery+Private.h"
@@ -43,7 +43,7 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (int64_t)latestForSender:(nullable KAAddress *)address {
+- (int64_t)latestForSender:(nonnull KAAddress *)address {
     try {
         auto objcpp_result_ = _cppRefHandle.get()->latestForSender(::ObjCpp::Kullo::Api::Address::toCpp(address));
         return ::djinni::I64::fromCpp(objcpp_result_);
@@ -139,13 +139,16 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)searchAsync:(nonnull NSString *)searchText
-                               convId:(int64_t)convId
-                               sender:(nullable KASenderPredicate *)sender
-                         limitResults:(int32_t)limitResults
-                             boundary:(nullable NSString *)boundary
-                             listener:(nullable id<KAMessagesSearchListener>)listener {
+- (nonnull KAAsyncTask *)searchAsync:(nonnull NSString *)searchText
+                              convId:(int64_t)convId
+                              sender:(nullable KASenderPredicate *)sender
+                        limitResults:(int32_t)limitResults
+                            boundary:(nullable NSString *)boundary
+                            listener:(nonnull id<KAMessagesSearchListener>)listener {
     try {
+        if (listener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'listener' to function KAMessages - (nonnull KAAsyncTask *)searchAsync:(nonnull NSString *)searchText convId:(int64_t)convId sender:(nullable KASenderPredicate *)sender limitResults:(int32_t)limitResults boundary:(nullable NSString *)boundary listener:(nonnull id<KAMessagesSearchListener>)listener");
+        }
         auto objcpp_result_ = _cppRefHandle.get()->searchAsync(::djinni::String::toCpp(searchText),
                                                                ::djinni::I64::toCpp(convId),
                                                                ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::SenderPredicate>::toCpp(sender),
@@ -161,9 +164,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto Messages::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("Messages::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto Messages::fromCppOpt(const CppOptType& cpp) -> ObjcType

@@ -41,11 +41,14 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)addAsync:(int64_t)convId
-                              path:(nonnull NSString *)path
-                          mimeType:(nonnull NSString *)mimeType
-                          listener:(nullable id<KADraftAttachmentsAddListener>)listener {
+- (nonnull KAAsyncTask *)addAsync:(int64_t)convId
+                             path:(nonnull NSString *)path
+                         mimeType:(nonnull NSString *)mimeType
+                         listener:(nonnull id<KADraftAttachmentsAddListener>)listener {
     try {
+        if (listener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'listener' to function KADraftAttachments - (nonnull KAAsyncTask *)addAsync:(int64_t)convId path:(nonnull NSString *)path mimeType:(nonnull NSString *)mimeType listener:(nonnull id<KADraftAttachmentsAddListener>)listener");
+        }
         auto objcpp_result_ = _cppRefHandle.get()->addAsync(::djinni::I64::toCpp(convId),
                                                             ::djinni::String::toCpp(path),
                                                             ::djinni::String::toCpp(mimeType),
@@ -108,10 +111,13 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)contentAsync:(int64_t)convId
-                                 attId:(int64_t)attId
-                              listener:(nullable id<KADraftAttachmentsContentListener>)listener {
+- (nonnull KAAsyncTask *)contentAsync:(int64_t)convId
+                                attId:(int64_t)attId
+                             listener:(nonnull id<KADraftAttachmentsContentListener>)listener {
     try {
+        if (listener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'listener' to function KADraftAttachments - (nonnull KAAsyncTask *)contentAsync:(int64_t)convId attId:(int64_t)attId listener:(nonnull id<KADraftAttachmentsContentListener>)listener");
+        }
         auto objcpp_result_ = _cppRefHandle.get()->contentAsync(::djinni::I64::toCpp(convId),
                                                                 ::djinni::I64::toCpp(attId),
                                                                 ::ObjCpp::Kullo::Api::DraftAttachmentsContentListener::toCpp(listener));
@@ -119,11 +125,14 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)saveToAsync:(int64_t)convId
-                                attId:(int64_t)attId
-                                 path:(nonnull NSString *)path
-                             listener:(nullable id<KADraftAttachmentsSaveToListener>)listener {
+- (nonnull KAAsyncTask *)saveToAsync:(int64_t)convId
+                               attId:(int64_t)attId
+                                path:(nonnull NSString *)path
+                            listener:(nonnull id<KADraftAttachmentsSaveToListener>)listener {
     try {
+        if (listener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'listener' to function KADraftAttachments - (nonnull KAAsyncTask *)saveToAsync:(int64_t)convId attId:(int64_t)attId path:(nonnull NSString *)path listener:(nonnull id<KADraftAttachmentsSaveToListener>)listener");
+        }
         auto objcpp_result_ = _cppRefHandle.get()->saveToAsync(::djinni::I64::toCpp(convId),
                                                                ::djinni::I64::toCpp(attId),
                                                                ::djinni::String::toCpp(path),
@@ -137,9 +146,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto DraftAttachments::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("DraftAttachments::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto DraftAttachments::fromCppOpt(const CppOptType& cpp) -> ObjcType

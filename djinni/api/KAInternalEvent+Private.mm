@@ -34,9 +34,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto InternalEvent::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("InternalEvent::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto InternalEvent::fromCppOpt(const CppOptType& cpp) -> ObjcType

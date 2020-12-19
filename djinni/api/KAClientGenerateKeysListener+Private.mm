@@ -25,7 +25,7 @@ public:
             [djinni_private_get_proxied_objc_object() progress:(::djinni::I8::fromCpp(c_progress))];
         }
     }
-    void finished(const std::shared_ptr<::Kullo::Api::Registration> & c_registration) override
+    void finished(const ::Kullo::nn_shared_ptr<::Kullo::Api::Registration> & c_registration) override
     {
         @autoreleasepool {
             [djinni_private_get_proxied_objc_object() finished:(::ObjCpp::Kullo::Api::Registration::fromCpp(c_registration))];
@@ -40,9 +40,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto ClientGenerateKeysListener::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("ClientGenerateKeysListener::toCpp requires non-nil object");
     }
-    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
+    return kulloForcedNn(::djinni::get_objc_proxy<ObjcProxy>(objc));
 }
 
 auto ClientGenerateKeysListener::fromCppOpt(const CppOptType& cpp) -> ObjcType

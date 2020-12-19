@@ -35,17 +35,17 @@
                      attId:(int64_t)attId;
 
 /** Gets the content of the attachment as a BLOB */
-- (nullable KAAsyncTask *)contentAsync:(int64_t)msgId
-                                 attId:(int64_t)attId
-                              listener:(nullable id<KAMessageAttachmentsContentListener>)listener;
+- (nonnull KAAsyncTask *)contentAsync:(int64_t)msgId
+                                attId:(int64_t)attId
+                             listener:(nonnull id<KAMessageAttachmentsContentListener>)listener;
 
 /**
  * Saves the content of the attachment to a file. Path contains the absolute
  * path where the file should be saved, including the filename.
  */
-- (nullable KAAsyncTask *)saveToAsync:(int64_t)msgId
-                                attId:(int64_t)attId
-                                 path:(nonnull NSString *)path
-                             listener:(nullable id<KAMessageAttachmentsSaveToListener>)listener;
+- (nonnull KAAsyncTask *)saveToAsync:(int64_t)msgId
+                               attId:(int64_t)attId
+                                path:(nonnull NSString *)path
+                            listener:(nonnull id<KAMessageAttachmentsSaveToListener>)listener;
 
 @end

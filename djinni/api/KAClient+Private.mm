@@ -6,13 +6,13 @@
 #import "DJICppWrapperCache+Private.h"
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
-#import "KAAddress+Private.h"
+#import "KAAddressBase+Private.h"
 #import "KAAsyncTask+Private.h"
 #import "KAClientAddressExistsListener+Private.h"
 #import "KAClientCheckCredentialsListener+Private.h"
 #import "KAClientCreateSessionListener+Private.h"
 #import "KAClientGenerateKeysListener+Private.h"
-#import "KAMasterKey+Private.h"
+#import "KAMasterKeyBase+Private.h"
 #import "KASessionListener+Private.h"
 #include <exception>
 #include <stdexcept>
@@ -38,19 +38,25 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     return self;
 }
 
-+ (nullable KAClient *)create {
++ (nonnull KAClient *)create {
     try {
         auto objcpp_result_ = ::Kullo::Api::Client::create();
         return ::ObjCpp::Kullo::Api::Client::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)createSessionAsync:(nullable KAAddress *)address
-                                   masterKey:(nullable KAMasterKey *)masterKey
-                                  dbFilePath:(nonnull NSString *)dbFilePath
-                             sessionListener:(nullable id<KASessionListener>)sessionListener
-                                    listener:(nullable id<KAClientCreateSessionListener>)listener {
+- (nonnull KAAsyncTask *)createSessionAsync:(nonnull KAAddress *)address
+                                  masterKey:(nonnull KAMasterKey *)masterKey
+                                 dbFilePath:(nonnull NSString *)dbFilePath
+                            sessionListener:(nonnull id<KASessionListener>)sessionListener
+                                   listener:(nonnull id<KAClientCreateSessionListener>)listener {
     try {
+        if (sessionListener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'sessionListener' to function KAClient - (nonnull KAAsyncTask *)createSessionAsync:(nonnull KAAddress *)address masterKey:(nonnull KAMasterKey *)masterKey dbFilePath:(nonnull NSString *)dbFilePath sessionListener:(nonnull id<KASessionListener>)sessionListener listener:(nonnull id<KAClientCreateSessionListener>)listener");
+        }
+        if (listener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'listener' to function KAClient - (nonnull KAAsyncTask *)createSessionAsync:(nonnull KAAddress *)address masterKey:(nonnull KAMasterKey *)masterKey dbFilePath:(nonnull NSString *)dbFilePath sessionListener:(nonnull id<KASessionListener>)sessionListener listener:(nonnull id<KAClientCreateSessionListener>)listener");
+        }
         auto objcpp_result_ = _cppRefHandle.get()->createSessionAsync(::ObjCpp::Kullo::Api::Address::toCpp(address),
                                                                       ::ObjCpp::Kullo::Api::MasterKey::toCpp(masterKey),
                                                                       ::djinni::String::toCpp(dbFilePath),
@@ -60,19 +66,25 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)addressExistsAsync:(nullable KAAddress *)address
-                                    listener:(nullable id<KAClientAddressExistsListener>)listener {
+- (nonnull KAAsyncTask *)addressExistsAsync:(nonnull KAAddress *)address
+                                   listener:(nonnull id<KAClientAddressExistsListener>)listener {
     try {
+        if (listener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'listener' to function KAClient - (nonnull KAAsyncTask *)addressExistsAsync:(nonnull KAAddress *)address listener:(nonnull id<KAClientAddressExistsListener>)listener");
+        }
         auto objcpp_result_ = _cppRefHandle.get()->addressExistsAsync(::ObjCpp::Kullo::Api::Address::toCpp(address),
                                                                       ::ObjCpp::Kullo::Api::ClientAddressExistsListener::toCpp(listener));
         return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)checkCredentialsAsync:(nullable KAAddress *)address
-                                      masterKey:(nullable KAMasterKey *)masterKey
-                                       listener:(nullable id<KAClientCheckCredentialsListener>)listener {
+- (nonnull KAAsyncTask *)checkCredentialsAsync:(nonnull KAAddress *)address
+                                     masterKey:(nonnull KAMasterKey *)masterKey
+                                      listener:(nonnull id<KAClientCheckCredentialsListener>)listener {
     try {
+        if (listener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'listener' to function KAClient - (nonnull KAAsyncTask *)checkCredentialsAsync:(nonnull KAAddress *)address masterKey:(nonnull KAMasterKey *)masterKey listener:(nonnull id<KAClientCheckCredentialsListener>)listener");
+        }
         auto objcpp_result_ = _cppRefHandle.get()->checkCredentialsAsync(::ObjCpp::Kullo::Api::Address::toCpp(address),
                                                                          ::ObjCpp::Kullo::Api::MasterKey::toCpp(masterKey),
                                                                          ::ObjCpp::Kullo::Api::ClientCheckCredentialsListener::toCpp(listener));
@@ -80,8 +92,11 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)generateKeysAsync:(nullable id<KAClientGenerateKeysListener>)listener {
+- (nonnull KAAsyncTask *)generateKeysAsync:(nonnull id<KAClientGenerateKeysListener>)listener {
     try {
+        if (listener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'listener' to function KAClient - (nonnull KAAsyncTask *)generateKeysAsync:(nonnull id<KAClientGenerateKeysListener>)listener");
+        }
         auto objcpp_result_ = _cppRefHandle.get()->generateKeysAsync(::ObjCpp::Kullo::Api::ClientGenerateKeysListener::toCpp(listener));
         return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
@@ -100,9 +115,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto Client::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("Client::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto Client::fromCppOpt(const CppOptType& cpp) -> ObjcType

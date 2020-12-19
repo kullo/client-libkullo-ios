@@ -18,7 +18,7 @@ class SessionListener::ObjcProxy final
     friend class ::ObjCpp::Kullo::Api::SessionListener;
 public:
     using ObjcProxyBase::ObjcProxyBase;
-    void internalEvent(const std::shared_ptr<::Kullo::Api::InternalEvent> & c_event) override
+    void internalEvent(const ::Kullo::nn_shared_ptr<::Kullo::Api::InternalEvent> & c_event) override
     {
         @autoreleasepool {
             [djinni_private_get_proxied_objc_object() internalEvent:(::ObjCpp::Kullo::Api::InternalEvent::fromCpp(c_event))];
@@ -33,9 +33,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto SessionListener::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("SessionListener::toCpp requires non-nil object");
     }
-    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
+    return kulloForcedNn(::djinni::get_objc_proxy<ObjcProxy>(objc));
 }
 
 auto SessionListener::fromCppOpt(const CppOptType& cpp) -> ObjcType

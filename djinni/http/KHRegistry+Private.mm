@@ -30,8 +30,11 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     return self;
 }
 
-+ (void)setHttpClientFactory:(nullable id<KHHttpClientFactory>)factory {
++ (void)setHttpClientFactory:(nonnull id<KHHttpClientFactory>)factory {
     try {
+        if (factory == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'factory' to function KHRegistry + (void)setHttpClientFactory:(nonnull id<KHHttpClientFactory>)factory");
+        }
         ::Kullo::Http::Registry::setHttpClientFactory(::ObjCpp::Kullo::Http::HttpClientFactory::toCpp(factory));
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
@@ -41,9 +44,9 @@ namespace ObjCpp { namespace Kullo { namespace Http {
 auto Registry::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("Registry::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto Registry::fromCppOpt(const CppOptType& cpp) -> ObjcType

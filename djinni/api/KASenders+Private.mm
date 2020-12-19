@@ -6,7 +6,7 @@
 #import "DJICppWrapperCache+Private.h"
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
-#import "KAAddress+Private.h"
+#import "KAAddressBase+Private.h"
 #include <exception>
 #include <stdexcept>
 #include <utility>
@@ -71,9 +71,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto Senders::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("Senders::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto Senders::fromCppOpt(const CppOptType& cpp) -> ObjcType

@@ -33,8 +33,11 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     return self;
 }
 
-- (void)setListener:(nullable id<KASyncerListener>)listener {
+- (void)setListener:(nonnull id<KASyncerListener>)listener {
     try {
+        if (listener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'listener' to function KASyncer - (void)setListener:(nonnull id<KASyncerListener>)listener");
+        }
         _cppRefHandle.get()->setListener(::ObjCpp::Kullo::Api::SyncerListener::toCpp(listener));
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
@@ -89,9 +92,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto Syncer::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("Syncer::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto Syncer::fromCppOpt(const CppOptType& cpp) -> ObjcType

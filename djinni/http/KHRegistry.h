@@ -7,6 +7,6 @@
 
 @interface KHRegistry : NSObject
 
-+ (void)setHttpClientFactory:(nullable id<KHHttpClientFactory>)factory;
++ (void)setHttpClientFactory:(nonnull id<KHHttpClientFactory>)factory;
 
 @end

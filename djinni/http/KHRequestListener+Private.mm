@@ -42,9 +42,9 @@ namespace ObjCpp { namespace Kullo { namespace Http {
 auto RequestListener::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("RequestListener::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto RequestListener::fromCppOpt(const CppOptType& cpp) -> ObjcType

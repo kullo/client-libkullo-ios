@@ -19,10 +19,13 @@ class HttpClientFactory::ObjcProxy final
     friend class ::ObjCpp::Kullo::Http::HttpClientFactory;
 public:
     using ObjcProxyBase::ObjcProxyBase;
-    std::shared_ptr<::Kullo::Http::HttpClient> createHttpClient() override
+    ::Kullo::nn_shared_ptr<::Kullo::Http::HttpClient> createHttpClient() override
     {
         @autoreleasepool {
             auto objcpp_result_ = [djinni_private_get_proxied_objc_object() createHttpClient];
+            if (objcpp_result_ == nil) {
+                throw std::invalid_argument("Got unexpected null return value from function KHHttpClientFactory - (nonnull id<KHHttpClient>)createHttpClient");
+            }
             return ::ObjCpp::Kullo::Http::HttpClient::toCpp(objcpp_result_);
         }
     }
@@ -42,9 +45,9 @@ namespace ObjCpp { namespace Kullo { namespace Http {
 auto HttpClientFactory::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("HttpClientFactory::toCpp requires non-nil object");
     }
-    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
+    return kulloForcedNn(::djinni::get_objc_proxy<ObjcProxy>(objc));
 }
 
 auto HttpClientFactory::fromCppOpt(const CppOptType& cpp) -> ObjcType

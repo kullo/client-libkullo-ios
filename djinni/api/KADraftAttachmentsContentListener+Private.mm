@@ -35,9 +35,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto DraftAttachmentsContentListener::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("DraftAttachmentsContentListener::toCpp requires non-nil object");
     }
-    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
+    return kulloForcedNn(::djinni::get_objc_proxy<ObjcProxy>(objc));
 }
 
 auto DraftAttachmentsContentListener::fromCppOpt(const CppOptType& cpp) -> ObjcType

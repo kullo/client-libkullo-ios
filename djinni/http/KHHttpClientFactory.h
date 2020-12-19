@@ -7,7 +7,7 @@
 
 @protocol KHHttpClientFactory
 
-- (nullable id<KHHttpClient>)createHttpClient;
+- (nonnull id<KHHttpClient>)createHttpClient;
 
 /** Returns pairs of <library name, version number> for the libraries used. */
 - (nonnull NSDictionary<NSString *, NSString *> *)versions;

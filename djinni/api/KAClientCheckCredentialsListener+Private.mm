@@ -5,8 +5,8 @@
 #import "KAClientCheckCredentialsListener.h"
 #import "DJIMarshal+Private.h"
 #import "DJIObjcWrapperCache+Private.h"
-#import "KAAddress+Private.h"
-#import "KAMasterKey+Private.h"
+#import "KAAddressBase+Private.h"
+#import "KAMasterKeyBase+Private.h"
 #import "KANetworkError+Private.h"
 #include <stdexcept>
 
@@ -21,7 +21,7 @@ class ClientCheckCredentialsListener::ObjcProxy final
     friend class ::ObjCpp::Kullo::Api::ClientCheckCredentialsListener;
 public:
     using ObjcProxyBase::ObjcProxyBase;
-    void finished(const std::shared_ptr<::Kullo::Api::Address> & c_address, const std::shared_ptr<::Kullo::Api::MasterKey> & c_masterKey, bool c_valid) override
+    void finished(const ::Kullo::Api::Address & c_address, const ::Kullo::Api::MasterKey & c_masterKey, bool c_valid) override
     {
         @autoreleasepool {
             [djinni_private_get_proxied_objc_object() finished:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
@@ -29,7 +29,7 @@ public:
                                                          valid:(::djinni::Bool::fromCpp(c_valid))];
         }
     }
-    void error(const std::shared_ptr<::Kullo::Api::Address> & c_address, ::Kullo::Api::NetworkError c_error) override
+    void error(const ::Kullo::Api::Address & c_address, ::Kullo::Api::NetworkError c_error) override
     {
         @autoreleasepool {
             [djinni_private_get_proxied_objc_object() error:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
@@ -45,9 +45,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto ClientCheckCredentialsListener::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("ClientCheckCredentialsListener::toCpp requires non-nil object");
     }
-    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
+    return kulloForcedNn(::djinni::get_objc_proxy<ObjcProxy>(objc));
 }
 
 auto ClientCheckCredentialsListener::fromCppOpt(const CppOptType& cpp) -> ObjcType

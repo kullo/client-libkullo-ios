@@ -1,4 +1,9 @@
-/* Copyright 2015-2017 Kullo GmbH. All rights reserved. */
+/*
+ * Copyright 2015–2019 Kullo GmbH
+ *
+ * This source code is licensed under the 3-clause BSD license. See LICENSE.txt
+ * in the root directory of this source tree for details.
+ */
 #import <UIKit/UIKit.h>
 
 //! Project version number for LibKullo.
@@ -10,6 +15,7 @@ FOUNDATION_EXPORT const unsigned char LibKulloVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <LibKullo/PublicHeader.h>
 #import <LibKullo/KAAccountInfo.h>
 #import <LibKullo/KAAddress.h>
+#import <LibKullo/KAAddressHelpers.h>
 #import <LibKullo/KAAddressNotAvailableReason.h>
 #import <LibKullo/KAAsyncTask.h>
 #import <LibKullo/KAAttachmentsBlockDownloadProgress.h>
@@ -21,7 +27,7 @@ FOUNDATION_EXPORT const unsigned char LibKulloVersionString[];
 #import <LibKullo/KAClientCreateSessionListener.h>
 #import <LibKullo/KAClientGenerateKeysListener.h>
 #import <LibKullo/KAConversations.h>
-#import <LibKullo/KADateTimeBase.h>
+#import <LibKullo/KADateTime.h>
 #import <LibKullo/KADelivery.h>
 #import <LibKullo/KADeliveryReason.h>
 #import <LibKullo/KADeliveryState.h>
@@ -34,12 +40,12 @@ FOUNDATION_EXPORT const unsigned char LibKulloVersionString[];
 #import <LibKullo/KADrafts.h>
 #import <LibKullo/KAEvent.h>
 #import <LibKullo/KAEventType.h>
-#import <LibKullo/KAInternalDateTimeUtils.h>
 #import <LibKullo/KAInternalEvent.h>
 #import <LibKullo/KALocalError.h>
 #import <LibKullo/KALogListener.h>
 #import <LibKullo/KALogType.h>
 #import <LibKullo/KAMasterKey.h>
+#import <LibKullo/KAMasterKeyHelpers.h>
 #import <LibKullo/KAMessageAttachments.h>
 #import <LibKullo/KAMessageAttachmentsContentListener.h>
 #import <LibKullo/KAMessageAttachmentsSaveToListener.h>

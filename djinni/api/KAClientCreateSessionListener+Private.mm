@@ -4,7 +4,7 @@
 #import "KAClientCreateSessionListener+Private.h"
 #import "KAClientCreateSessionListener.h"
 #import "DJIObjcWrapperCache+Private.h"
-#import "KAAddress+Private.h"
+#import "KAAddressBase+Private.h"
 #import "KALocalError+Private.h"
 #import "KASession+Private.h"
 #include <stdexcept>
@@ -20,19 +20,19 @@ class ClientCreateSessionListener::ObjcProxy final
     friend class ::ObjCpp::Kullo::Api::ClientCreateSessionListener;
 public:
     using ObjcProxyBase::ObjcProxyBase;
-    void migrationStarted(const std::shared_ptr<::Kullo::Api::Address> & c_address) override
+    void migrationStarted(const ::Kullo::Api::Address & c_address) override
     {
         @autoreleasepool {
             [djinni_private_get_proxied_objc_object() migrationStarted:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))];
         }
     }
-    void finished(const std::shared_ptr<::Kullo::Api::Session> & c_session) override
+    void finished(const ::Kullo::nn_shared_ptr<::Kullo::Api::Session> & c_session) override
     {
         @autoreleasepool {
             [djinni_private_get_proxied_objc_object() finished:(::ObjCpp::Kullo::Api::Session::fromCpp(c_session))];
         }
     }
-    void error(const std::shared_ptr<::Kullo::Api::Address> & c_address, ::Kullo::Api::LocalError c_error) override
+    void error(const ::Kullo::Api::Address & c_address, ::Kullo::Api::LocalError c_error) override
     {
         @autoreleasepool {
             [djinni_private_get_proxied_objc_object() error:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
@@ -48,9 +48,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto ClientCreateSessionListener::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("ClientCreateSessionListener::toCpp requires non-nil object");
     }
-    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
+    return kulloForcedNn(::djinni::get_objc_proxy<ObjcProxy>(objc));
 }
 
 auto ClientCreateSessionListener::fromCppOpt(const CppOptType& cpp) -> ObjcType

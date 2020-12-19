@@ -15,6 +15,6 @@
  * Called when key generation is done. Use registration to register an
  * account.
  */
-- (void)finished:(nullable KARegistration *)registration;
+- (void)finished:(nonnull KARegistration *)registration;
 
 @end

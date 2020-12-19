@@ -6,7 +6,7 @@
 #import "DJICppWrapperCache+Private.h"
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
-#import "KAAddress+Private.h"
+#import "KAAddressBase+Private.h"
 #import "KADateTimeBase+Private.h"
 #include <exception>
 #include <stdexcept>
@@ -120,9 +120,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto Conversations::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("Conversations::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto Conversations::fromCppOpt(const CppOptType& cpp) -> ObjcType

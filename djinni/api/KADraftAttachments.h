@@ -14,10 +14,10 @@
 - (nonnull NSArray<NSNumber *> *)allForDraft:(int64_t)convId;
 
 /** Adds a new attachment to a draft */
-- (nullable KAAsyncTask *)addAsync:(int64_t)convId
-                              path:(nonnull NSString *)path
-                          mimeType:(nonnull NSString *)mimeType
-                          listener:(nullable id<KADraftAttachmentsAddListener>)listener;
+- (nonnull KAAsyncTask *)addAsync:(int64_t)convId
+                             path:(nonnull NSString *)path
+                         mimeType:(nonnull NSString *)mimeType
+                         listener:(nonnull id<KADraftAttachmentsAddListener>)listener;
 
 /** Removes an attachment from a draft */
 - (void)remove:(int64_t)convId
@@ -40,17 +40,17 @@
                      attId:(int64_t)attId;
 
 /** Gets the content of the attachment as a BLOB */
-- (nullable KAAsyncTask *)contentAsync:(int64_t)convId
-                                 attId:(int64_t)attId
-                              listener:(nullable id<KADraftAttachmentsContentListener>)listener;
+- (nonnull KAAsyncTask *)contentAsync:(int64_t)convId
+                                attId:(int64_t)attId
+                             listener:(nonnull id<KADraftAttachmentsContentListener>)listener;
 
 /**
  * Saves the content of the attachment to a file. Path contains the absolute
  * path where the file should be saved, including the filename.
  */
-- (nullable KAAsyncTask *)saveToAsync:(int64_t)convId
-                                attId:(int64_t)attId
-                                 path:(nonnull NSString *)path
-                             listener:(nullable id<KADraftAttachmentsSaveToListener>)listener;
+- (nonnull KAAsyncTask *)saveToAsync:(int64_t)convId
+                               attId:(int64_t)attId
+                                path:(nonnull NSString *)path
+                            listener:(nonnull id<KADraftAttachmentsSaveToListener>)listener;
 
 @end

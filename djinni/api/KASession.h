@@ -19,29 +19,29 @@
 
 @interface KASession : NSObject
 
-- (nullable KAUserSettings *)userSettings;
+- (nonnull KAUserSettings *)userSettings;
 
-- (nullable KAConversations *)conversations;
+- (nonnull KAConversations *)conversations;
 
-- (nullable KAMessages *)messages;
+- (nonnull KAMessages *)messages;
 
-- (nullable KAMessageAttachments *)messageAttachments;
+- (nonnull KAMessageAttachments *)messageAttachments;
 
-- (nullable KASenders *)senders;
+- (nonnull KASenders *)senders;
 
-- (nullable KADrafts *)drafts;
+- (nonnull KADrafts *)drafts;
 
-- (nullable KADraftAttachments *)draftAttachments;
+- (nonnull KADraftAttachments *)draftAttachments;
 
-- (nullable KASyncer *)syncer;
+- (nonnull KASyncer *)syncer;
 
-- (nullable KAAsyncTask *)accountInfoAsync:(nullable id<KASessionAccountInfoListener>)listener;
+- (nonnull KAAsyncTask *)accountInfoAsync:(nonnull id<KASessionAccountInfoListener>)listener;
 
-- (nullable KAAsyncTask *)registerPushToken:(nonnull KAPushToken *)token;
+- (nonnull KAAsyncTask *)registerPushToken:(nonnull KAPushToken *)token;
 
-- (nullable KAAsyncTask *)unregisterPushToken:(nonnull KAPushToken *)token;
+- (nonnull KAAsyncTask *)unregisterPushToken:(nonnull KAPushToken *)token;
 
 /** Notify the session of events. Only call this from the UI thread! */
-- (nonnull NSArray<KAEvent *> *)notify:(nullable KAInternalEvent *)internalEvent;
+- (nonnull NSArray<KAEvent *> *)notify:(nonnull KAInternalEvent *)internalEvent;
 
 @end

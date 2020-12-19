@@ -6,7 +6,7 @@
 #import "DJICppWrapperCache+Private.h"
 #import "DJIError.h"
 #import "DJIMarshal+Private.h"
-#import "KAAddress+Private.h"
+#import "KAAddressBase+Private.h"
 #import "KAAsyncTask+Private.h"
 #import "KAChallenge+Private.h"
 #import "KARegistrationRegisterAccountListener+Private.h"
@@ -34,12 +34,15 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     return self;
 }
 
-- (nullable KAAsyncTask *)registerAccountAsync:(nullable KAAddress *)address
-                                 acceptedTerms:(nullable NSString *)acceptedTerms
-                                     challenge:(nullable KAChallenge *)challenge
-                               challengeAnswer:(nonnull NSString *)challengeAnswer
-                                      listener:(nullable id<KARegistrationRegisterAccountListener>)listener {
+- (nonnull KAAsyncTask *)registerAccountAsync:(nonnull KAAddress *)address
+                                acceptedTerms:(nullable NSString *)acceptedTerms
+                                    challenge:(nullable KAChallenge *)challenge
+                              challengeAnswer:(nonnull NSString *)challengeAnswer
+                                     listener:(nonnull id<KARegistrationRegisterAccountListener>)listener {
     try {
+        if (listener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'listener' to function KARegistration - (nonnull KAAsyncTask *)registerAccountAsync:(nonnull KAAddress *)address acceptedTerms:(nullable NSString *)acceptedTerms challenge:(nullable KAChallenge *)challenge challengeAnswer:(nonnull NSString *)challengeAnswer listener:(nonnull id<KARegistrationRegisterAccountListener>)listener");
+        }
         auto objcpp_result_ = _cppRefHandle.get()->registerAccountAsync(::ObjCpp::Kullo::Api::Address::toCpp(address),
                                                                         ::djinni::Optional<boost::optional, ::djinni::String>::toCpp(acceptedTerms),
                                                                         ::djinni::Optional<boost::optional, ::ObjCpp::Kullo::Api::Challenge>::toCpp(challenge),
@@ -54,9 +57,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto Registration::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("Registration::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto Registration::fromCppOpt(const CppOptType& cpp) -> ObjcType

@@ -43,85 +43,91 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     return self;
 }
 
-- (nullable KAUserSettings *)userSettings {
+- (nonnull KAUserSettings *)userSettings {
     try {
         auto objcpp_result_ = _cppRefHandle.get()->userSettings();
         return ::ObjCpp::Kullo::Api::UserSettings::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAConversations *)conversations {
+- (nonnull KAConversations *)conversations {
     try {
         auto objcpp_result_ = _cppRefHandle.get()->conversations();
         return ::ObjCpp::Kullo::Api::Conversations::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAMessages *)messages {
+- (nonnull KAMessages *)messages {
     try {
         auto objcpp_result_ = _cppRefHandle.get()->messages();
         return ::ObjCpp::Kullo::Api::Messages::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAMessageAttachments *)messageAttachments {
+- (nonnull KAMessageAttachments *)messageAttachments {
     try {
         auto objcpp_result_ = _cppRefHandle.get()->messageAttachments();
         return ::ObjCpp::Kullo::Api::MessageAttachments::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KASenders *)senders {
+- (nonnull KASenders *)senders {
     try {
         auto objcpp_result_ = _cppRefHandle.get()->senders();
         return ::ObjCpp::Kullo::Api::Senders::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KADrafts *)drafts {
+- (nonnull KADrafts *)drafts {
     try {
         auto objcpp_result_ = _cppRefHandle.get()->drafts();
         return ::ObjCpp::Kullo::Api::Drafts::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KADraftAttachments *)draftAttachments {
+- (nonnull KADraftAttachments *)draftAttachments {
     try {
         auto objcpp_result_ = _cppRefHandle.get()->draftAttachments();
         return ::ObjCpp::Kullo::Api::DraftAttachments::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KASyncer *)syncer {
+- (nonnull KASyncer *)syncer {
     try {
         auto objcpp_result_ = _cppRefHandle.get()->syncer();
         return ::ObjCpp::Kullo::Api::Syncer::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)accountInfoAsync:(nullable id<KASessionAccountInfoListener>)listener {
+- (nonnull KAAsyncTask *)accountInfoAsync:(nonnull id<KASessionAccountInfoListener>)listener {
     try {
+        if (listener == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'listener' to function KASession - (nonnull KAAsyncTask *)accountInfoAsync:(nonnull id<KASessionAccountInfoListener>)listener");
+        }
         auto objcpp_result_ = _cppRefHandle.get()->accountInfoAsync(::ObjCpp::Kullo::Api::SessionAccountInfoListener::toCpp(listener));
         return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)registerPushToken:(nonnull KAPushToken *)token {
+- (nonnull KAAsyncTask *)registerPushToken:(nonnull KAPushToken *)token {
     try {
         auto objcpp_result_ = _cppRefHandle.get()->registerPushToken(::ObjCpp::Kullo::Api::PushToken::toCpp(token));
         return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nullable KAAsyncTask *)unregisterPushToken:(nonnull KAPushToken *)token {
+- (nonnull KAAsyncTask *)unregisterPushToken:(nonnull KAPushToken *)token {
     try {
         auto objcpp_result_ = _cppRefHandle.get()->unregisterPushToken(::ObjCpp::Kullo::Api::PushToken::toCpp(token));
         return ::ObjCpp::Kullo::Api::AsyncTask::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nonnull NSArray<KAEvent *> *)notify:(nullable KAInternalEvent *)internalEvent {
+- (nonnull NSArray<KAEvent *> *)notify:(nonnull KAInternalEvent *)internalEvent {
     try {
+        if (internalEvent == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'internalEvent' to function KASession - (nonnull NSArray<KAEvent *> *)notify:(nonnull KAInternalEvent *)internalEvent");
+        }
         auto objcpp_result_ = _cppRefHandle.get()->notify(::ObjCpp::Kullo::Api::InternalEvent::toCpp(internalEvent));
         return ::djinni::List<::ObjCpp::Kullo::Api::Event>::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
@@ -132,9 +138,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto Session::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("Session::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto Session::fromCppOpt(const CppOptType& cpp) -> ObjcType

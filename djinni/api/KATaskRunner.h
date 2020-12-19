@@ -11,6 +11,6 @@
  * Runs the given task asynchronously (simplest case: in a new thread)
  * and returns immediately.
  */
-- (void)runTaskAsync:(nullable KATask *)task;
+- (void)runTaskAsync:(nonnull KATask *)task;
 
 @end

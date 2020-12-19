@@ -4,10 +4,10 @@
 #import "KARegistrationRegisterAccountListener+Private.h"
 #import "KARegistrationRegisterAccountListener.h"
 #import "DJIObjcWrapperCache+Private.h"
-#import "KAAddress+Private.h"
+#import "KAAddressBase+Private.h"
 #import "KAAddressNotAvailableReason+Private.h"
 #import "KAChallenge+Private.h"
-#import "KAMasterKey+Private.h"
+#import "KAMasterKeyBase+Private.h"
 #import "KANetworkError+Private.h"
 #include <stdexcept>
 
@@ -22,28 +22,28 @@ class RegistrationRegisterAccountListener::ObjcProxy final
     friend class ::ObjCpp::Kullo::Api::RegistrationRegisterAccountListener;
 public:
     using ObjcProxyBase::ObjcProxyBase;
-    void challengeNeeded(const std::shared_ptr<::Kullo::Api::Address> & c_address, const std::shared_ptr<::Kullo::Api::Challenge> & c_challenge) override
+    void challengeNeeded(const ::Kullo::Api::Address & c_address, const ::Kullo::nn_shared_ptr<::Kullo::Api::Challenge> & c_challenge) override
     {
         @autoreleasepool {
             [djinni_private_get_proxied_objc_object() challengeNeeded:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
                                                             challenge:(::ObjCpp::Kullo::Api::Challenge::fromCpp(c_challenge))];
         }
     }
-    void addressNotAvailable(const std::shared_ptr<::Kullo::Api::Address> & c_address, ::Kullo::Api::AddressNotAvailableReason c_reason) override
+    void addressNotAvailable(const ::Kullo::Api::Address & c_address, ::Kullo::Api::AddressNotAvailableReason c_reason) override
     {
         @autoreleasepool {
             [djinni_private_get_proxied_objc_object() addressNotAvailable:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
                                                                    reason:(::djinni::Enum<::Kullo::Api::AddressNotAvailableReason, KAAddressNotAvailableReason>::fromCpp(c_reason))];
         }
     }
-    void finished(const std::shared_ptr<::Kullo::Api::Address> & c_address, const std::shared_ptr<::Kullo::Api::MasterKey> & c_masterKey) override
+    void finished(const ::Kullo::Api::Address & c_address, const ::Kullo::Api::MasterKey & c_masterKey) override
     {
         @autoreleasepool {
             [djinni_private_get_proxied_objc_object() finished:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
                                                      masterKey:(::ObjCpp::Kullo::Api::MasterKey::fromCpp(c_masterKey))];
         }
     }
-    void error(const std::shared_ptr<::Kullo::Api::Address> & c_address, ::Kullo::Api::NetworkError c_error) override
+    void error(const ::Kullo::Api::Address & c_address, ::Kullo::Api::NetworkError c_error) override
     {
         @autoreleasepool {
             [djinni_private_get_proxied_objc_object() error:(::ObjCpp::Kullo::Api::Address::fromCpp(c_address))
@@ -59,9 +59,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto RegistrationRegisterAccountListener::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("RegistrationRegisterAccountListener::toCpp requires non-nil object");
     }
-    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
+    return kulloForcedNn(::djinni::get_objc_proxy<ObjcProxy>(objc));
 }
 
 auto RegistrationRegisterAccountListener::fromCppOpt(const CppOptType& cpp) -> ObjcType

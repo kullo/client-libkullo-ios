@@ -1,4 +1,9 @@
-/* Copyright 2015-2017 Kullo GmbH. All rights reserved. */
+/*
+ * Copyright 2015–2019 Kullo GmbH
+ *
+ * This source code is licensed under the 3-clause BSD license. See LICENSE.txt
+ * in the root directory of this source tree for details.
+ */
 #import "KADateTime.h"
 #import "KAInternalDateTimeUtils.h"
 
@@ -33,7 +38,8 @@
                                        second:second
                               tzOffsetMinutes:tzOffsetMinutes])
         {
-            return nil;
+            [NSException raise:@"Invalid DateTime" format:@"%d-%d-%d %d:%d:%d tz %d",
+             year, month, day, hour, minute, second, tzOffsetMinutes];
         }
     }
     return self;

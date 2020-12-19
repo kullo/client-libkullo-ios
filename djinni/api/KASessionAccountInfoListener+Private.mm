@@ -40,9 +40,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto SessionAccountInfoListener::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("SessionAccountInfoListener::toCpp requires non-nil object");
     }
-    return ::djinni::get_objc_proxy<ObjcProxy>(objc);
+    return kulloForcedNn(::djinni::get_objc_proxy<ObjcProxy>(objc));
 }
 
 auto SessionAccountInfoListener::fromCppOpt(const CppOptType& cpp) -> ObjcType

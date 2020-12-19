@@ -38,8 +38,11 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-+ (void)setTaskRunner:(nullable id<KATaskRunner>)taskRunner {
++ (void)setTaskRunner:(nonnull id<KATaskRunner>)taskRunner {
     try {
+        if (taskRunner == nil) {
+            throw std::invalid_argument("Got unexpected null parameter 'taskRunner' to function KARegistry + (void)setTaskRunner:(nonnull id<KATaskRunner>)taskRunner");
+        }
         ::Kullo::Api::Registry::setTaskRunner(::ObjCpp::Kullo::Api::TaskRunner::toCpp(taskRunner));
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
@@ -49,9 +52,9 @@ namespace ObjCpp { namespace Kullo { namespace Api {
 auto Registry::toCpp(ObjcType objc) -> CppType
 {
     if (!objc) {
-        return nullptr;
+        throw std::invalid_argument("Registry::toCpp requires non-nil object");
     }
-    return objc->_cppRefHandle.get();
+    return kulloForcedNn(objc->_cppRefHandle.get());
 }
 
 auto Registry::fromCppOpt(const CppOptType& cpp) -> ObjcType
